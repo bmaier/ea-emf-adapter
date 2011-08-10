@@ -322,7 +322,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Concurrency</em>' attribute.
 	 * @see #setConcurrency(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_Concurrency()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
 	 * @generated
 	 */
 	String getConcurrency();

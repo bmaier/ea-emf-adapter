@@ -351,8 +351,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isQuery" eType="#//datatypes/Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSynchronized" eType="#//datatypes/Boolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" eType="#//datatypes/Boolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="concurrency" eType="#//datatypes/String"
-        volatile="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="concurrency" eType="#//datatypes/String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classifierID" eType="#//datatypes/String"
         changeable="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//EAElement"

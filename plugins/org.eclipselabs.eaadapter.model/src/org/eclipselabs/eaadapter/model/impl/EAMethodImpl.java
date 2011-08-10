@@ -522,6 +522,16 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 	protected static final String CONCURRENCY_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getConcurrency() <em>Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConcurrency()
+	 * @generated
+	 * @ordered
+	 */
+	protected String concurrency = null;
+
+	/**
 	 * The default value of the '{@link #getClassifierID() <em>Classifier ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1589,9 +1599,18 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 	 * @generated
 	 */
 	public String getConcurrency() {
-		// This feature is marked volatile, in case of the EA model we just ignore it.
-		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
-		return null;
+		// if value was already fetched, use the old one.
+		if (getRepository() != null && repository.getCaching() && concurrency != null) return concurrency;
+		// fetch value from ea model if adapter link is present
+		if (eaLink != null) {
+			try {
+				concurrency = eaLink.GetConcurrency();
+			} catch (Exception e) {
+				EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+			}
+		}
+		// return value
+		return concurrency;
 	}
 
 	/**
@@ -1601,8 +1620,27 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 	 * @generated
 	 */
 	public void setConcurrency(String newConcurrency) {
-		// This feature is marked volatile, in case of the EA model we just ignore it.
-		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
+		if (repository != null) {
+			if (!repository.getReadonlyEaLink()) {
+				// (if you get an error here, that eaLink cannot be resolved, you need to add that attribute to the model)
+				if (eaLink == null) return;
+				if (newConcurrency != null && newConcurrency.equals(concurrency)) return;
+				// update EA link
+				try {
+					eaLink.SetConcurrency(newConcurrency);
+					if (!updateEaLink(eaLink)) return;
+				} catch (Exception e) {
+					if (eaLink == null)
+						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
+					else EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+				}
+			}
+		}
+		// update emf object
+		String oldConcurrency = concurrency;
+		concurrency = newConcurrency;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_METHOD__CONCURRENCY, oldConcurrency, concurrency));
 	}
 
 	/**
@@ -1700,7 +1738,8 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 		if (isLeaf != null) newEaLink.SetIsLeaf(isLeaf);
 		if (isQuery != null) newEaLink.SetIsQuery(isQuery);
 		if (isSynchronized != null) newEaLink.SetIsSynchronized(isSynchronized);
-		if (isAbstract != null) newEaLink.SetAbstract(isAbstract); 
+		if (isAbstract != null) newEaLink.SetAbstract(isAbstract);
+		if (concurrency != null) newEaLink.SetConcurrency(concurrency); 
 		updateEaLink(newEaLink);
 		// update emf object
 		Method oldEaLink = eaLink;
@@ -2254,7 +2293,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 			case EamodelPackage.EA_METHOD__IS_ABSTRACT:
 				return IS_ABSTRACT_EDEFAULT == null ? isAbstract != null : !IS_ABSTRACT_EDEFAULT.equals(isAbstract);
 			case EamodelPackage.EA_METHOD__CONCURRENCY:
-				return CONCURRENCY_EDEFAULT == null ? getConcurrency() != null : !CONCURRENCY_EDEFAULT.equals(getConcurrency());
+				return CONCURRENCY_EDEFAULT == null ? concurrency != null : !CONCURRENCY_EDEFAULT.equals(concurrency);
 			case EamodelPackage.EA_METHOD__CLASSIFIER_ID:
 				return CLASSIFIER_ID_EDEFAULT == null ? classifierID != null : !CLASSIFIER_ID_EDEFAULT.equals(classifierID);
 			case EamodelPackage.EA_METHOD__ELEMENT:
@@ -2318,6 +2357,8 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 		result.append(getIsSynchronized());
 		result.append(", isAbstract: ");
 		result.append(getIsAbstract());
+		result.append(", concurrency: ");
+		result.append(getConcurrency());
 		result.append(", classifierID: ");
 		result.append(getClassifierID());
 		result.append(", eaLink: ");
