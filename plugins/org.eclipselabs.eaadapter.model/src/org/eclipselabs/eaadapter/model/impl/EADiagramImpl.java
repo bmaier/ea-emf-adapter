@@ -516,7 +516,7 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				// update EA link
 				try {
 					eaLink.SetName(newName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -566,7 +566,7 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				// update EA link
 				try {
 					eaLink.SetNotes(newNotes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -636,7 +636,7 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				// update EA link
 				try {
 					eaLink.SetVersion(newVersion);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -686,7 +686,7 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				// update EA link
 				try {
 					eaLink.SetAuthor(newAuthor);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -736,7 +736,7 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				// update EA link
 				try {
 					eaLink.SetIsLocked(newIsLocked);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -786,7 +786,7 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				// update EA link
 				try {
 					eaLink.SetStereotype(newStereotype);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -845,7 +845,7 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				// update EA link
 				try {
 					eaLink.SetSwimlanes(newSwimlanes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -926,7 +926,7 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 		if (isLocked != null) newEaLink.SetIsLocked(isLocked);
 		if (stereotype != null) newEaLink.SetStereotype(stereotype);
 		if (swimlanes != null) newEaLink.SetSwimlanes(swimlanes); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		Diagram oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -1387,6 +1387,23 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 		result.append(getEaLink());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(Diagram eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 	/**

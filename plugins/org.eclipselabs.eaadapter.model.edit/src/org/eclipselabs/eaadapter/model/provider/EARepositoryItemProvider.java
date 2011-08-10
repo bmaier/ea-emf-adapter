@@ -78,6 +78,7 @@ public class EARepositoryItemProvider
 			addPrefetchCompleteModelPropertyDescriptor(object);
 			addPrefetchPackageGuidsPropertyDescriptor(object);
 			addPersistentPropertyDescriptor(object);
+			addShowWindowPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -303,6 +304,28 @@ public class EARepositoryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Show Window feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addShowWindowPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EARepository_showWindow_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EARepository_showWindow_feature", "_UI_EARepository_type"),
+				 EamodelPackage.Literals.EA_REPOSITORY__SHOW_WINDOW,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -386,6 +409,7 @@ public class EARepositoryItemProvider
 			case EamodelPackage.EA_REPOSITORY__PREFETCH_COMPLETE_MODEL:
 			case EamodelPackage.EA_REPOSITORY__PREFETCH_PACKAGE_GUIDS:
 			case EamodelPackage.EA_REPOSITORY__PERSISTENT:
+			case EamodelPackage.EA_REPOSITORY__SHOW_WINDOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EamodelPackage.EA_REPOSITORY__MODELS:

@@ -1848,6 +1848,15 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEARepository_ShowWindow() {
+		return (EAttribute)eaRepositoryEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEATaggedValue() {
 		return eaTaggedValueEClass;
 	}
@@ -2136,6 +2145,7 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		createEReference(eaRepositoryEClass, EA_REPOSITORY__PERSISTENT_MODELS);
 		createEAttribute(eaRepositoryEClass, EA_REPOSITORY__PERSISTENT);
 		createEAttribute(eaRepositoryEClass, EA_REPOSITORY__PREFETCHING_ENABLED);
+		createEAttribute(eaRepositoryEClass, EA_REPOSITORY__SHOW_WINDOW);
 
 		eaTaggedValueEClass = createEClass(EA_TAGGED_VALUE);
 		createEAttribute(eaTaggedValueEClass, EA_TAGGED_VALUE__EA_LINK);
@@ -2377,7 +2387,7 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		initEAttribute(getEAParameter_Position(), theDatatypesPackage.getInteger(), "position", null, 0, 1, EAParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAParameter_IsConst(), theDatatypesPackage.getBoolean(), "isConst", null, 0, 1, EAParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAParameter_Kind(), theDatatypesPackage.getString(), "kind", null, 0, 1, EAParameter.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAParameter_ClassifierID(), theDatatypesPackage.getInteger(), "classifierID", null, 0, 1, EAParameter.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAParameter_ClassifierID(), theDatatypesPackage.getString(), "classifierID", null, 0, 1, EAParameter.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAParameter_OperationID(), theDatatypesPackage.getInteger(), "operationID", null, 0, 1, EAParameter.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEAParameter_Method(), this.getEAMethod(), this.getEAMethod_Parameters(), "method", null, 0, 1, EAParameter.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAParameter_EaLink(), theDatatypesPackage.getT_Parameter(), "eaLink", null, 0, 1, EAParameter.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2397,6 +2407,7 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		initEReference(getEARepository_PersistentModels(), this.getEAPackage(), null, "persistentModels", null, 0, -1, EARepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEARepository_Persistent(), ecorePackage.getEBoolean(), "persistent", "false", 0, 1, EARepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEARepository_PrefetchingEnabled(), ecorePackage.getEBoolean(), "prefetchingEnabled", "true", 0, 1, EARepository.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEARepository_ShowWindow(), ecorePackage.getEBoolean(), "showWindow", "false", 0, 1, EARepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(eaRepositoryEClass, theDatatypesPackage.getBoolean(), "openFile", 0, 1, IS_UNIQUE, IS_ORDERED);
 

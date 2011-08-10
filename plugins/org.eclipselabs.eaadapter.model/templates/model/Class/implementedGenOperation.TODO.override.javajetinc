@@ -32,7 +32,8 @@
 			// if repository is successfully opened, save it in the repository map
 			if (success) {
 				repositories.put(modelFile, eaLink);
-				eaLink.ShowWindow(1);
+				final int show = isShowWindow() ? 1 : 0;
+				eaLink.ShowWindow(show);
 			} else {
 				eaLink = null;
 			}
@@ -82,13 +83,13 @@
 			else if (parent instanceof EAPackage)
 				eaLink.SetPackageID(((EAPackage)parent).getEaLink().GetPackageID());
 			else throw new UnsupportedOperationException("Unknown parent type (EAElement or EAPackage expected): " + parent);
-			eaLink.Update();
+			updateEaLink(eaLink);
 <%  } else if (genClass.getName().equals("EAPackage")) {%>
 			eaLink.SetParentID(((EAPackage)parent).getEaLink().GetPackageID());
-			eaLink.Update();
+			updateEaLink(eaLink);
 <%  } else if (genClass.getName().equals("EAConnector")) {%>
 			eaLink.SetSupplierID(((EAElement)parent).getEaLink().GetElementID());
-			eaLink.Update();
+			updateEaLink(eaLink);
 <%  } else {%>
 			throw new UnsupportedOperationException("Please add move-support for this class in 'implementedGenOperation.TODO.override.javajet'.");
 <%  }%>

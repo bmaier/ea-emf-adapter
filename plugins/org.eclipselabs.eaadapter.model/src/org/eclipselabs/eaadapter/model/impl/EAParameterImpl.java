@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.eaadapter.model.EAMethod;
+import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EAParameter;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
@@ -270,7 +271,7 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer CLASSIFIER_ID_EDEFAULT = null;
+	protected static final String CLASSIFIER_ID_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getClassifierID() <em>Classifier ID</em>}' attribute.
@@ -480,7 +481,7 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 				// update EA link
 				try {
 					eaLink.SetName(newName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -530,7 +531,7 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 				// update EA link
 				try {
 					eaLink.SetNotes(newNotes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -600,7 +601,7 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 				// update EA link
 				try {
 					eaLink.SetType(newType);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -650,7 +651,7 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 				// update EA link
 				try {
 					eaLink.SetDefault(newDefault);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -700,7 +701,7 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 				// update EA link
 				try {
 					eaLink.SetPosition(newPosition);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -750,7 +751,7 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 				// update EA link
 				try {
 					eaLink.SetIsConst(newIsConst);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -892,7 +893,7 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 		if (default_ != null) newEaLink.SetDefault(default_);
 		if (position != null) newEaLink.SetPosition(position);
 		if (isConst != null) newEaLink.SetIsConst(isConst); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		Parameter oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -1206,6 +1207,23 @@ public class EAParameterImpl extends EObjectImpl implements EAParameter {
 		result.append(getEaLink());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(Parameter eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 	/**

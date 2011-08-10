@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.eaadapter.model.EAElement;
 import org.eclipselabs.eaadapter.model.EAMethod;
 import org.eclipselabs.eaadapter.model.EAMethodTag;
+import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EAParameter;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
@@ -738,7 +739,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetName(newName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -788,7 +789,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetNotes(newNotes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -858,7 +859,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetStereotype(newStereotype);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -917,7 +918,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetReturnType(newType);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -967,7 +968,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetVisibility(newVisibility);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1017,7 +1018,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetIsConst(newIsConst);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1067,7 +1068,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetIsStatic(newIsStatic);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1117,7 +1118,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetReturnType(newReturnType);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1167,7 +1168,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetReturnIsArray(newReturnIsArray);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1217,7 +1218,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetCode(newCode);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1267,7 +1268,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetThrows(newThrows);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1317,7 +1318,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetIsPure(newIsPure);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1367,7 +1368,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetIsRoot(newIsRoot);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1417,7 +1418,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetIsLeaf(newIsLeaf);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1467,7 +1468,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetIsQuery(newIsQuery);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1517,7 +1518,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetIsSynchronized(newIsSynchronized);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1567,7 +1568,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				// update EA link
 				try {
 					eaLink.SetAbstract(newIsAbstract);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1700,7 +1701,7 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 		if (isQuery != null) newEaLink.SetIsQuery(isQuery);
 		if (isSynchronized != null) newEaLink.SetIsSynchronized(isSynchronized);
 		if (isAbstract != null) newEaLink.SetAbstract(isAbstract); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		Method oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -2323,6 +2324,23 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 		result.append(getEaLink());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(Method eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 	/**

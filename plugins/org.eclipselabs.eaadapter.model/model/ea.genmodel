@@ -203,6 +203,7 @@
           ecoreFeature="ecore:EReference ea.ecore#//EARepository/persistentModels"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/persistent"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/prefetchingEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/showWindow"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/openFile"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/closeFile"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/prefetch"/>

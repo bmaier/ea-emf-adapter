@@ -883,7 +883,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetName(newName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -933,7 +933,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetNotes(newNotes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1003,7 +1003,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetStereotype(newStereotype);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1062,7 +1062,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetType(newType);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1112,7 +1112,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetVisibility(newVisibility);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1182,7 +1182,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetVersion(newVersion);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1232,7 +1232,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetAuthor(newAuthor);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1282,7 +1282,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetLocked(newIsLocked);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1334,7 +1334,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetAbstract(newAbstract);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1384,7 +1384,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetClassifierName(newClassifierName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1586,7 +1586,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetMultiplicity(newMultiplicity);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1680,7 +1680,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetPropertyType(newPropertyType);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1774,7 +1774,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetSubtype(newSubtype);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1846,7 +1846,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				// update EA link
 				try {
 					eaLink.SetTag(newTag);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2452,7 +2452,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 		if (propertyType != null) newEaLink.SetPropertyType(propertyType);
 		if (subtype != null) newEaLink.SetSubtype(subtype);
 		if (tag != null) newEaLink.SetTag(tag); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		Element oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -2460,6 +2460,22 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_ELEMENT__EA_LINK, oldEaLink, eaLink));
 	}
 
+	/**
+	 * @generated
+	 */
+	private boolean updateEaLink(Element eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2549,7 +2565,7 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 			else if (parent instanceof EAPackage)
 				eaLink.SetPackageID(((EAPackage)parent).getEaLink().GetPackageID());
 			else throw new UnsupportedOperationException("Unknown parent type (EAElement or EAPackage expected): " + parent);
-			eaLink.Update();
+			updateEaLink(eaLink);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("Perhaps EA has produced an error: " + eaLink.GetLastError());

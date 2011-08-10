@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipselabs.eaadapter.model.EAMethodTag;
+import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
 import org.eclipselabs.eaadapter.model.util.EAUtil;
@@ -381,7 +382,7 @@ public class EAMethodTagImpl extends EObjectImpl implements EAMethodTag {
 				// update EA link
 				try {
 					eaLink.SetName(newName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -431,7 +432,7 @@ public class EAMethodTagImpl extends EObjectImpl implements EAMethodTag {
 				// update EA link
 				try {
 					eaLink.SetNotes(newNotes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -501,7 +502,7 @@ public class EAMethodTagImpl extends EObjectImpl implements EAMethodTag {
 				// update EA link
 				try {
 					eaLink.SetValue(newValue);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -556,7 +557,7 @@ public class EAMethodTagImpl extends EObjectImpl implements EAMethodTag {
 		if (name != null) newEaLink.SetName(name);
 		if (notes != null) newEaLink.SetNotes(notes);
 		if (value != null) newEaLink.SetValue(value); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		MethodTag oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -767,6 +768,23 @@ public class EAMethodTagImpl extends EObjectImpl implements EAMethodTag {
 		result.append(getEaLink());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(MethodTag eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 	/**

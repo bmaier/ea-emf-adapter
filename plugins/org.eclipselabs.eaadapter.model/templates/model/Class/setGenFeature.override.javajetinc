@@ -124,7 +124,7 @@
 				try {
 					if (!set<%=genFeature.getCapName()%>Reference(new<%=genFeature.getCapName()%>))
 						throw new UnsupportedOperationException("Cannot update <%=genFeature.getCapName()%> reference in ea model!");
-					eaLink.Update();
+					updateEaLink(eaLink);
 				} catch (Exception e) {
 					if (eaLink == null)
 						<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getLogger(getClass()).error("EA Link is null!", e);
@@ -151,10 +151,14 @@
 				// update EA link
 				try {
               <%if (genClass.getName().equals("EAPackage") && genFeature.getName().equals("stereotype")) {%>
+					if (eaLink.GetIsVersionControlled())
+						return;
 					eaLink.GetElement().Set<%=eaFeatureName%>(new<%=genFeature.getCapName()%>);
 					eaLink.GetElement().Update();
               <%} else if (genClass.getName().equals("EAConnector") && genFeature.getName().contains("_")) {%>
                 <%String subElement = genFeature.getName().startsWith("supplier_") ? "Supplier" : "Client";%>  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.Get<%=subElement%>End() != null) {
 						eaLink.Get<%=subElement%>End().Set<%=eaFeatureName%>(new<%=genFeature.getCapName()%>);
 						eaLink.Get<%=subElement%>End().Update();
@@ -162,7 +166,7 @@
               <%} else {%>
 					eaLink.Set<%=eaFeatureName%>(new<%=genFeature.getCapName()%>);
               <%}%>
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getLogger(getClass()).error("EA Link is null!", e);
@@ -190,7 +194,7 @@
 %><%@ include file="genFeatureEANames.javajetinc" fail="silent"%>
               <%if (genClass.getName().equals("EAPackage") && genFeature.getName().equals("stereotype")) {%>
 		if (<%=genFeature.getSafeName()%> != null) {
-			newEaLink.Update(); // this initializes subelements of the ea object
+			updateEaLink(newEaLink); // this initializes subelements of the ea object
 			if (newEaLink.GetElement() != null) {
 				newEaLink.GetElement().Set<%=eaFeatureName%>(<%=genFeature.getSafeName()%>);
 			} else <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getLogger(getClass()).error("Subelement newEaLink.Element is null of new: " + this); 
@@ -200,7 +204,7 @@
                 <%if (firstSubElement) {%>
                   <%firstSubElement = false;%>
                   <%currentSubElement = subElement;%>
-		newEaLink.Update(); // this initializes subelements of the ea object
+		updateEaLink(newEaLink); // this initializes subelements of the ea object
 		if (newEaLink.Get<%=subElement%>() != null) {
                 <%} else if (!subElement.equals(currentSubElement)) {%>
         } else <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getLogger(getClass()).error("Subelement newEaLink.<%=currentSubElement%> is null of new: " + this);
@@ -218,7 +222,7 @@
         } else <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getLogger(getClass()).error("Subelement newEaLink.<%=currentSubElement%> is null of new: " + this);
             <%}%> 
             <%if (setterCalled) {%>
-		newEaLink.Update();
+		updateEaLink(newEaLink);
             <%}%>
             <%genFeature = linkGenFeature;%>
 		// update emf object

@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipselabs.eaadapter.model.EAConnector;
 import org.eclipselabs.eaadapter.model.EADiagramLink;
+import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
@@ -459,7 +460,7 @@ public class EADiagramLinkImpl extends EObjectImpl implements EADiagramLink {
 				try {
 					if (!setConnectorReference(newConnector))
 						throw new UnsupportedOperationException("Cannot update Connector reference in ea model!");
-					eaLink.Update();
+					updateEaLink(eaLink);
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -545,7 +546,7 @@ public class EADiagramLinkImpl extends EObjectImpl implements EADiagramLink {
 				// update EA link
 				try {
 					eaLink.SetConnectorID(newConnectorID);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -595,7 +596,7 @@ public class EADiagramLinkImpl extends EObjectImpl implements EADiagramLink {
 				// update EA link
 				try {
 					eaLink.SetGeometry(newGeometry);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -645,7 +646,7 @@ public class EADiagramLinkImpl extends EObjectImpl implements EADiagramLink {
 				// update EA link
 				try {
 					eaLink.SetIsHidden(newIsHidden);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -695,7 +696,7 @@ public class EADiagramLinkImpl extends EObjectImpl implements EADiagramLink {
 				// update EA link
 				try {
 					eaLink.SetPath(newPath);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -745,7 +746,7 @@ public class EADiagramLinkImpl extends EObjectImpl implements EADiagramLink {
 				// update EA link
 				try {
 					eaLink.SetStyle(newStyle);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -782,7 +783,7 @@ public class EADiagramLinkImpl extends EObjectImpl implements EADiagramLink {
 		if (isHidden != null) newEaLink.SetIsHidden(isHidden);
 		if (path != null) newEaLink.SetPath(path);
 		if (style != null) newEaLink.SetStyle(style); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		DiagramLink oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -995,6 +996,23 @@ public class EADiagramLinkImpl extends EObjectImpl implements EADiagramLink {
 		result.append(getEaLink());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(DiagramLink eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 } //EADiagramLinkImpl

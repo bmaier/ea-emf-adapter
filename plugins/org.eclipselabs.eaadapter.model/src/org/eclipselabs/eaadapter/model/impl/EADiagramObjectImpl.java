@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipselabs.eaadapter.model.EADiagramObject;
 import org.eclipselabs.eaadapter.model.EAElement;
+import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
@@ -422,7 +423,7 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 				// update EA link
 				try {
 					eaLink.SetBottom(newBottom);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -530,7 +531,7 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 				try {
 					if (!setElementReference(newElement))
 						throw new UnsupportedOperationException("Cannot update Element reference in ea model!");
-					eaLink.Update();
+					updateEaLink(eaLink);
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -616,7 +617,7 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 				// update EA link
 				try {
 					eaLink.SetElementID(newElementID);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -666,7 +667,7 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 				// update EA link
 				try {
 					eaLink.SetLeft(newLeft);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -716,7 +717,7 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 				// update EA link
 				try {
 					eaLink.SetRight(newRight);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -766,7 +767,7 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 				// update EA link
 				try {
 					eaLink.SetSequence(newSequence);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -816,7 +817,7 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 				// update EA link
 				try {
 					eaLink.SetTop(newTop);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -854,7 +855,7 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 		if (right != null) newEaLink.SetRight(right);
 		if (sequence != null) newEaLink.SetSequence(sequence);
 		if (top != null) newEaLink.SetTop(top); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		DiagramObject oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -1079,6 +1080,23 @@ public class EADiagramObjectImpl extends EObjectImpl implements EADiagramObject 
 		result.append(getEaLink());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(DiagramObject eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 } //EADiagramObjectImpl

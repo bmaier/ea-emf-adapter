@@ -1,3 +1,77 @@
+<% if (!genClass.isAbstract() && !isInterface &&
+		!genClass.getName().equals("EARepository") && 
+		genClass.getName().startsWith("EA"))
+// Updating ea link only if not under version control!
+{
+	final String linkType;
+	if (genClass.getName().equals("EAPackage"))
+		linkType = "Package";
+	else if (genClass.getName().equals("EAElement"))
+		linkType = "Element";
+	else if (genClass.getName().equals("EAMethod"))
+		linkType = "Method";
+	else if (genClass.getName().equals("EAAttribute"))
+		linkType = "Attribute";
+	else if (genClass.getName().equals("EAParameter"))
+		linkType = "Parameter";
+	else if (genClass.getName().equals("EADiagram"))
+		linkType = "Diagram";
+	else if (genClass.getName().equals("EADiagramLink"))
+		linkType = "DiagramLink";
+	else if (genClass.getName().equals("EADiagramObject"))
+		linkType = "DiagramObject";
+	else if (genClass.getName().equals("EAConnector"))
+		linkType = "Connector";
+	else if (genClass.getName().equals("EAConnectorEnd"))
+		linkType = "ConnectorEnd";
+	else if (genClass.getName().equals("EAConnectorTag"))
+		linkType = "ConnectorTag";
+	else if (genClass.getName().equals("EAAttributeTag"))
+		linkType = "AttributeTag";
+	else if (genClass.getName().equals("EAMethodTag"))
+		linkType = "MethodTag";
+	else if (genClass.getName().equals("EATaggedValue"))
+		linkType = "TaggedValue";
+	else linkType = "Object";
+%>
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(<%=linkType%> eaLink) {
+		final <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.EAPackage")%> p = EAUtil.getContainerOfType(this, <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.EamodelPackage")%>.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
+	}
+	
+<%}%>
+<% if (genClass.getName().equals("EAConnector") && !isInterface)
+{%>
+	/**
+	 * Checks if this object is under version control.
+	 * @generated
+	 */
+	private boolean isUnderVersionControl() {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null) {
+			EAUtil.getLogger(getClass()).warn("Cannot get containing package! Is this element contained somewhere meaningful? " + this);
+			return false;
+		} else if (p.getEaLink() == null) {
+			EAUtil.getLogger(getClass()).warn("Cannot get EA Link of containing package! " + p);
+			return false;
+		} else {
+			return p.getEaLink().GetIsVersionControlled();
+		}
+	}
+
+<%}%>
 <% if (!genClass.isAbstract() && !isInterface && 
 		!genClass.getName().equals("EARepository") &&
 		!genClass.getName().equals("EADiagramLink") &&

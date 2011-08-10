@@ -40,6 +40,7 @@ import org.sparx.Repository;
  *   <li>{@link org.eclipselabs.eaadapter.model.EARepository#getPersistentModels <em>Persistent Models</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EARepository#isPersistent <em>Persistent</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EARepository#isPrefetchingEnabled <em>Prefetching Enabled</em>}</li>
+ *   <li>{@link org.eclipselabs.eaadapter.model.EARepository#isShowWindow <em>Show Window</em>}</li>
  * </ul>
  * </p>
  *
@@ -443,6 +444,33 @@ public interface EARepository extends EObject {
 	 * @generated
 	 */
 	void setPrefetchingEnabled(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Show Window</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Show Window</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Show Window</em>' attribute.
+	 * @see #setShowWindow(boolean)
+	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_ShowWindow()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isShowWindow();
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.eaadapter.model.EARepository#isShowWindow <em>Show Window</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Show Window</em>' attribute.
+	 * @see #isShowWindow()
+	 * @generated
+	 */
+	void setShowWindow(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

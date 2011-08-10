@@ -2794,13 +2794,22 @@ public interface EamodelPackage extends EPackage {
 	int EA_REPOSITORY__PREFETCHING_ENABLED = 13;
 
 	/**
+	 * The feature id for the '<em><b>Show Window</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EA_REPOSITORY__SHOW_WINDOW = 14;
+
+	/**
 	 * The number of structural features of the '<em>EA Repository</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EA_REPOSITORY_FEATURE_COUNT = 14;
+	int EA_REPOSITORY_FEATURE_COUNT = 15;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.eaadapter.model.impl.EATaggedValueImpl <em>EA Tagged Value</em>}' class.
@@ -4934,6 +4943,17 @@ public interface EamodelPackage extends EPackage {
 	EAttribute getEARepository_PrefetchingEnabled();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.eaadapter.model.EARepository#isShowWindow <em>Show Window</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Show Window</em>'.
+	 * @see org.eclipselabs.eaadapter.model.EARepository#isShowWindow()
+	 * @see #getEARepository()
+	 * @generated
+	 */
+	EAttribute getEARepository_ShowWindow();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.eaadapter.model.EATaggedValue <em>EA Tagged Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6508,6 +6528,14 @@ public interface EamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EA_REPOSITORY__PREFETCHING_ENABLED = eINSTANCE.getEARepository_PrefetchingEnabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Show Window</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EA_REPOSITORY__SHOW_WINDOW = eINSTANCE.getEARepository_ShowWindow();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.eaadapter.model.impl.EATaggedValueImpl <em>EA Tagged Value</em>}' class.

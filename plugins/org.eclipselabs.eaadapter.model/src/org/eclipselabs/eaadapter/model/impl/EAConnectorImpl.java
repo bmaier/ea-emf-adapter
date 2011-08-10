@@ -23,6 +23,7 @@ import org.eclipselabs.eaadapter.model.EAConnector;
 import org.eclipselabs.eaadapter.model.EAConnectorEnd;
 import org.eclipselabs.eaadapter.model.EAConnectorTag;
 import org.eclipselabs.eaadapter.model.EAElement;
+import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
@@ -1077,7 +1078,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				// update EA link
 				try {
 					eaLink.SetName(newName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1127,7 +1128,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				// update EA link
 				try {
 					eaLink.SetNotes(newNotes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1197,7 +1198,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				// update EA link
 				try {
 					eaLink.SetStereotype(newStereotype);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1256,7 +1257,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				// update EA link
 				try {
 					eaLink.SetType(newType);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1326,7 +1327,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				// update EA link
 				try {
 					eaLink.SetDirection(newDirection);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1376,7 +1377,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				// update EA link
 				try {
 					eaLink.SetSubtype(newSubtype);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1580,7 +1581,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				// update EA link
 				try {
 					eaLink.SetRouteStyle(newRouteStyle);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1630,7 +1631,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				// update EA link
 				try {
 					eaLink.SetSequenceNo(newSequenceNo);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1692,7 +1693,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 		if (subtype != null) newEaLink.SetSubtype(subtype);
 		if (routeStyle != null) newEaLink.SetRouteStyle(routeStyle);
 		if (sequenceNo != null) newEaLink.SetSequenceNo(sequenceNo);  
-		newEaLink.Update(); // this initializes subelements of the ea object
+		updateEaLink(newEaLink); // this initializes subelements of the ea object
 		if (newEaLink.GetClientEnd() != null) {
 			if (client_aggregation != null) newEaLink.GetClientEnd().SetAggregation(client_aggregation);  
 			if (client_cardinality != null) newEaLink.GetClientEnd().SetCardinality(client_cardinality);  
@@ -1715,7 +1716,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 			if (supplier_stereotype != null) newEaLink.GetSupplierEnd().SetStereotype(supplier_stereotype);  
 			if (supplier_visibility != null) newEaLink.GetSupplierEnd().SetVisibility(supplier_visibility);
         } else EAUtil.getLogger(getClass()).error("Subelement newEaLink.SupplierEnd is null of new: " + this); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		Connector oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -1971,7 +1972,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				try {
 					if (!setClientReference(newClient))
 						throw new UnsupportedOperationException("Cannot update Client reference in ea model!");
-					eaLink.Update();
+					updateEaLink(eaLink);
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2083,11 +2084,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_aggregation != null && newClient_aggregation.equals(client_aggregation)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetAggregation(newClient_aggregation);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2138,11 +2141,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_cardinality != null && newClient_cardinality.equals(client_cardinality)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetCardinality(newClient_cardinality);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2193,11 +2198,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_containment != null && newClient_containment.equals(client_containment)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetContainment(newClient_containment);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2248,11 +2255,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_isNavigable != null && newClient_isNavigable.equals(client_isNavigable)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetIsNavigable(newClient_isNavigable);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2303,11 +2312,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_note != null && newClient_note.equals(client_note)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetRoleNote(newClient_note);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2358,11 +2369,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_role != null && newClient_role.equals(client_role)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetRole(newClient_role);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2413,11 +2426,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_roleType != null && newClient_roleType.equals(client_roleType)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetRoleType(newClient_roleType);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2468,11 +2483,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_stereotype != null && newClient_stereotype.equals(client_stereotype)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetStereotype(newClient_stereotype);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2523,11 +2540,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newClient_visibility != null && newClient_visibility.equals(client_visibility)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetClientEnd() != null) {
 						eaLink.GetClientEnd().SetVisibility(newClient_visibility);
 						eaLink.GetClientEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2578,11 +2597,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_aggregation != null && newSupplier_aggregation.equals(supplier_aggregation)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetAggregation(newSupplier_aggregation);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2633,11 +2654,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_cardinality != null && newSupplier_cardinality.equals(supplier_cardinality)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetCardinality(newSupplier_cardinality);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2688,11 +2711,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_containment != null && newSupplier_containment.equals(supplier_containment)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetContainment(newSupplier_containment);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2743,11 +2768,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_isNavigable != null && newSupplier_isNavigable.equals(supplier_isNavigable)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetIsNavigable(newSupplier_isNavigable);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2798,11 +2825,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_note != null && newSupplier_note.equals(supplier_note)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetRoleNote(newSupplier_note);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2853,11 +2882,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_role != null && newSupplier_role.equals(supplier_role)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetRole(newSupplier_role);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2908,11 +2939,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_roleType != null && newSupplier_roleType.equals(supplier_roleType)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetRoleType(newSupplier_roleType);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -2963,11 +2996,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_stereotype != null && newSupplier_stereotype.equals(supplier_stereotype)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetStereotype(newSupplier_stereotype);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -3018,11 +3053,13 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (newSupplier_visibility != null && newSupplier_visibility.equals(supplier_visibility)) return;
 				// update EA link
 				try {  
+					if (isUnderVersionControl())
+						return;
 					if (eaLink.GetSupplierEnd() != null) {
 						eaLink.GetSupplierEnd().SetVisibility(newSupplier_visibility);
 						eaLink.GetSupplierEnd().Update();
 					}
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -3057,7 +3094,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 		// to perform a move, set the ID of the new parent. The collections are updated automatically (I hope...)
 		try {
 			eaLink.SetSupplierID(((EAElement)parent).getEaLink().GetElementID());
-			eaLink.Update();
+			updateEaLink(eaLink);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("Perhaps EA has produced an error: " + eaLink.GetLastError());
@@ -3694,6 +3731,40 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 		result.append(getSupplier_visibility());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(Connector eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
+	}
+
+	/**
+	 * Checks if this object is under version control.
+	 * @generated
+	 */
+	private boolean isUnderVersionControl() {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null) {
+			EAUtil.getLogger(getClass()).warn("Cannot get containing package! Is this element contained somewhere meaningful? " + this);
+			return false;
+		} else if (p.getEaLink() == null) {
+			EAUtil.getLogger(getClass()).warn("Cannot get EA Link of containing package! " + p);
+			return false;
+		} else {
+			return p.getEaLink().GetIsVersionControlled();
+		}
 	}
 
 	/**

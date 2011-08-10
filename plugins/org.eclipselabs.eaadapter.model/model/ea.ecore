@@ -537,6 +537,8 @@
         <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;This flag may temporarily used to avoid any prefetching when opening the model the first time.&lt;br>&#xD;&#xA;The falg is &lt;i>transient&lt;/i>! So it needs to be set each time the model is opened.&lt;br>&#xD;&#xA;Attention: If no prefetching takes place, a not already visited element cannot be resolved by its guid!&#xD;&#xA;But you can perform the prefetching process manually by calling &lt;code>prefetch()&lt;/code>.&#xD;&#xA;&lt;/div>"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="showWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EATaggedValue" eSuperTypes="#//abstracthierachy/EATaggedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -584,7 +586,8 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eSubpackages name="datatypes" nsURI="http://org.eclipselabs.eaadapter.model.datatypes" nsPrefix="org.eclipselabs.eaadapter.model.datatypes">
+  <eSubpackages name="datatypes" nsURI="http://org.eclipselabs.eaadapter.model.datatypes"
+      nsPrefix="org.eclipselabs.eaadapter.model.datatypes">
     <eClassifiers xsi:type="ecore:EDataType" name="String" instanceClassName="java.lang.String"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Boolean" instanceClassName="java.lang.Boolean"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Integer" instanceClassName="java.lang.Integer"/>

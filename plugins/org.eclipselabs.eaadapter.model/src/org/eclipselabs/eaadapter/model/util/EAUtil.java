@@ -583,6 +583,27 @@ public class EAUtil {
 		} catch (Exception e) {}
 		return null;
 	}
+
+	/**
+	 * Transitively find the parent of type <code>container</code> of <code>element</code>. If <code>element</code> is
+	 * already of type <code>container</code>, the element will be returned.
+	 * 
+	 * @param element
+	 *            An arbitrary {@link EObject}.
+	 * @param container
+	 *            The parent type we are looking for.
+	 * @return The parent of <code>element</code> of type <code>container</code> or <code>null</code>, if none is found.
+	 */
+	public static <T extends EObject> T getContainerOfType(EObject element, EClass container) {
+		if (element == null || container == null)
+			return null;
+		if (container.isInstance(element)) {
+			@SuppressWarnings("unchecked")
+			T t = (T) element;
+			return t;
+		}
+		return getContainerOfType(element.eContainer(), container);
+	}
 	
 	/**
 	 * <div class='userdoc'>

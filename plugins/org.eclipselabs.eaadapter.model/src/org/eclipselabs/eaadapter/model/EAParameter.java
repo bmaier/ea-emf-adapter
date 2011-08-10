@@ -182,7 +182,7 @@ public interface EAParameter extends EANamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Classifier ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAParameter_ClassifierID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" changeable="false"
+	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" changeable="false"
 	 * @generated
 	 */
 	String getClassifierID();

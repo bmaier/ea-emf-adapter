@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipselabs.eaadapter.model.EAConnectorEnd;
+import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
 import org.eclipselabs.eaadapter.model.util.EAUtil;
@@ -525,7 +526,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetAggregation(newAggregation);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -575,7 +576,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetCardinality(newCardinality);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -625,7 +626,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetContainment(newContainment);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -675,7 +676,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetIsNavigable(newIsNavigable);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -725,7 +726,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetRoleNote(newNote);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -775,7 +776,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetRole(newRole);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -825,7 +826,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetRoleType(newRoleType);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -875,7 +876,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetStereotype(newStereotype);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -925,7 +926,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetVisibility(newVisibility);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -997,7 +998,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetOrdering(newOrdering);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1047,7 +1048,7 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 				// update EA link
 				try {
 					eaLink.SetQualifier(newQualifier);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1357,6 +1358,23 @@ public class EAConnectorEndImpl extends EObjectImpl implements EAConnectorEnd {
 		result.append(getEnd());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(ConnectorEnd eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 } //EAConnectorEndImpl

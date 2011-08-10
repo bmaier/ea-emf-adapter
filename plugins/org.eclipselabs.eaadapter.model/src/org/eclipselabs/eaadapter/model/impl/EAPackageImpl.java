@@ -34,6 +34,7 @@ import org.eclipselabs.eaadapter.model.util.EAObjectContainmentWithInverseEList;
 import org.eclipselabs.eaadapter.model.util.EAUtil;
 import org.sparx.Collection;
 import org.sparx.Element;
+import org.sparx.Package;
 
 
 /**
@@ -483,7 +484,7 @@ public class EAPackageImpl extends EObjectImpl implements EAPackage {
 				// update EA link
 				try {
 					eaLink.SetName(newName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -533,7 +534,7 @@ public class EAPackageImpl extends EObjectImpl implements EAPackage {
 				// update EA link
 				try {
 					eaLink.SetNotes(newNotes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -603,7 +604,7 @@ public class EAPackageImpl extends EObjectImpl implements EAPackage {
 				// update EA link
 				try {
 					eaLink.SetVersion(newVersion);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -653,7 +654,7 @@ public class EAPackageImpl extends EObjectImpl implements EAPackage {
 				// update EA link
 				try {
 					eaLink.SetCodePath(newCodePath);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -703,7 +704,7 @@ public class EAPackageImpl extends EObjectImpl implements EAPackage {
 				// update EA link
 				try {
 					eaLink.SetFlags(newFlags);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1000,18 +1001,34 @@ public class EAPackageImpl extends EObjectImpl implements EAPackage {
 		if (codePath != null) newEaLink.SetCodePath(codePath);
 		if (flags != null) newEaLink.SetFlags(flags);
 		if (stereotype != null) {
-			newEaLink.Update(); // this initializes subelements of the ea object
+			updateEaLink(newEaLink); // this initializes subelements of the ea object
 			if (newEaLink.GetElement() != null) {
 				newEaLink.GetElement().SetStereotype(stereotype);
 			} else EAUtil.getLogger(getClass()).error("Subelement newEaLink.Element is null of new: " + this); 
-		}
-//		newEaLink.GetIsVersionControlled() // TODO: we need this check for updates...
-		newEaLink.Update();
+		} 
+		updateEaLink(newEaLink);
 		// update emf object
 		org.sparx.Package oldEaLink = eaLink;
 		eaLink = newEaLink;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_PACKAGE__EA_LINK, oldEaLink, eaLink));
+	}
+
+	/**
+	 * 
+	 * @generated
+	 */
+	private boolean updateEaLink(Package eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 	/**
@@ -1048,9 +1065,11 @@ public class EAPackageImpl extends EObjectImpl implements EAPackage {
 				if (newStereotype != null && newStereotype.equals(stereotype)) return;
 				// update EA link
 				try {
+					if (eaLink.GetIsVersionControlled())
+						return;
 					eaLink.GetElement().SetStereotype(newStereotype);
 					eaLink.GetElement().Update();
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1076,7 +1095,7 @@ public class EAPackageImpl extends EObjectImpl implements EAPackage {
 		// to perform a move, set the ID of the new parent. The collections are updated automatically (I hope...)
 		try {
 			eaLink.SetParentID(((EAPackage)parent).getEaLink().GetPackageID());
-			eaLink.Update();
+			updateEaLink(eaLink);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.err.println("Perhaps EA has produced an error: " + eaLink.GetLastError());

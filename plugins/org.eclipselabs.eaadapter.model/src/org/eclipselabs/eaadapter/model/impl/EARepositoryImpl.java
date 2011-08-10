@@ -52,6 +52,7 @@ import org.sparx.Repository;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EARepositoryImpl#getPersistentModels <em>Persistent Models</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EARepositoryImpl#isPersistent <em>Persistent</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EARepositoryImpl#isPrefetchingEnabled <em>Prefetching Enabled</em>}</li>
+ *   <li>{@link org.eclipselabs.eaadapter.model.impl.EARepositoryImpl#isShowWindow <em>Show Window</em>}</li>
  * </ul>
  * </p>
  *
@@ -308,6 +309,26 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 	 * @ordered
 	 */
 	protected boolean prefetchingEnabled = PREFETCHING_ENABLED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isShowWindow() <em>Show Window</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isShowWindow()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SHOW_WINDOW_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isShowWindow() <em>Show Window</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isShowWindow()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean showWindow = SHOW_WINDOW_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -659,6 +680,28 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isShowWindow() {
+		// return value
+		return showWindow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setShowWindow(boolean newShowWindow) {
+		boolean oldShowWindow = showWindow;
+		showWindow = newShowWindow;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_REPOSITORY__SHOW_WINDOW, oldShowWindow, showWindow));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Boolean openFile() {
 		// check if file exists
 		String modelFile = EAUtil.getFileFromURI(EAUtil.getFileURI(getFile()));
@@ -692,7 +735,8 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 			// if repository is successfully opened, save it in the repository map
 			if (success) {
 				repositories.put(modelFile, eaLink);
-				eaLink.ShowWindow(1);
+				final int show = isShowWindow() ? 1 : 0;
+				eaLink.ShowWindow(show);
 			} else {
 				eaLink = null;
 			}
@@ -795,6 +839,8 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 				return isPersistent() ? Boolean.TRUE : Boolean.FALSE;
 			case EamodelPackage.EA_REPOSITORY__PREFETCHING_ENABLED:
 				return isPrefetchingEnabled() ? Boolean.TRUE : Boolean.FALSE;
+			case EamodelPackage.EA_REPOSITORY__SHOW_WINDOW:
+				return isShowWindow() ? Boolean.TRUE : Boolean.FALSE;
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -852,6 +898,9 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 			case EamodelPackage.EA_REPOSITORY__PREFETCHING_ENABLED:
 				setPrefetchingEnabled(((Boolean)newValue).booleanValue());
 				return;
+			case EamodelPackage.EA_REPOSITORY__SHOW_WINDOW:
+				setShowWindow(((Boolean)newValue).booleanValue());
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -905,6 +954,9 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 			case EamodelPackage.EA_REPOSITORY__PREFETCHING_ENABLED:
 				setPrefetchingEnabled(PREFETCHING_ENABLED_EDEFAULT);
 				return;
+			case EamodelPackage.EA_REPOSITORY__SHOW_WINDOW:
+				setShowWindow(SHOW_WINDOW_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -944,6 +996,8 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 				return persistent != PERSISTENT_EDEFAULT;
 			case EamodelPackage.EA_REPOSITORY__PREFETCHING_ENABLED:
 				return prefetchingEnabled != PREFETCHING_ENABLED_EDEFAULT;
+			case EamodelPackage.EA_REPOSITORY__SHOW_WINDOW:
+				return showWindow != SHOW_WINDOW_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -979,6 +1033,8 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 		result.append(isPersistent());
 		result.append(", prefetchingEnabled: ");
 		result.append(isPrefetchingEnabled());
+		result.append(", showWindow: ");
+		result.append(isShowWindow());
 		result.append(')');
 		return result.toString();
 	}

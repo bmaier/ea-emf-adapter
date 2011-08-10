@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.eaadapter.model.EAAttribute;
 import org.eclipselabs.eaadapter.model.EAAttributeTag;
 import org.eclipselabs.eaadapter.model.EAElement;
+import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
@@ -737,7 +738,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetName(newName);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -787,7 +788,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetNotes(newNotes);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -857,7 +858,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetStereotype(newStereotype);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -916,7 +917,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetType(newType);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -966,7 +967,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetVisibility(newVisibility);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1016,7 +1017,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetIsConst(newIsConst);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1066,7 +1067,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetIsStatic(newIsStatic);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1136,7 +1137,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetContainment(newContainment);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1186,7 +1187,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetIsCollection(newIsCollection);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1236,7 +1237,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetIsOrdered(newIsOrdered);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1286,7 +1287,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetAllowDuplicates(newAllowDuplicates);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1336,7 +1337,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetIsDerived(newIsDerived);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1386,7 +1387,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetContainer(newContainer);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1480,7 +1481,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetLength(newLength);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1530,7 +1531,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetLowerBound(newLowerBound);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1580,7 +1581,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetUpperBound(newUpperBound);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1630,7 +1631,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				// update EA link
 				try {
 					eaLink.SetDefault(newDefault);
-					if (!eaLink.Update()) return;
+					if (!updateEaLink(eaLink)) return;
 				} catch (Exception e) {
 					if (eaLink == null)
 						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
@@ -1721,7 +1722,7 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 		if (lowerBound != null) newEaLink.SetLowerBound(lowerBound);
 		if (upperBound != null) newEaLink.SetUpperBound(upperBound);
 		if (default_ != null) newEaLink.SetDefault(default_); 
-		newEaLink.Update();
+		updateEaLink(newEaLink);
 		// update emf object
 		Attribute oldEaLink = eaLink;
 		eaLink = newEaLink;
@@ -2284,6 +2285,23 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 		result.append(getEaLink());
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Update EA Link only if not under version control!
+	 * @generated
+	 */
+	private boolean updateEaLink(Attribute eaLink) {
+		final EAPackage p = EAUtil.getContainerOfType(this, EamodelPackage.Literals.EA_PACKAGE);
+		if (p == null || p.getEaLink() == null || !p.getEaLink().GetIsVersionControlled()) {
+			try {
+				return eaLink.Update();
+			} catch (Exception e) {
+			}
+		} else {
+			// not possible if under version control
+		}
+		return false;
 	}
 
 	/**
