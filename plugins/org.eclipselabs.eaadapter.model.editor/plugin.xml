@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+
+  <extension
+    point = "org.eclipse.ui.newWizards">
+    <category
+      id = "org.eclipselabs.eaadapter.category"
+      name="Enterprise Architect">
+    </category>
+    <wizard
+      id = "org.eclipselabs.eaadapter.model.presentation.EamodelModelWizardID"
+      name = "%_UI_EamodelModelWizard_label"
+      class = "org.eclipselabs.eaadapter.model.presentation.EamodelModelWizard"
+      category = "org.eclipselabs.eaadapter.category"
+      icon = "icons/full/obj16/EamodelModelFile.gif">
+      <description>%_UI_EamodelModelWizard_description</description>
+      <selection class = "org.eclipse.core.resources.IResource" />
+    </wizard>
+  </extension>
+
+  <extension point = "org.eclipse.ui.editors">
+    <editor
+        id = "org.eclipselabs.eaadapter.model.presentation.EamodelEditorID"
+        name = "%_UI_EamodelEditor_label"
+        icon = "icons/full/obj16/EamodelModelFile.gif"
+        extensions = "eamodel"
+        class = "org.eclipselabs.eaadapter.model.presentation.EamodelEditor" 
+        contributorClass="org.eclipselabs.eaadapter.model.presentation.EamodelActionBarContributor" >
+    </editor>
+  </extension>    
+</plugin>

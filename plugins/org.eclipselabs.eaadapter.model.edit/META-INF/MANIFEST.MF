@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipselabs.eaadapter.model.edit;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipselabs.eaadapter.model.provider.EaEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipselabs.eaadapter.model.abstracthierachy.provider,
+ org.eclipselabs.eaadapter.model.provider
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipselabs.eaadapter.model;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.ui
+Bundle-ActivationPolicy: lazy

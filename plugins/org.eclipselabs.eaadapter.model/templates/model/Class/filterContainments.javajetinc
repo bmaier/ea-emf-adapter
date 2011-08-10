@@ -1,0 +1,63 @@
+<%	// allow filters only for the following collections
+	if (genFeature.getName().equals("packages") ||
+		genFeature.getName().equals("attributes") ||
+		genFeature.getName().equals("elements") ||
+		genFeature.getName().equals("methods") ||
+		genFeature.getName().equals("parameters") ||
+		genFeature.getName().equals("connectors") ||
+		genFeature.getName().equals("taggedValues")) {
+%>
+						// check if element is filtered out
+						for (<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.Filter")%> filter : <%=genClass.getName().equals("EARepository") ? "" : "repository."%>getFilter()) {
+							if (filter.getFilterClass().equals(<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.datatypes.FilterClass")%>.ALL) || filter.getFilterClass().getLiteral().equals(eaCollElement.getClass().getSimpleName())) {
+								switch (filter.getFilterAttribute()) {
+  <%forTypes: for (String attribute : new String[]{"NAME", "STEREOTYPE", "TYPE"}) {
+	// check if attribute does exist in target type
+	{
+		boolean attributeFound = false;
+		forFeatures: for (GenFeature feature : genFeature.getTypeGenClass().getAllGenFeatures()) {
+			if (feature.getName().toUpperCase().equals(attribute)) {
+				attributeFound = true;
+				break forFeatures;
+			}
+		}
+		if (!attributeFound)
+			continue forTypes;
+	}
+	
+	// build getter
+	String getter = "eaCollElement.Get" + attribute.charAt(0) + attribute.substring(1).toLowerCase() + "()";
+	{
+		if (genClass.getName().equals("EAPackage") && genFeature.getName().equals("packages") && attribute.equals("STEREOTYPE"))
+			getter = "eaCollElement.GetElement().GetStereotype()";
+		else if (genClass.getName().equals("EAPackage") && genFeature.getName().equals("packages") && attribute.equals("TYPE"))
+			getter = "eaCollElement.GetElement().GetType()";
+		else if (genClass.getName().equals("EAElement") && genFeature.getName().equals("methods") && attribute.equals("TYPE"))
+			getter = "eaCollElement.GetReturnType()";
+	}
+	
+	// build filter code
+  %>
+								case <%=attribute%>:
+									if (filter.getFilterType().equals(<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.datatypes.FilterType")%>.EQUALS_STRING_LITERAL))
+										if (filter.getFilterExpression().equals(<%=getter%>) ^ filter.getNegate())
+											continue collection;
+										else break;
+									else if (filter.getFilterType().equals(<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.datatypes.FilterType")%>.CONTAINS_STRING_LITERAL))
+										if (<%=getter%>.contains(filter.getFilterExpression()) ^ filter.getNegate())
+											continue collection;
+										else break;
+									else if (filter.getFilterType().equals(<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.datatypes.FilterType")%>.REGEX_LITERAL))
+										if (<%=getter%> == null)
+											if (filter.getNegate())
+												break;
+											else continue collection;
+										else if (<%=getter%>.matches(filter.getFilterExpression()) ^ filter.getNegate())
+											continue collection;
+										else break;
+									else <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getLogger(getClass()).warn("Warning! Unknown filter type detected: " + filter.getFilterType() + " If this filter type is well-known, add it to the template 'filterContainments.javajetinc' and regenerate the model code.");
+  <%}%>
+								}
+							}
+						}
+<%}%>

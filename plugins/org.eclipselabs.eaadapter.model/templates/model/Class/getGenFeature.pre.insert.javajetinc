@@ -1,0 +1,21 @@
+<%
+String collectionType = null;
+String eaCollectionType = null;
+if (genFeature.isListType() && !(genClass.getName().equals("EARepository") && (genFeature.getName().equals("filter") || genFeature.getName().equals("persistentModels")))) {
+	// define collection type for special cases b/c of stupid ea metamodel
+	if (genClass.getName().equals("EARepository") && genFeature.getName().equals("models")) {
+		collectionType = genModel.getImportedName("org.eclipselabs.eaadapter.model.EAPackage");
+		eaCollectionType = genModel.getImportedName("org.sparx.Package");
+	} else if (genFeature.getName().equals("taggedValues")) {
+		if (genClass.getName().equals("EAElement")) {
+			collectionType = genModel.getImportedName("org.eclipselabs.eaadapter.model.EATaggedValue");
+			eaCollectionType = genModel.getImportedName("org.sparx.TaggedValue");
+		} else {
+			collectionType = genModel.getImportedName("org.eclipselabs.eaadapter.model.EA"+genClass.getName().substring(2)+"Tag");
+			eaCollectionType = genModel.getImportedName("org.sparx."+genClass.getName().substring(2)+"Tag");
+		}
+	} else {
+		collectionType = genModel.getImportedName("org.eclipselabs.eaadapter.model.EA"+genFeature.getCapName().substring(0,genFeature.getCapName().length()-1));
+		eaCollectionType = genModel.getImportedName("org.sparx."+genFeature.getCapName().substring(0,genFeature.getCapName().length()-1));
+	}
+}%>

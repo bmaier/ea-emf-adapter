@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.eclipselabs.eaadapter.tools.contribution1"
+            nameFilter="*.eamodel"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               label="EA Tools"
+               path="additions"
+               id="org.eclipselabs.eaadapter.tools.menu1">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               label="Check for duplicate GUIDs"
+               class="org.eclipselabs.eaadapter.tools.popup.actions.CheckDuplicateGuidsAction"
+               menubarPath="org.eclipselabs.eaadapter.tools.menu1/group1"
+               enablesFor="1"
+               id="org.eclipselabs.eaadapter.tools.newAction">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="org.eclipselabs.eaadapter.tools.contribution2"
+            nameFilter="*.eamodel"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="org.eclipselabs.eaadapter.tools.menu1"
+               label="EA Tools"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.eclipselabs.eaadapter.tools.popup.actions.RemoveXElementsAction"
+               enablesFor="1"
+               id="org.eclipselabs.eaadapter.tools.newAction2"
+               label="Remove all X-stereotyped elements"
+               menubarPath="org.eclipselabs.eaadapter.tools.menu1/group1">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="org.eclipselabs.eaadapter.tools.contribution3"
+            nameFilter="*.eamodel"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="org.eclipselabs.eaadapter.tools.menu1"
+               label="EA Tools"
+               path="additions">
+            <groupMarker
+                  name="group1">
+            </groupMarker>
+         </menu>
+         <action
+               class="org.eclipselabs.eaadapter.tools.popup.actions.CollectStatisticsAction"
+               enablesFor="1"
+               id="org.eclipselabs.eaadapter.tools.newAction3"
+               label="Collect Statistics"
+               menubarPath="org.eclipselabs.eaadapter.tools.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

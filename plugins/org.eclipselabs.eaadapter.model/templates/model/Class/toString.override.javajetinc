@@ -1,0 +1,47 @@
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString()
+	{
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+  <%{ boolean first = true;%>
+    <%for (Iterator i=genClass.getToStringGenFeatures().iterator(); i.hasNext(); ) { GenFeature genFeature = (GenFeature)i.next();%>
+      <%if (first) { first = false;%>
+		result.append(" (<%=genFeature.getName()%>: ");<%=genModel.getNonNLS()%>
+      <%} else {%>
+		result.append(", <%=genFeature.getName()%>: ");<%=genModel.getNonNLS()%>
+      <%}%>
+      <%if (genFeature.isUnsettable() && !genFeature.isListType()) {%>
+        <%if (genModel.isVirtualDelegation() && !genFeature.isPrimitiveType()) {%>
+		if (eVirtualIsSet(<%=genClass.getQualifiedFeatureID(genFeature)%>)) result.append(eVirtualGet(<%=genClass.getQualifiedFeatureID(genFeature)%>)); else result.append("<unset>");<%=genModel.getNonNLS()%>
+        <%} else {%>
+          <%if (genClass.isFlag(genFeature)) {%>
+		if (<%if (genClass.isESetFlag(genFeature)) {%>(<%=genClass.getESetFlagsField(genFeature)%> & <%=genFeature.getUpperName()%>_ESETFLAG) != 0<%} else {%><%=genFeature.getUncapName()%>ESet<%}%>) result.append((<%=genClass.getFlagsField(genFeature)%> & <%=genFeature.getUpperName()%>_EFLAG) != 0); else result.append("<unset>");<%=genModel.getNonNLS()%>
+          <%} else {%>
+		if (<%if (genClass.isESetFlag(genFeature)) {%>(<%=genClass.getESetFlagsField(genFeature)%> & <%=genFeature.getUpperName()%>_ESETFLAG) != 0<%} else {%><%=genFeature.getUncapName()%>ESet<%}%>) result.append(<%=genFeature.getSafeName()%>); else result.append("<unset>");<%=genModel.getNonNLS()%>
+          <%}%>
+        <%}%>
+      <%} else {%>
+        <%if (genModel.isVirtualDelegation() && !genFeature.isPrimitiveType()) {%>
+		result.append(eVirtualGet(<%=genClass.getQualifiedFeatureID(genFeature)%><%if (!genFeature.isListType() && !genFeature.isReferenceType()){%>, <%=genFeature.getUpperName()%>_EDEFAULT<%}%>));
+        <%} else {%>
+          <%if (genClass.isFlag(genFeature)) {%>
+		result.append((<%=genClass.getFlagsField(genFeature)%> & <%=genFeature.getUpperName()%>_EFLAG) != 0);
+          <%} else if (genFeature.getName().equals("note")) {%>
+		// remove line breaks
+		result.append(<%=genFeature.getGetAccessor()%>() == null ? <%=genFeature.getSafeName()%> : <%=genFeature.getSafeName()%>.replaceAll("\n", "\\\\n").replaceAll("\r", "\\\\r"));
+          <%} else {%>
+<%//result.append(< %=genFeature.getSafeName()% >);%>
+		result.append(<%=genFeature.getGetAccessor()%>());
+          <%}%>
+        <%}%>
+      <%}%>
+    <%}%>
+  <%}%>
+		result.append(')');
+		return result.toString();
+	}

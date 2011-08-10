@@ -1,0 +1,16 @@
+<%if (genClass.getName().equals("EAConnector") && genFeature.getName().startsWith("supplier_")) {%>
+  <%String subFeature = genFeature.getName().substring(genFeature.getName().indexOf("_") + 1);%>
+		EAConnectorEnd connectorEnd = getSupplierEnd();
+		if (connectorEnd == null)
+			return;
+		connectorEnd.set<%=subFeature.substring(0,1).toUpperCase() + subFeature.substring(1)%>(new<%=genFeature.getCapName()%>);
+<%} else if (genClass.getName().equals("EAConnector") && genFeature.getName().startsWith("client_")) {%>
+  <%String subFeature = genFeature.getName().substring(genFeature.getName().indexOf("_") + 1);%>
+		EAConnectorEnd connectorEnd = getClientEnd();
+		if (connectorEnd == null)
+			return;
+		connectorEnd.set<%=subFeature.substring(0,1).toUpperCase() + subFeature.substring(1)%>(new<%=genFeature.getCapName()%>);
+<%} else {%>
+		// This feature is marked volatile, in case of the EA model we just ignore it.
+		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
+<%}%>

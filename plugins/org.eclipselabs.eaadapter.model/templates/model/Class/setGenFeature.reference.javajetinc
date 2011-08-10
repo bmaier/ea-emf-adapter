@@ -1,0 +1,29 @@
+<%if (manualReferenceSetter != null) {
+	%>
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private boolean set<%=manualReferenceSetter%>Reference(<%=genFeature.getImportedType()%> new<%=genFeature.getCapName()%>) {
+  <%if (genClass.getName().equals("EAConnector") && manualReferenceSetter.equals("Supplier")) {%>
+		eaLink.SetSupplierID(newSupplier.getEaLink().GetElementID());
+		return true;
+  <%} else if (genClass.getName().equals("EAConnector") && manualReferenceSetter.equals("Client")) {%>
+		eaLink.SetClientID(newClient.getEaLink().GetElementID());
+		return true;
+  <%} else if (genClass.getName().equals("EADiagramLink") && manualReferenceSetter.equals("Connector")) {%>
+		eaLink.SetConnectorID(newConnector.getEaLink().GetConnectorID());
+		return true;
+  <%} else if (genClass.getName().equals("EADiagramObject") && manualReferenceSetter.equals("Element")) {%>
+		eaLink.SetElementID(newElement.getEaLink().GetElementID());
+		return true;
+  <%} else {%>
+		// TODO: implement this method to set the <%=manualReferenceSetter%> reference in the ea model
+		// Ensure that you remove @generated or mark it @generated NOT
+		new UnsupportedOperationException("The reference <%=manualReferenceSetter%> cannot be set automatically!").printStackTrace();
+		throw new UnsupportedOperationException();
+  <%}%>
+	}
+
+<%}%>

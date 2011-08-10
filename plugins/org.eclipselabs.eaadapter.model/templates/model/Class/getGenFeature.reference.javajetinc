@@ -1,0 +1,50 @@
+<%if (manualReferenceGetter != null) {
+	String eaType = genModel.getImportedName("org.sparx." + genFeature.getImportedType().substring(2));
+	%>
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private <%=eaType%> get<%=manualReferenceGetter%>Reference() {
+  <%if (genClass.getName().equals("EAConnector") && manualReferenceGetter.equals("Supplier")) {%>
+		int supplierID = eaLink.GetSupplierID();
+		if (supplierID > 0 && repository != null)
+			return repository.getEaLink().GetElementByID(supplierID);
+		else return null;
+  <%} else if (genClass.getName().equals("EAConnector") && manualReferenceGetter.equals("SupplierEnd")) {%>
+		return eaLink.GetSupplierEnd();
+  <%} else if (genClass.getName().equals("EAConnector") && manualReferenceGetter.equals("Client")) {%>
+		try {
+			int clientID = eaLink.GetClientID();
+			if (clientID > 0 && repository != null)
+				return repository.getEaLink().GetElementByID(clientID);
+		} catch (NullPointerException e) {
+			<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getLogger(getClass()).error("Nullpointer exception occured while getting connector client", e); 
+		} catch (Exception e) {
+			<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getLogger(getClass()).error("An exception occured while getting connector client", e); 
+		}
+		return null;
+  <%} else if (genClass.getName().equals("EAConnector") && manualReferenceGetter.equals("ClientEnd")) {%>
+		return eaLink.GetClientEnd();
+  <%} else if (genClass.getName().equals("EADiagramLink") && manualReferenceGetter.equals("Connector")) {%>
+		int connectorID = eaLink.GetConnectorID();
+		if (connectorID > 0 && repository != null)
+			return repository.getEaLink().GetConnectorByID(connectorID);
+		else return null;
+  <%} else if (genClass.getName().equals("EADiagramObject") && manualReferenceGetter.equals("Element")) {%>
+		int elementID = eaLink.GetElementID();
+		if (elementID > 0 && repository != null)
+			return repository.getEaLink().GetElementByID(elementID);
+		else return null;
+  <%} else if (genClass.getName().equals("EAPackage") && manualReferenceGetter.equals("Element")) {%>
+		return eaLink.GetElement();
+  <%} else {%>
+		// TODO: implement this method to return the <%=eaType%> instance of the <%=manualReferenceGetter%> reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		new UnsupportedOperationException("The reference <%=manualReferenceGetter%> cannot be resolved automatically!").printStackTrace();
+		throw new UnsupportedOperationException();
+  <%}%>
+	}
+
+<%}%>

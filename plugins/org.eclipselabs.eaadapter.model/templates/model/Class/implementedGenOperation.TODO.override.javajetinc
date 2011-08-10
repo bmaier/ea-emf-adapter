@@ -1,0 +1,183 @@
+<%if (genClass.getName().equals("EARepository")) {%>
+<%  if (genOperation.getName().equals("openFile")) {%>
+		// check if file exists
+		String modelFile = <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getFileFromURI(<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getFileURI(getFile()));
+		if (modelFile == null || modelFile.length() == 0) {
+			return false;
+		}
+		
+		// already open & valid?
+		if (eaLink != null && checkEaLink(modelFile))
+			return true;
+			
+		// same file already open?
+		eaLink = repositories.get(modelFile);
+		if (eaLink != null && checkEaLink(modelFile))
+			return true;
+			
+		// cleaning up memory if EA was closed 
+		System.gc();
+		System.runFinalization();
+		
+		// try to open model from file
+		try {
+		
+			// no valid ea link found, so lets create a new repository instance
+			eaLink = new Repository();
+			boolean success = false;
+			if (user != null && password != null && user.length() > 0) {
+				success = eaLink.OpenFile2(modelFile, user, password);
+			} else success = eaLink.OpenFile(modelFile);
+			
+			// if repository is successfully opened, save it in the repository map
+			if (success) {
+				repositories.put(modelFile, eaLink);
+				eaLink.ShowWindow(1);
+			} else {
+				eaLink = null;
+			}
+			return success;
+		} catch (Exception e) {
+		
+			// if another thread tries to use this ea-link, a lot of exceptions are thrown!
+			// to avoid dozens of stacktraces, just a '$' is printed to System.err. 
+			if (e.getMessage().equals("Unknown exception thrown") && e.getStackTrace()[0].getMethodName().equals("comConstructor"))
+				System.err.print("$");
+			else e.printStackTrace();
+			eaLink = null;
+			return false;
+		}
+<%  } else if (genOperation.getName().equals("closeFile")) {%>
+		// if already closed, quit
+		if (eaLink == null) return;
+		
+		// close ea
+		try {
+			eaLink.CloseFile();
+		} catch (Exception e) {
+			System.err.println("Error while closing file:");
+			e.printStackTrace();
+		}
+		models = null;
+<%  } else if (genOperation.getName().equals("prefetch")) {%>
+		if (prefetchCompleteModel) {
+			<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.iterateOverEClass(this, null, true);
+		} else if (prefetchPackageGuids != null && prefetchPackageGuids.trim().length() > 0) {
+			if (models != null) 
+				<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.loadPackages(prefetchPackageGuids.trim(), models);
+			else throw new <%=genModel.getImportedName("java.lang.UnsupportedOperationException")%>("Cannot prefetch models if model collection is not yet initialized! Call getModels() to initialize this collections. Note: if prefetchingEnalbled is set to true, then prefetching is performed automatically."); 
+		}
+<%  } else {%>
+		// unused
+		return true;
+<%  }%>
+<%} else if (genOperation.getName().equals("setNewParent")) {%>
+		if (eaLink == null) return;
+
+		// to perform a move, set the ID of the new parent. The collections are updated automatically (I hope...)
+		try {
+<%	if (genClass.getName().equals("EAElement")) {%>
+			if (parent instanceof EAElement)
+				eaLink.SetParentID(((EAElement)parent).getEaLink().GetElementID());
+			else if (parent instanceof EAPackage)
+				eaLink.SetPackageID(((EAPackage)parent).getEaLink().GetPackageID());
+			else throw new UnsupportedOperationException("Unknown parent type (EAElement or EAPackage expected): " + parent);
+			eaLink.Update();
+<%  } else if (genClass.getName().equals("EAPackage")) {%>
+			eaLink.SetParentID(((EAPackage)parent).getEaLink().GetPackageID());
+			eaLink.Update();
+<%  } else if (genClass.getName().equals("EAConnector")) {%>
+			eaLink.SetSupplierID(((EAElement)parent).getEaLink().GetElementID());
+			eaLink.Update();
+<%  } else {%>
+			throw new UnsupportedOperationException("Please add move-support for this class in 'implementedGenOperation.TODO.override.javajet'.");
+<%  }%>
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("Perhaps EA has produced an error: " + eaLink.GetLastError());
+		}
+<%} else {
+	String collType = genModel.getImportedName("org.sparx."+genClass.getName().substring(2));
+	int pos = collType.lastIndexOf(".");
+	String collTypeName = pos >= 0 ? collType.substring(pos+1,collType.length()) : collType;
+	if (collTypeName.endsWith("Tag")) {
+		collTypeName = "Tag";
+	} else if (collTypeName.equals("TaggedValue")) {
+		collTypeName = "Property";
+	}%>
+<%	if (genOperation.getName().equals("initializeAdapter")) {%>
+<%		String newElementType = genClass.getName().equals("EAElement") ? "Class"
+			: genClass.getName().equals("EAConnector") ? "Association" 
+			: "";%>
+		// return if already initialized
+		if (eaLink != null) return true;
+		
+		try {
+		
+			// set default values; use setter for emf notification
+            <%for (Iterator iter = genClass.getAllGenFeatures().iterator(); iter.hasNext();) {
+					GenFeature genFeature = (GenFeature) iter.next();
+					if (genFeature.getDefaultValue() != null && genFeature.getDefaultValue().length() > 0) {
+						String eaFeatureName = genFeature.getCapName();
+%><%@ include file="genFeatureEANames.javajetinc" fail="silent"%>
+<%//				eaLink.Set<%=eaFeatureName% >(<%=genFeature.getType().equals("java.lang.Integer") ? genFeature.getDefaultValue().substring(1,genFeature.getDefaultValue().length()-1) : genFeature.getDefaultValue()% >);%>
+			if (<%=genFeature.getSafeName()%> == null) set<%=genFeature.getCapName()%>(<%=genFeature.getType().equals("java.lang.Integer") ? genFeature.getDefaultValue().substring(1,genFeature.getDefaultValue().length()-1) : genFeature.getDefaultValue()%>);
+               <%}%>
+            <%}%>
+            <%if (genClass.getName().equals("EAElement")) {%>
+			setType("Class");
+            <%}%>
+            
+			// set ea link and transfer all values
+			<%=collType%> newEaLink = (<%=collType%>)collection.AddNew("", "<%=newElementType%>");
+			if (newEaLink != null) {
+				setEaLink(newEaLink);
+			
+				// update EA model
+				collection.Refresh();
+				return true;
+			} else return false;  // EA model could not be created
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (eaLink == null)
+				System.err.println("EA Link is null!");
+			else System.err.println("Perhaps EA has produced an error: " + eaLink.GetLastError());
+		}
+		return false;
+<%	} else if (genOperation.getName().equals("deleteAdapter")){
+		if (genClass.getName().equals("EAConnectorEnd") || 
+			genClass.getName().equals("EADiagramLink") ||
+			genClass.getName().equals("EADiagramObject")) {%>
+		// unused
+		return true;
+<%		} else {%>
+		// return if not initialized
+		if (eaLink == null) return true;
+		
+		// iterate through collection elements to delete element
+		try {
+			String delId = getGuid();
+			short count = collection.GetCount();
+			for (int i = count - 1; i >= 0; i--) {
+				<%=collType%> collElement = (<%=collType%>) collection.GetAt((short) i);
+				if (collElement.Get<%=collTypeName%>GUID().equals(delId)) {
+					collection.Delete((short) i);
+					collection.Refresh();
+					return true;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (eaLink == null)
+				System.err.println("EA Link is null!");
+			else System.err.println("Perhaps EA has produced an error: " + eaLink.GetLastError());
+		}
+		return false;
+<%		}%>
+<%	} else {%>
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+<%	}%>
+<%}%>

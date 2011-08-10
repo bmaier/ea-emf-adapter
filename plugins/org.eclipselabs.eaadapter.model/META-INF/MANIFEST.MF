@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipselabs.eaadapter.model;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .,
+ lib/eaapi.jar
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: org.eclipselabs.eaadapter.model,
+ org.eclipselabs.eaadapter.model.abstracthierachy,
+ org.eclipselabs.eaadapter.model.abstracthierachy.impl,
+ org.eclipselabs.eaadapter.model.abstracthierachy.util,
+ org.eclipselabs.eaadapter.model.datatypes,
+ org.eclipselabs.eaadapter.model.datatypes.impl,
+ org.eclipselabs.eaadapter.model.impl,
+ org.eclipselabs.eaadapter.model.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.ui
+Eclipse-LazyStart: true
+Bundle-Activator: org.eclipselabs.eaadapter.model.plugin.EamodelPlugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-NativeCode: /lib/SSJavaCOM.dll; osname=win32; processor=x86

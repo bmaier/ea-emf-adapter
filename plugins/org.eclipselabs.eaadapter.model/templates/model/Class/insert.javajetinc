@@ -1,0 +1,74 @@
+<% if (!genClass.isAbstract() && !isInterface && 
+		!genClass.getName().equals("EARepository") &&
+		!genClass.getName().equals("EADiagramLink") &&
+		!genClass.getName().equals("EADiagramObject") &&
+		!genClass.getName().equals("EAConnectorEnd") &&
+		genClass.getName().startsWith("EA"))
+// equals can only be overridden if the attribute guid exists 
+{%>
+	/**
+	 * Calculate the hashcode over the global unique identifier (guid) of the ea object.
+	 * @generated
+	 */
+	@Override
+	public int hashCode() {
+		String guid = getGuid();
+		if (guid != null) {
+			if (!guidHashMap.containsKey(guid)) {
+				int hashCode = super.hashCode();
+				guidHashMap.put(guid, hashCode);
+				return hashCode;
+			} else return guidHashMap.get(guid);
+		} else return super.hashCode();
+	}
+	
+	/**
+	 * @generated
+	 */
+	transient private static <%=genModel.getImportedName("java.util.Map")%><String,Integer> guidHashMap = new <%=genModel.getImportedName("java.util.HashMap")%><String, Integer>(); 
+
+	/**
+	 * @generated
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		return obj != null && hashCode() == obj.hashCode();
+	}
+
+<%}%>
+<%if (genClass.getName().equals("EARepository")) {%>
+  <%if (!isInterface) {%>
+	/**
+	 * A map of repositories, categorized by filenames.
+	 * This ensures only one EA instance for each eap-file.
+	 * 
+	 * @generated
+	 */
+	transient private static <%=genModel.getImportedName("java.util.Map")%><String,Repository> repositories = new <%=genModel.getImportedName("java.util.HashMap")%><String,Repository>();
+
+	/**
+	 * If eaLink is not null but EA was closed for other reasons, eaLink points to an invalid place.
+	 * So lets check the link.
+	 * 
+	 * @generated
+	 */
+	private boolean checkEaLink(String modelFile) {
+		try {
+			// check if we can access the repository
+			if (eaLink.GetModels().iterator() == null) {
+				// failed... lets remove it from the repository map
+				repositories.remove(modelFile);
+				eaLink = null;
+			}
+			eaLink.GetModels().iterator().hasNext();
+			return true;
+		} catch (Exception e) {
+			// failed... lets remove it from the repository map
+			repositories.remove(modelFile);
+			eaLink = null;
+			return false;
+		}
+	}
+	
+  <%}%>
+<%}%>

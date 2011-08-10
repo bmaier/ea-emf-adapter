@@ -1,0 +1,16 @@
+	/**
+	 * This returns <%=genClass.getName()%>.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+<%if (genModel.useClassOverrideAnnotation()) {%>
+	@Override
+<%}%>
+	public Object getImage(Object object)
+	{
+		<%=genModel.getImportedName("org.eclipse.jface.resource.ImageDescriptor")%> imageDescriptor = <%=genModel.getImportedName("org.eclipse.ui.plugin.AbstractUIPlugin")%>.imageDescriptorFromPlugin(
+		         "<%=genModel.getModelPluginID()%>",
+		         "icons/<%=genClass.getName()%>.gif");
+		return imageDescriptor == null ? overlayImage(object, getResourceLocator().getImage("full/obj16/<%=genClass.getName()%>")) : imageDescriptor.createImage();<%=genModel.getNonNLS()%>
+	}

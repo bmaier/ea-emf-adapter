@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipselabs.eaadapter.model/src"
+    modelPluginID="org.eclipselabs.eaadapter.model" templateDirectory="/org.eclipselabs.eaadapter.model/templates"
+    dynamicTemplates="true" modelName="Ea" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0">
+  <foreignModel>ea.ecore</foreignModel>
+  <genPackages prefix="Eamodel" basePackage="org.eclipselabs.eaadapter" disposableProviderFactory="true"
+      ecorePackage="ea.ecore#/">
+    <genClasses ecoreClass="ea.ecore#//EAAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/containment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/isCollection"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/isOrdered"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/allowDuplicates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/isDerived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/container"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/scale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/precision"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/lowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/upperBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/default"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAAttribute/element"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttribute/eaLink"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAAttribute/taggedValues"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAAttributeTag">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAAttributeTag/eaLink"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAConnector">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/connectorID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/subtype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/isLeaf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/isRoot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/isSpec"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/virtualInheritance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/transitionEvent"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/transitionAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/transitionGuard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/routeStyle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/sequenceNo"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/diagramID"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/eaLink"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAConnector/taggedValues"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplierID"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference ea.ecore#//EAConnector/supplier"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAConnector/supplierEnd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/clientID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ea.ecore#//EAConnector/client"/>
+      <genFeatures property="None" children="true" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAConnector/clientEnd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_aggregation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_cardinality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_containment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_isNavigable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_note"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_roleType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_stereotype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/client_visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_aggregation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_cardinality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_containment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_isNavigable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_note"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_roleType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_stereotype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_visibility"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/isA2dDependency"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAConnectorEnd">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/aggregation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/cardinality"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/containment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/isNavigable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/note"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/roleType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/stereotype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/visibility"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/eaLink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/ordering"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/qualifier"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/end"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAConnectorTag">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorTag/eaLink"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EADiagram">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagram/swimlanes"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagram/type"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EADiagram/package"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagram/eaLink"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EADiagram/diagramLinks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EADiagram/diagramObjects"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EADiagramLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ea.ecore#//EADiagramLink/connector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramLink/connectorID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramLink/geometry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramLink/isHidden"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramLink/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramLink/style"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramLink/eaLink"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EADiagramObject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramObject/bottom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ea.ecore#//EADiagramObject/element"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramObject/elementID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramObject/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramObject/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramObject/sequence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramObject/top"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EADiagramObject/eaLink"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/abstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/classifierName"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/classifierType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/complexity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/difficulty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/extensionPoints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/genlinks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/genfile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/gentype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/phase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/priority"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/propertyType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/stereotypeEx"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/subtype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/tablespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/tag"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAElement/element"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAElement/package"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAElement/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAElement/connectors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAElement/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAElement/methods"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAElement/taggedValues"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/eaLink"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/hasA2dDependency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/parentID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/packageID"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAMethod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/returnIsArray"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/throws"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/isPure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/isRoot"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/isLeaf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/isQuery"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/isSynchronized"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/isAbstract"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/concurrency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/classifierID"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAMethod/element"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/eaLink"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAMethod/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAMethod/taggedValues"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAMethodTag">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethodTag/eaLink"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAPackage">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAPackage/diagrams"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAPackage/elements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAPackage/packages"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAPackage/package"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAPackage/eaLink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAPackage/stereotype"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EAParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAParameter/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAParameter/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAParameter/position"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAParameter/isConst"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAParameter/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAParameter/classifierID"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAParameter/operationID"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ea.ecore#//EAParameter/method"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAParameter/eaLink"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EARepository" labelFeature="#//model/EARepository/file">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EARepository/models"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/eaLink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/file"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/caching"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/readonlyEaLink"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/diagrams"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/prefetchCompleteModel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/prefetchPackageGuids"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EARepository/filter"/>
+      <genFeatures property="None" notify="false" children="true" createChild="false"
+          ecoreFeature="ecore:EReference ea.ecore#//EARepository/persistentModels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/persistent"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EARepository/prefetchingEnabled"/>
+      <genOperations ecoreOperation="ea.ecore#//EARepository/openFile"/>
+      <genOperations ecoreOperation="ea.ecore#//EARepository/closeFile"/>
+      <genOperations ecoreOperation="ea.ecore#//EARepository/prefetch"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//EATaggedValue">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EATaggedValue/eaLink"/>
+    </genClasses>
+    <genClasses ecoreClass="ea.ecore#//Filter" labelFeature="#//model/Filter/filterExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//Filter/filterClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//Filter/filterType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//Filter/filterAttribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//Filter/filterExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//Filter/negate"/>
+    </genClasses>
+    <nestedGenPackages prefix="Datatypes" basePackage="org.eclipselabs.eaadapter.model"
+        disposableProviderFactory="true" ecorePackage="ea.ecore#//datatypes">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="ea.ecore#//datatypes/FilterClass">
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/None"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/All"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/Element"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/Attribute"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/Method"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/Connector"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/TaggedValue"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/AttributeTag"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/MethodTag"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/ConnectorTag"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/Parameter"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterClass/Package"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="ea.ecore#//datatypes/FilterType">
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterType/EqualsStringLiteral"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterType/ContainsStringLiteral"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterType/RegexLiteral"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="ea.ecore#//datatypes/FilterAttribute">
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterAttribute/name"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterAttribute/stereotype"/>
+        <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterAttribute/type"/>
+      </genEnums>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/String"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/Boolean"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/Integer"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/EACollection"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Attribute"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_AttributeTag"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Connector"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_ConnectorEnd"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_ConntectorTag"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Diagram"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_DiagramLink"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_DiagramObject"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Element"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Method"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_MethodTag"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Package"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Parameter"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Repository"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_TaggedValue"/>
+      <genDataTypes ecoreDataType="ea.ecore#//datatypes/EClass"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Abstracthierachy" basePackage="org.eclipselabs.eaadapter.model"
+        disposableProviderFactory="true" ecorePackage="ea.ecore#//abstracthierachy">
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAAbstractPackage">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAAbstractPackage/codePath"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAAbstractPackage/flags"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAAbstractPackage/isModel"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EABaseClass">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EABaseClass/objectType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EABaseClass/id"/>
+        <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ea.ecore#//abstracthierachy/EABaseClass/repository"/>
+        <genOperations ecoreOperation="ea.ecore#//abstracthierachy/EABaseClass/initializeAdapter">
+          <genParameters ecoreParameter="ea.ecore#//abstracthierachy/EABaseClass/initializeAdapter/collection"/>
+        </genOperations>
+        <genOperations ecoreOperation="ea.ecore#//abstracthierachy/EABaseClass/deleteAdapter">
+          <genParameters ecoreParameter="ea.ecore#//abstracthierachy/EABaseClass/deleteAdapter/collection"/>
+        </genOperations>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAClassifierIDLong">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAClassifierIDLong/classifierID"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAModifiableElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAModifiableElement/isConst"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAModifiableElement/isStatic"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EANamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EANamedElement/name"/>
+        <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EANamedElement/notes"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EANamedElement/guid"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAOwnedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAOwnedElement/author"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAOwnedElement/isLocked"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAStereotypedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAStereotypedElement/stereotype"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAStereotypedElement/hasDStereotype"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EATaggedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EATaggedElement/value"/>
+        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EATaggedElement/tagID"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EATypedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EATypedElement/type"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAVersiondElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAVersiondElement/version"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAVisibilityElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAVisibilityElement/visibility"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAMovableElement">
+        <genOperations ecoreOperation="ea.ecore#//abstracthierachy/EAMovableElement/setNewParent">
+          <genParameters ecoreParameter="ea.ecore#//abstracthierachy/EAMovableElement/setNewParent/parent"/>
+        </genOperations>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,44 @@
+<% // stupid ea metamodel has many inconsistent attribute names, so we have to map all special cases :(
+if (genFeature.getName().equals("isAbstract") || 
+		(genFeature.getName().equals("isLocked") && genClass.getName().equals("EAElement"))) {
+	eaFeatureName = genFeature.getIsName();
+} else if (genClass.getName().equals("EAConnector") && genFeature.getName().contains("_")) {
+	if (genFeature.getName().endsWith("note")) {
+		eaFeatureName = "RoleNote";
+	} else {
+		eaFeatureName = genFeature.getName().substring(genFeature.getName().indexOf("_") + 1);
+		eaFeatureName = eaFeatureName.substring(0,1).toUpperCase() + eaFeatureName.substring(1);
+	}
+} else if (genClass.getName().equals("EAConnectorEnd")) {
+	if (genFeature.getName().equals("note")) {
+		eaFeatureName = "RoleNote";
+	}
+} else if (genClass.getName().equals("EATaggedValue")) {
+	if (genFeature.getName().equals("id")) {
+		eaFeatureName = "PropertyID";
+	} else if (genFeature.getName().equals("guid")) {
+		eaFeatureName = "PropertyGUID";
+	} else if (genFeature.getName().equals("tagID")) {
+		eaFeatureName = "ElementID";
+	}
+} else if (genFeature.getName().equals("guid")) {
+	if (genClass.getName().endsWith("Tag")) {
+		eaFeatureName = "TagGUID";
+	} else {
+		eaFeatureName = genClass.getName().substring(2) + "GUID";
+	}
+} else if (genFeature.getName().equals("id")) {
+	if (genClass.getName().endsWith("Tag")) {
+		eaFeatureName = genClass.getName().substring(2, genClass.getName().length() - 3) + "ID";
+	} else if (genClass.getName().equals("EAParameter")) {
+		eaFeatureName = "Position";
+	} else if (genClass.getName().equals("EADiagramLink") || genClass.getName().equals("EADiagramObject")) {
+		eaFeatureName = "InstanceID";
+	} else {
+		eaFeatureName = genClass.getName().substring(2) + "ID";
+	}
+} else if (genClass.getName().equals("EAMethod") && genFeature.getName().equals("type")) {
+	eaFeatureName = "Return" + genFeature.getCapName();
+} else {
+	eaFeatureName = genFeature.getCapName();
+}%>
