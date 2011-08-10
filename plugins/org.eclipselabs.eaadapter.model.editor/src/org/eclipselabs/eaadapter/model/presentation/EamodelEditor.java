@@ -1861,7 +1861,7 @@ s	 * @generated
 //					object = resource.getContents().get(0);
 				}
 			}
-			System.out.println("EamodelEditor: " + object);
+//			System.out.println("EamodelEditor: " + object);
 			// overwrite property source
 			return new ChangePropertySource(object, itemPropertySource);
 		}
