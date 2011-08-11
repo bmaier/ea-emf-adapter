@@ -9,6 +9,7 @@ package org.eclipselabs.eaadapter.model.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -298,7 +299,7 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean PREFETCHING_ENABLED_EDEFAULT = true;
+	protected static final boolean PREFETCHING_ENABLED_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #isPrefetchingEnabled() <em>Prefetching Enabled</em>}' attribute.
@@ -780,10 +781,15 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 	public void prefetch() {
 		if (prefetchCompleteModel) {
 			EAUtil.iterateOverEClass(this, null, true);
-		} else if (prefetchPackageGuids != null && prefetchPackageGuids.trim().length() > 0) {
-			if (models != null) 
-				EAUtil.loadPackages(prefetchPackageGuids.trim(), models);
-			else throw new UnsupportedOperationException("Cannot prefetch models if model collection is not yet initialized! Call getModels() to initialize this collections. Note: if prefetchingEnalbled is set to true, then prefetching is performed automatically."); 
+		} else {
+			if (models == null) 
+				throw new UnsupportedOperationException("Cannot prefetch models if model collection is not yet initialized! Call getModels() to initialize this collections. Note: if prefetchingEnalbled is set to true, then prefetching is performed automatically."); 
+			if (getPrefetchPackageGuids() != null && getPrefetchPackageGuids().trim().length() > 0) {
+				final List<EAPackage> packages = EAUtil.loadPackages(getPrefetchPackageGuids().trim(), models);
+				for (EAPackage p : packages) {
+					EAUtil.iterateOverEClass(p, null, true);
+				}
+			}
 		}
 	}
 

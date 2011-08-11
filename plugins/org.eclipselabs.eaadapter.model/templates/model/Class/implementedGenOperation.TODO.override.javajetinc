@@ -63,10 +63,15 @@
 <%  } else if (genOperation.getName().equals("prefetch")) {%>
 		if (prefetchCompleteModel) {
 			<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.iterateOverEClass(this, null, true);
-		} else if (prefetchPackageGuids != null && prefetchPackageGuids.trim().length() > 0) {
-			if (models != null) 
-				<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.loadPackages(prefetchPackageGuids.trim(), models);
-			else throw new <%=genModel.getImportedName("java.lang.UnsupportedOperationException")%>("Cannot prefetch models if model collection is not yet initialized! Call getModels() to initialize this collections. Note: if prefetchingEnalbled is set to true, then prefetching is performed automatically."); 
+		} else {
+			if (models == null) 
+				throw new <%=genModel.getImportedName("java.lang.UnsupportedOperationException")%>("Cannot prefetch models if model collection is not yet initialized! Call getModels() to initialize this collections. Note: if prefetchingEnalbled is set to true, then prefetching is performed automatically."); 
+			if (getPrefetchPackageGuids() != null && getPrefetchPackageGuids().trim().length() > 0) {
+				final List<EAPackage> packages = EAUtil.loadPackages(getPrefetchPackageGuids().trim(), models);
+				for (EAPackage p : packages) {
+					EAUtil.iterateOverEClass(p, null, true);
+				}
+			}
 		}
 <%  } else {%>
 		// unused

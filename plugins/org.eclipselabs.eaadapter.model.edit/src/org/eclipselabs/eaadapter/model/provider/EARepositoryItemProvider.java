@@ -78,6 +78,7 @@ public class EARepositoryItemProvider
 			addPrefetchCompleteModelPropertyDescriptor(object);
 			addPrefetchPackageGuidsPropertyDescriptor(object);
 			addPersistentPropertyDescriptor(object);
+			addPrefetchingEnabledPropertyDescriptor(object);
 			addShowWindowPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -304,6 +305,28 @@ public class EARepositoryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Prefetching Enabled feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPrefetchingEnabledPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EARepository_prefetchingEnabled_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EARepository_prefetchingEnabled_feature", "_UI_EARepository_type"),
+				 EamodelPackage.Literals.EA_REPOSITORY__PREFETCHING_ENABLED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Show Window feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -341,7 +364,7 @@ public class EARepositoryItemProvider
 			childrenFeatures.add(EamodelPackage.Literals.EA_REPOSITORY__FILTER);
 			childrenFeatures.add(EamodelPackage.Literals.EA_REPOSITORY__PERSISTENT_MODELS);
 		}
-		((EARepository)object).setPrefetchingEnabled(false);
+//		((EARepository)object).setPrefetchingEnabled(false);
 		return childrenFeatures;
 	}
 
@@ -409,6 +432,7 @@ public class EARepositoryItemProvider
 			case EamodelPackage.EA_REPOSITORY__PREFETCH_COMPLETE_MODEL:
 			case EamodelPackage.EA_REPOSITORY__PREFETCH_PACKAGE_GUIDS:
 			case EamodelPackage.EA_REPOSITORY__PERSISTENT:
+			case EamodelPackage.EA_REPOSITORY__PREFETCHING_ENABLED:
 			case EamodelPackage.EA_REPOSITORY__SHOW_WINDOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

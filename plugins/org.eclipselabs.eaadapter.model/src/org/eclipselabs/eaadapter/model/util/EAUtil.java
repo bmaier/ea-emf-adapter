@@ -5,12 +5,14 @@ package org.eclipselabs.eaadapter.model.util;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
@@ -32,6 +34,7 @@ import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
 import org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage;
+import org.eclipselabs.eaadapter.model.abstracthierachy.EABaseClass;
 import org.eclipselabs.eaadapter.model.abstracthierachy.EANamedElement;
 
 
@@ -150,7 +153,8 @@ public class EAUtil {
 	 * @param recursive
 	 */
 	@SuppressWarnings({ "rawtypes" })
-	public static void loadPackages(String structures, EList models) {
+	public static List<EAPackage> loadPackages(String structures, EList models) {
+		final List<EAPackage> result = new ArrayList<EAPackage>();
  		// map for references to resolve
 		Map<EObject, EReference> refs = new LinkedHashMap<EObject, EReference>();
 		String[] packages = structures.split(",");
@@ -168,6 +172,7 @@ public class EAUtil {
 						fp: for (Iterator iterator = packageList.iterator(); iterator.hasNext();) {
 							EAPackage trace = (EAPackage) iterator.next();
 							if (trace.getName().equals(s)) {
+								result.add(trace);
 								// we got it; fetch subpackages only if we did not reach the end of the path
 								if (i < sp.length - 1) {
 									packageList = trace.getPackages();
@@ -191,6 +196,7 @@ public class EAUtil {
 				eaElement.eIsProxy();
 			}
 		}
+		return result;
 	}
 	
 	/**
@@ -670,5 +676,29 @@ public class EAUtil {
 	
 	public static Logger getLogger(Class<?> class1) {
 		return new Logger();
+	}
+
+	@SuppressWarnings("unchecked")
+	public static <T> T findElementWithId(EABaseClass p, int id, Class<T> clazz) {
+		if (clazz.isInstance(p) && p.getId() == id)
+			return (T)p;
+		for (EReference ref : p.eClass().getEAllContainments()) {
+			final Object obj = p.eGet(ref);
+			if (obj instanceof EList) {
+				EList<EObject> list = (EList<EObject>)obj;
+				for (EObject o : list) {
+					if (o instanceof EABaseClass) {
+						final T e = findElementWithId((EABaseClass) o, id, clazz);
+						if (e != null)
+							return e;
+					}
+				}
+			} else if (obj instanceof EABaseClass) {
+				final T e = findElementWithId((EABaseClass) obj, id, clazz);
+				if (e != null)
+					return e;
+			}
+		}
+		return null;
 	}
 }

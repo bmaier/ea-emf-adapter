@@ -416,7 +416,7 @@ public interface EARepository extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Prefetching Enabled</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -430,7 +430,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>Prefetching Enabled</em>' attribute.
 	 * @see #setPrefetchingEnabled(boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_PrefetchingEnabled()
-	 * @model default="true" transient="true"
+	 * @model default="false"
 	 * @generated
 	 */
 	boolean isPrefetchingEnabled();

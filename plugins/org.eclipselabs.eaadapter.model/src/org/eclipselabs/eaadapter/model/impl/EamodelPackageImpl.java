@@ -2406,7 +2406,7 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		initEReference(getEARepository_Filter(), this.getFilter(), null, "filter", null, 0, -1, EARepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEARepository_PersistentModels(), this.getEAPackage(), null, "persistentModels", null, 0, -1, EARepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEARepository_Persistent(), ecorePackage.getEBoolean(), "persistent", "false", 0, 1, EARepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEARepository_PrefetchingEnabled(), ecorePackage.getEBoolean(), "prefetchingEnabled", "true", 0, 1, EARepository.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEARepository_PrefetchingEnabled(), ecorePackage.getEBoolean(), "prefetchingEnabled", "false", 0, 1, EARepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEARepository_ShowWindow(), ecorePackage.getEBoolean(), "showWindow", "false", 0, 1, EARepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(eaRepositoryEClass, theDatatypesPackage.getBoolean(), "openFile", 0, 1, IS_UNIQUE, IS_ORDERED);

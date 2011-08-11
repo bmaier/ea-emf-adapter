@@ -19,7 +19,7 @@
 <%}%>
 		}
 <%if (genClass.getName().equals("EARepository")) {%>
-		((EARepository)object).setPrefetchingEnabled(false);
+//		((EARepository)object).setPrefetchingEnabled(false); // (no idea why we needed this line...)
 <%}%>
 		return childrenFeatures;
 	}
