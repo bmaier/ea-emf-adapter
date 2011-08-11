@@ -60,7 +60,6 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -70,7 +69,6 @@ import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
@@ -131,9 +129,7 @@ import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
-import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipselabs.eaadapter.model.EARepository;
@@ -897,11 +893,11 @@ public class EamodelEditor
 		}
 		
 		// set prefetching off
-		EObject root = resource.getContents().get(0);
-		if (root instanceof EARepository) {
-			EARepository repository = (EARepository) root;
-			repository.setPrefetchingEnabled(false);
-		}
+//		EObject root = resource.getContents().get(0);
+//		if (root instanceof EARepository) {
+//			EARepository repository = (EARepository) root;
+//			repository.setPrefetchingEnabled(false);
+//		}
 		
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
@@ -1853,37 +1849,37 @@ s	 * @generated
 			super(adapterFactory);
 		}
 
-		@Override
-		protected IPropertySource createPropertySource(Object object, IItemPropertySource itemPropertySource) {
-			if (object instanceof Resource) {
-				Resource resource = (Resource)object;
-				if (resource.getContents().get(0) instanceof EARepository) {
-//					object = resource.getContents().get(0);
-				}
-			}
-//			System.out.println("EamodelEditor: " + object);
-			// overwrite property source
-			return new ChangePropertySource(object, itemPropertySource);
-		}
+//		@Override
+//		protected IPropertySource createPropertySource(Object object, IItemPropertySource itemPropertySource) {
+//			if (object instanceof Resource) {
+//				Resource resource = (Resource)object;
+//				if (resource.getContents().get(0) instanceof EARepository) {
+////					object = resource.getContents().get(0);
+//				}
+//			}
+////			System.out.println("EamodelEditor: " + object);
+//			// overwrite property source
+////			return new ChangePropertySource(object, itemPropertySource);
+//		}
 		
-		/**
-		 * Extend PeropertySource to return property descriptors of status objects as well. 
-		 */
-		private class ChangePropertySource extends PropertySource {
-
-			public ChangePropertySource(Object object, IItemPropertySource itemPropertySource) {
-				super(object, itemPropertySource);
-			}
-			
-			@Override
-			public IPropertyDescriptor[] getPropertyDescriptors() {
-				if (object instanceof Resource) {
-					Resource resource = (Resource)object;
-					if (resource.getContents().get(0) instanceof EARepository) {
-						System.out.println("EamodelEditor: JETZT PROPERTIES VOM REPOSITORY OBJECT ANZEIGEN!" + resource.getContents().get(0));
-					}
-				}
-				return super.getPropertyDescriptors();
+//		/**
+//		 * Extend PeropertySource to return property descriptors of status objects as well. 
+//		 */
+//		private class ChangePropertySource extends PropertySource {
+//
+//			public ChangePropertySource(Object object, IItemPropertySource itemPropertySource) {
+//				super(object, itemPropertySource);
+//			}
+//			
+//			@Override
+//			public IPropertyDescriptor[] getPropertyDescriptors() {
+//				if (object instanceof Resource) {
+//					Resource resource = (Resource)object;
+//					if (resource.getContents().get(0) instanceof EARepository) {
+////						System.out.println("EamodelEditor: JETZT PROPERTIES VOM REPOSITORY OBJECT ANZEIGEN!" + resource.getContents().get(0));
+//					}
+//				}
+//				return super.getPropertyDescriptors();
 				
 //				// get descriptors for transfer status object
 //				TransferStatus status = transferChangeList.getAtomicChangeToTransferStatusMap().get(object);
@@ -1911,7 +1907,7 @@ s	 * @generated
 //				System.arraycopy(statusDescriptors, 0, descriptors, 0, statusDescriptors.length);
 //				System.arraycopy(changeDescriptors, 0, descriptors, offset, changeDescriptors.length);
 //				return descriptors;
-			}
+//			}
 			
 //			@Override
 //			public Object getPropertyValue(Object propertyId) {
@@ -1961,7 +1957,7 @@ s	 * @generated
 //			    	}
 //			    };
 //			}
-		}
+//		}
 	}
 
 }
