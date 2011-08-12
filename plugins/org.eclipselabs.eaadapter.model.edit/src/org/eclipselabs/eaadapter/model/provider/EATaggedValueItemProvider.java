@@ -277,11 +277,13 @@ public class EATaggedValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EATaggedValue)object).getName();
+		final EATaggedValue element = (EATaggedValue)object;
+		String label = element.getName();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EATaggedValue_type") :
 			getString("_UI_EATaggedValue_type") + ": " + label;
-			//getString("_UI_EATaggedValue_type") + " " + label;
+	
 	}
 
 	/**

@@ -277,11 +277,13 @@ public class EAConnectorTagItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EAConnectorTag)object).getName();
+		final EAConnectorTag element = (EAConnectorTag)object;
+		String label = element.getName();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EAConnectorTag_type") :
 			getString("_UI_EAConnectorTag_type") + ": " + label;
-			//getString("_UI_EAConnectorTag_type") + " " + label;
+	
 	}
 
 	/**

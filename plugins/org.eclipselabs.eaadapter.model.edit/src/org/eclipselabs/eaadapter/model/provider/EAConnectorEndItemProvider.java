@@ -440,10 +440,11 @@ public class EAConnectorEndItemProvider
 	public String getText(Object object) {
 		Integer labelValue = ((EAConnectorEnd)object).getId();
 		String label = labelValue == null ? null : labelValue.toString();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EAConnectorEnd_type") :
 			getString("_UI_EAConnectorEnd_type") + ": " + label;
-			//getString("_UI_EAConnectorEnd_type") + " " + label;
+	
 	}
 
 	/**

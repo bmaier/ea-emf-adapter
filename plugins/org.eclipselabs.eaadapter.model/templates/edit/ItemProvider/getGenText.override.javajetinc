@@ -46,10 +46,11 @@
 		return getString("_UI_<%=genClass.getName()%>_type") + " " + <%=genClass.getSafeUncapName()%>.<%=genClass.getLabelFeature().getGetAccessor()%>();<%=genModel.getNonNLS()%><%=genModel.getNonNLS(2)%>
   <%} else {%>
     <%if (labelFeature.isStringType() && !labelFeature.getGenClass().isDynamic() && !labelFeature.isSuppressedGetVisibility()) {%>
+		final <%=genClass.getImportedInterfaceName()%><%=genClass.getInterfaceWildTypeArguments()%> element = (<%=genClass.getImportedInterfaceName()%><%=genClass.getInterfaceWildTypeArguments()%>)object;
       <%if (labelFeature.isPropertyMultiLine()) {%>
-		String label = crop(((<%=genClass.getImportedInterfaceName()%><%=genClass.getInterfaceWildTypeArguments()%>)object).<%=labelFeature.getGetAccessor()%>());
+		String label = crop(element.<%=labelFeature.getGetAccessor()%>());
       <%} else {%>
-		String label = ((<%=genClass.getImportedInterfaceName()%><%=genClass.getInterfaceWildTypeArguments()%>)object).<%=labelFeature.getGetAccessor()%>();
+		String label = element.<%=labelFeature.getGetAccessor()%>();
       <%}%>
     <%} else {%>
       <%if (labelFeature.isSuppressedGetVisibility() || labelFeature.getGenClass().isDynamic()) {%>
@@ -59,10 +60,20 @@
       <%}%>
 		String label = labelValue == null ? null : labelValue.toString();
     <%}%>
+	<%if (genClass.getName().equals("EAElement") || genClass.getName().equals("EAAttribute") || genClass.getName().equals("EAConnector") || genClass.getName().equals("EAMethod")) {%>
+		String stereotype = element.getStereotype() == null || element.getStereotype().length() == 0 ? 
+				"" : " \u00AB" + element.getStereotype() + "\u00BB";<%=genModel.getNonNLS()%>
+	  <%if (genClass.getName().equals("EAElement")) {%>
+		stereotype += " " + element.getType();
+	  <%}%>
+		return label == null || label.length() == 0 ?
+			getString("_UI_<%=genClass.getName()%>_type") :<%=genModel.getNonNLS()%>
+			getString("_UI_<%=genClass.getName()%>_type") + stereotype + ": " + label;<%=genModel.getNonNLS()%><%=genModel.getNonNLS(2)%>
+	<%} else {%>
 		return label == null || label.length() == 0 ?
 			getString("_UI_<%=genClass.getName()%>_type") :<%=genModel.getNonNLS()%>
 			getString("_UI_<%=genClass.getName()%>_type") + ": " + label;<%=genModel.getNonNLS()%><%=genModel.getNonNLS(2)%>
-			//getString("_UI_<%=genClass.getName()%>_type") + " " + label;<%=genModel.getNonNLS()%><%=genModel.getNonNLS(2)%>
+	<%}%>
   <%}%>
 <%} else {%>
 		return getString("_UI_<%=genClass.getName()%>_type");<%=genModel.getNonNLS()%>

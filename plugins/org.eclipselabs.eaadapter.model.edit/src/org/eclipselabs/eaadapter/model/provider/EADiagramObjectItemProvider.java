@@ -325,10 +325,11 @@ public class EADiagramObjectItemProvider
 	public String getText(Object object) {
 		Integer labelValue = ((EADiagramObject)object).getId();
 		String label = labelValue == null ? null : labelValue.toString();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EADiagramObject_type") :
 			getString("_UI_EADiagramObject_type") + ": " + label;
-			//getString("_UI_EADiagramObject_type") + " " + label;
+	
 	}
 
 	/**

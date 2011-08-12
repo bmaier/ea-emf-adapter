@@ -700,11 +700,16 @@ public class EAAttributeItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EAAttribute)object).getName();
+		final EAAttribute element = (EAAttribute)object;
+		String label = element.getName();
+	
+		String stereotype = element.getStereotype() == null || element.getStereotype().length() == 0 ? 
+				"" : " \u00AB" + element.getStereotype() + "\u00BB";
+	  
 		return label == null || label.length() == 0 ?
 			getString("_UI_EAAttribute_type") :
-			getString("_UI_EAAttribute_type") + ": " + label;
-			//getString("_UI_EAAttribute_type") + " " + label;
+			getString("_UI_EAAttribute_type") + stereotype + ": " + label;
+	
 	}
 
 	/**

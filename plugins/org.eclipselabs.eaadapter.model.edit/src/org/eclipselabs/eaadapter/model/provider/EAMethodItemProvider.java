@@ -678,11 +678,16 @@ public class EAMethodItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EAMethod)object).getName();
+		final EAMethod element = (EAMethod)object;
+		String label = element.getName();
+	
+		String stereotype = element.getStereotype() == null || element.getStereotype().length() == 0 ? 
+				"" : " \u00AB" + element.getStereotype() + "\u00BB";
+	  
 		return label == null || label.length() == 0 ?
 			getString("_UI_EAMethod_type") :
-			getString("_UI_EAMethod_type") + ": " + label;
-			//getString("_UI_EAMethod_type") + " " + label;
+			getString("_UI_EAMethod_type") + stereotype + ": " + label;
+	
 	}
 
 	/**

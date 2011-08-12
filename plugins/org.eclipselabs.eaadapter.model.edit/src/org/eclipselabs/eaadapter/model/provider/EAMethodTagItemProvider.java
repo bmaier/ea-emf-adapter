@@ -277,11 +277,13 @@ public class EAMethodTagItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EAMethodTag)object).getName();
+		final EAMethodTag element = (EAMethodTag)object;
+		String label = element.getName();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EAMethodTag_type") :
 			getString("_UI_EAMethodTag_type") + ": " + label;
-			//getString("_UI_EAMethodTag_type") + " " + label;
+	
 	}
 
 	/**

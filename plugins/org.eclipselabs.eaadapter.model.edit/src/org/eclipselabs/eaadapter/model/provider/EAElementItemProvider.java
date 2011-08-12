@@ -934,11 +934,18 @@ public class EAElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EAElement)object).getName();
+		final EAElement element = (EAElement)object;
+		String label = element.getName();
+	
+		String stereotype = element.getStereotype() == null || element.getStereotype().length() == 0 ? 
+				"" : " \u00AB" + element.getStereotype() + "\u00BB";
+	  
+		stereotype += " " + element.getType();
+	  
 		return label == null || label.length() == 0 ?
 			getString("_UI_EAElement_type") :
-			getString("_UI_EAElement_type") + ": " + label;
-			//getString("_UI_EAElement_type") + " " + label;
+			getString("_UI_EAElement_type") + stereotype + ": " + label;
+	
 	}
 
 	/**

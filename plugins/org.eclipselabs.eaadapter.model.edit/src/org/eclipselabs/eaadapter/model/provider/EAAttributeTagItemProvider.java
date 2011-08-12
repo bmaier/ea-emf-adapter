@@ -277,11 +277,13 @@ public class EAAttributeTagItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EAAttributeTag)object).getName();
+		final EAAttributeTag element = (EAAttributeTag)object;
+		String label = element.getName();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EAAttributeTag_type") :
 			getString("_UI_EAAttributeTag_type") + ": " + label;
-			//getString("_UI_EAAttributeTag_type") + " " + label;
+	
 	}
 
 	/**

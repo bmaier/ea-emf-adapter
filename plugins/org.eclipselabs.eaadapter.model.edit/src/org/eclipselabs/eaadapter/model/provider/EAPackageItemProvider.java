@@ -379,11 +379,13 @@ public class EAPackageItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EAPackage)object).getName();
+		final EAPackage element = (EAPackage)object;
+		String label = element.getName();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EAPackage_type") :
 			getString("_UI_EAPackage_type") + ": " + label;
-			//getString("_UI_EAPackage_type") + " " + label;
+	
 	}
 
 	/**

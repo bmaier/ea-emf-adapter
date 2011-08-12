@@ -302,10 +302,11 @@ public class EADiagramLinkItemProvider
 	public String getText(Object object) {
 		Integer labelValue = ((EADiagramLink)object).getId();
 		String label = labelValue == null ? null : labelValue.toString();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EADiagramLink_type") :
 			getString("_UI_EADiagramLink_type") + ": " + label;
-			//getString("_UI_EADiagramLink_type") + " " + label;
+	
 	}
 
 	/**

@@ -364,7 +364,7 @@ public class EARepositoryItemProvider
 			childrenFeatures.add(EamodelPackage.Literals.EA_REPOSITORY__FILTER);
 			childrenFeatures.add(EamodelPackage.Literals.EA_REPOSITORY__PERSISTENT_MODELS);
 		}
-//		((EARepository)object).setPrefetchingEnabled(false);
+//		((EARepository)object).setPrefetchingEnabled(false); // (no idea why we needed this line...)
 		return childrenFeatures;
 	}
 
@@ -403,11 +403,13 @@ public class EARepositoryItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EARepository)object).getFile();
+		final EARepository element = (EARepository)object;
+		String label = element.getFile();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EARepository_type") :
 			getString("_UI_EARepository_type") + ": " + label;
-			//getString("_UI_EARepository_type") + " " + label;
+	
 	}
 
 	/**

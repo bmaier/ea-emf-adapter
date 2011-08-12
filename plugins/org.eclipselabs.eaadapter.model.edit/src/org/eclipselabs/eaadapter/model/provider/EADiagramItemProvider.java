@@ -425,11 +425,13 @@ public class EADiagramItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EADiagram)object).getName();
+		final EADiagram element = (EADiagram)object;
+		String label = element.getName();
+	
 		return label == null || label.length() == 0 ?
 			getString("_UI_EADiagram_type") :
 			getString("_UI_EADiagram_type") + ": " + label;
-			//getString("_UI_EADiagram_type") + " " + label;
+	
 	}
 
 	/**
