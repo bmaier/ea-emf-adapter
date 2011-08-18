@@ -111,7 +111,11 @@
 					<%=genFeature.getSafeName()%> = new <%=list%>;
 					// fill list with ea objects
 					<%=genModel.getImportedName("java.util.ArrayList")+"<"+collectionType+">"%> coll = new <%=genModel.getImportedName("java.util.ArrayList")%><<%=collectionType%>>();
+                    <%if (genClass.getName().equals("EARepository") || genClass.getName().equals("EADiagram")) {%>
+					for (<%=eaCollectionType%> eaCollElement : <%=coll%>) {
+                    <%} else {%>
 					collection: for (<%=eaCollectionType%> eaCollElement : <%=coll%>) {
+                    <%}%>
            <%if (genClass.getName().equals("EAElement") && genFeature.getName().equals("connectors")) {%>
 						// the emf adapter only consideres the supplier as container for connectors
 						if (eaCollElement.GetClientID() == getId()) continue;

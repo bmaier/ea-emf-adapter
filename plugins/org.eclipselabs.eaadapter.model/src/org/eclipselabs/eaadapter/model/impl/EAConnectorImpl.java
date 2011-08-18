@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.eaadapter.model.EAConnector;
 import org.eclipselabs.eaadapter.model.EAConnectorEnd;
@@ -1889,8 +1888,7 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (eaClient != null) {
 					// the emf object may not be initialized, so lets catch the nullpointer if it fails...
 					try {
-						final Resource resource = eResource();
-						Object o = resource.getEObject(eaClient.GetElementGUID());
+						Object o = eResource().getEObject(eaClient.GetElementGUID());
 						// if o is null, the element may be out of scope so we ingore it.
 						if (o != null) client = (EAElement)o;
 					} catch (NullPointerException e) {
