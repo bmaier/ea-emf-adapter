@@ -12,7 +12,7 @@
 <%if (genClass.getName().equals("EAConnector")) {%>
 		String type = ((EAConnector) object).getType();
 		type = (type == null || type.isEmpty()) ? "" : " (" + type + ")";
-		return getString("_UI_<%=genClass.getName()%>_type") + type + ": " + <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getConnectorLabel((EAConnector)object);
+		return getString("_UI_<%=genClass.getName()%>_type") + type + ": " + <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAEditUtil")%>.getConnectorLabel((EAConnector)object);
 <%} else if (genClass.getName().equals("Filter")) {%>
 		Filter filter = (Filter)object;
 		String label = getString("_UI_Filter_type") + ": " + 
