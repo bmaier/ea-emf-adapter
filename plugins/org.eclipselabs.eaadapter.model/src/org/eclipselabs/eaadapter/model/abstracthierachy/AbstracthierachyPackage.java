@@ -443,22 +443,13 @@ public interface AbstracthierachyPackage extends EPackage {
 	int EA_STEREOTYPED_ELEMENT__STEREOTYPE = EA_NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE = EA_NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>EA Stereotyped Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EA_STEREOTYPED_ELEMENT_FEATURE_COUNT = EA_NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int EA_STEREOTYPED_ELEMENT_FEATURE_COUNT = EA_NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.eaadapter.model.abstracthierachy.EATypedElement <em>EA Typed Element</em>}' class.
@@ -532,15 +523,6 @@ public interface AbstracthierachyPackage extends EPackage {
 	 * @ordered
 	 */
 	int EA_TYPED_ELEMENT__STEREOTYPE = EA_STEREOTYPED_ELEMENT__STEREOTYPE;
-
-	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_TYPED_ELEMENT__HAS_DSTEREOTYPE = EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -632,15 +614,6 @@ public interface AbstracthierachyPackage extends EPackage {
 	 * @ordered
 	 */
 	int EA_VISIBILITY_ELEMENT__STEREOTYPE = EA_TYPED_ELEMENT__STEREOTYPE;
-
-	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_VISIBILITY_ELEMENT__HAS_DSTEREOTYPE = EA_TYPED_ELEMENT__HAS_DSTEREOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -741,15 +714,6 @@ public interface AbstracthierachyPackage extends EPackage {
 	 * @ordered
 	 */
 	int EA_CLASSIFIER_ID_LONG__STEREOTYPE = EA_VISIBILITY_ELEMENT__STEREOTYPE;
-
-	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_CLASSIFIER_ID_LONG__HAS_DSTEREOTYPE = EA_VISIBILITY_ELEMENT__HAS_DSTEREOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -859,15 +823,6 @@ public interface AbstracthierachyPackage extends EPackage {
 	 * @ordered
 	 */
 	int EA_MODIFIABLE_ELEMENT__STEREOTYPE = EA_VISIBILITY_ELEMENT__STEREOTYPE;
-
-	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_MODIFIABLE_ELEMENT__HAS_DSTEREOTYPE = EA_VISIBILITY_ELEMENT__HAS_DSTEREOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1361,17 +1316,6 @@ public interface AbstracthierachyPackage extends EPackage {
 	EAttribute getEAStereotypedElement_Stereotype();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.eaadapter.model.abstracthierachy.EAStereotypedElement#getHasDStereotype <em>Has DStereotype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Has DStereotype</em>'.
-	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.EAStereotypedElement#getHasDStereotype()
-	 * @see #getEAStereotypedElement()
-	 * @generated
-	 */
-	EAttribute getEAStereotypedElement_HasDStereotype();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.eaadapter.model.abstracthierachy.EATaggedElement <em>EA Tagged Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1687,14 +1631,6 @@ public interface AbstracthierachyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EA_STEREOTYPED_ELEMENT__STEREOTYPE = eINSTANCE.getEAStereotypedElement_Stereotype();
-
-		/**
-		 * The meta object literal for the '<em><b>Has DStereotype</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE = eINSTANCE.getEAStereotypedElement_HasDStereotype();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.eaadapter.model.abstracthierachy.EATaggedElement <em>EA Tagged Element</em>}' class.

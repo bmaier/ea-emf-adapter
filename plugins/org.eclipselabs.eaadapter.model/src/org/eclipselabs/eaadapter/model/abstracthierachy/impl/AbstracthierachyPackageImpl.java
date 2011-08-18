@@ -395,15 +395,6 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEAStereotypedElement_HasDStereotype() {
-		return (EAttribute)eaStereotypedElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEATaggedElement() {
 		return eaTaggedElementEClass;
 	}
@@ -545,7 +536,6 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 
 		eaStereotypedElementEClass = createEClass(EA_STEREOTYPED_ELEMENT);
 		createEAttribute(eaStereotypedElementEClass, EA_STEREOTYPED_ELEMENT__STEREOTYPE);
-		createEAttribute(eaStereotypedElementEClass, EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE);
 
 		eaTaggedElementEClass = createEClass(EA_TAGGED_ELEMENT);
 		createEAttribute(eaTaggedElementEClass, EA_TAGGED_ELEMENT__VALUE);
@@ -642,7 +632,6 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 
 		initEClass(eaStereotypedElementEClass, EAStereotypedElement.class, "EAStereotypedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEAStereotypedElement_Stereotype(), theDatatypesPackage.getString(), "stereotype", null, 0, 1, EAStereotypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAStereotypedElement_HasDStereotype(), theDatatypesPackage.getBoolean(), "hasDStereotype", null, 0, 1, EAStereotypedElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaTaggedElementEClass, EATaggedElement.class, "EATaggedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEATaggedElement_Value(), theDatatypesPackage.getString(), "value", null, 0, 1, EATaggedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

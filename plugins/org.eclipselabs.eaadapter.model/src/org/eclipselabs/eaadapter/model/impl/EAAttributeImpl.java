@@ -53,7 +53,6 @@ import org.sparx.Collection;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAAttributeImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAAttributeImpl#getGuid <em>Guid</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAAttributeImpl#getStereotype <em>Stereotype</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAAttributeImpl#getHasDStereotype <em>Has DStereotype</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAAttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAAttributeImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAAttributeImpl#getIsConst <em>Is Const</em>}</li>
@@ -219,16 +218,6 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 	 * @ordered
 	 */
 	protected String stereotype = null;
-
-	/**
-	 * The default value of the '{@link #getHasDStereotype() <em>Has DStereotype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasDStereotype()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean HAS_DSTEREOTYPE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -871,15 +860,6 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 		stereotype = newStereotype;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_ATTRIBUTE__STEREOTYPE, oldStereotype, stereotype));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getHasDStereotype() {
-		return getStereotype().contains("-D");
 	}
 
 	/**
@@ -1925,8 +1905,6 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				return getGuid();
 			case EamodelPackage.EA_ATTRIBUTE__STEREOTYPE:
 				return getStereotype();
-			case EamodelPackage.EA_ATTRIBUTE__HAS_DSTEREOTYPE:
-				return getHasDStereotype();
 			case EamodelPackage.EA_ATTRIBUTE__TYPE:
 				return getType();
 			case EamodelPackage.EA_ATTRIBUTE__VISIBILITY:
@@ -2154,8 +2132,6 @@ public class EAAttributeImpl extends EObjectImpl implements EAAttribute {
 				return GUID_EDEFAULT == null ? guid != null : !GUID_EDEFAULT.equals(guid);
 			case EamodelPackage.EA_ATTRIBUTE__STEREOTYPE:
 				return STEREOTYPE_EDEFAULT == null ? stereotype != null : !STEREOTYPE_EDEFAULT.equals(stereotype);
-			case EamodelPackage.EA_ATTRIBUTE__HAS_DSTEREOTYPE:
-				return HAS_DSTEREOTYPE_EDEFAULT == null ? getHasDStereotype() != null : !HAS_DSTEREOTYPE_EDEFAULT.equals(getHasDStereotype());
 			case EamodelPackage.EA_ATTRIBUTE__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case EamodelPackage.EA_ATTRIBUTE__VISIBILITY:

@@ -78,7 +78,6 @@ public class EADiagramItemProvider
 			addAuthorPropertyDescriptor(object);
 			addIsLockedPropertyDescriptor(object);
 			addStereotypePropertyDescriptor(object);
-			addHasDStereotypePropertyDescriptor(object);
 			addSwimlanesPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addEaLinkPropertyDescriptor(object);
@@ -285,28 +284,6 @@ public class EADiagramItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Has DStereotype feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasDStereotypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EAStereotypedElement_hasDStereotype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EAStereotypedElement_hasDStereotype_feature", "_UI_EAStereotypedElement_type"),
-				 AbstracthierachyPackage.Literals.EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Swimlanes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -455,7 +432,6 @@ public class EADiagramItemProvider
 			case EamodelPackage.EA_DIAGRAM__AUTHOR:
 			case EamodelPackage.EA_DIAGRAM__IS_LOCKED:
 			case EamodelPackage.EA_DIAGRAM__STEREOTYPE:
-			case EamodelPackage.EA_DIAGRAM__HAS_DSTEREOTYPE:
 			case EamodelPackage.EA_DIAGRAM__SWIMLANES:
 			case EamodelPackage.EA_DIAGRAM__TYPE:
 			case EamodelPackage.EA_DIAGRAM__EA_LINK:

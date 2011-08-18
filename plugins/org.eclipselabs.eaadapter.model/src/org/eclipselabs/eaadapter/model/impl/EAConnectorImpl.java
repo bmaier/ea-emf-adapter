@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.eaadapter.model.EAConnector;
 import org.eclipselabs.eaadapter.model.EAConnectorEnd;
@@ -53,7 +54,6 @@ import org.sparx.Element;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getGuid <em>Guid</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getStereotype <em>Stereotype</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getHasDStereotype <em>Has DStereotype</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getConnectorID <em>Connector ID</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getDirection <em>Direction</em>}</li>
@@ -240,16 +240,6 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @ordered
 	 */
 	protected String stereotype = null;
-
-	/**
-	 * The default value of the '{@link #getHasDStereotype() <em>Has DStereotype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasDStereotype()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean HAS_DSTEREOTYPE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -1218,15 +1208,6 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getHasDStereotype() {
-		return getStereotype().contains("-D");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getType() {
 		// if value was already fetched, use the old one.
 		if (getRepository() != null && repository.getCaching() && type != null) return type;
@@ -1908,7 +1889,8 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				if (eaClient != null) {
 					// the emf object may not be initialized, so lets catch the nullpointer if it fails...
 					try {
-						Object o = eResource().getEObject(eaClient.GetElementGUID());
+						final Resource resource = eResource();
+						Object o = resource.getEObject(eaClient.GetElementGUID());
 						// if o is null, the element may be out of scope so we ingore it.
 						if (o != null) client = (EAElement)o;
 					} catch (NullPointerException e) {
@@ -3203,8 +3185,6 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				return getGuid();
 			case EamodelPackage.EA_CONNECTOR__STEREOTYPE:
 				return getStereotype();
-			case EamodelPackage.EA_CONNECTOR__HAS_DSTEREOTYPE:
-				return getHasDStereotype();
 			case EamodelPackage.EA_CONNECTOR__TYPE:
 				return getType();
 			case EamodelPackage.EA_CONNECTOR__CONNECTOR_ID:
@@ -3566,8 +3546,6 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				return GUID_EDEFAULT == null ? guid != null : !GUID_EDEFAULT.equals(guid);
 			case EamodelPackage.EA_CONNECTOR__STEREOTYPE:
 				return STEREOTYPE_EDEFAULT == null ? stereotype != null : !STEREOTYPE_EDEFAULT.equals(stereotype);
-			case EamodelPackage.EA_CONNECTOR__HAS_DSTEREOTYPE:
-				return HAS_DSTEREOTYPE_EDEFAULT == null ? getHasDStereotype() != null : !HAS_DSTEREOTYPE_EDEFAULT.equals(getHasDStereotype());
 			case EamodelPackage.EA_CONNECTOR__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case EamodelPackage.EA_CONNECTOR__CONNECTOR_ID:

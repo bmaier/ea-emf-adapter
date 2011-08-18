@@ -75,7 +75,6 @@ public class EAElementItemProvider
 			addNotesPropertyDescriptor(object);
 			addGuidPropertyDescriptor(object);
 			addStereotypePropertyDescriptor(object);
-			addHasDStereotypePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addVisibilityPropertyDescriptor(object);
 			addClassifierIDPropertyDescriptor(object);
@@ -101,7 +100,6 @@ public class EAElementItemProvider
 			addTablespacePropertyDescriptor(object);
 			addTagPropertyDescriptor(object);
 			addEaLinkPropertyDescriptor(object);
-			addHasA2dDependencyPropertyDescriptor(object);
 			addParentIDPropertyDescriptor(object);
 			addPackageIDPropertyDescriptor(object);
 		}
@@ -233,28 +231,6 @@ public class EAElementItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_EAStereotypedElement_stereotype_feature", "_UI_EAStereotypedElement_type"),
 				 AbstracthierachyPackage.Literals.EA_STEREOTYPED_ELEMENT__STEREOTYPE,
 				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has DStereotype feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasDStereotypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EAStereotypedElement_hasDStereotype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EAStereotypedElement_hasDStereotype_feature", "_UI_EAStereotypedElement_type"),
-				 AbstracthierachyPackage.Literals.EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE,
-				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -813,28 +789,6 @@ public class EAElementItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Has A2d Dependency feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasA2dDependencyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EAElement_hasA2dDependency_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EAElement_hasA2dDependency_feature", "_UI_EAElement_type"),
-				 EamodelPackage.Literals.EA_ELEMENT__HAS_A2D_DEPENDENCY,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Parent ID feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -966,7 +920,6 @@ public class EAElementItemProvider
 			case EamodelPackage.EA_ELEMENT__NOTES:
 			case EamodelPackage.EA_ELEMENT__GUID:
 			case EamodelPackage.EA_ELEMENT__STEREOTYPE:
-			case EamodelPackage.EA_ELEMENT__HAS_DSTEREOTYPE:
 			case EamodelPackage.EA_ELEMENT__TYPE:
 			case EamodelPackage.EA_ELEMENT__VISIBILITY:
 			case EamodelPackage.EA_ELEMENT__CLASSIFIER_ID:
@@ -992,7 +945,6 @@ public class EAElementItemProvider
 			case EamodelPackage.EA_ELEMENT__TABLESPACE:
 			case EamodelPackage.EA_ELEMENT__TAG:
 			case EamodelPackage.EA_ELEMENT__EA_LINK:
-			case EamodelPackage.EA_ELEMENT__HAS_A2D_DEPENDENCY:
 			case EamodelPackage.EA_ELEMENT__PARENT_ID:
 			case EamodelPackage.EA_ELEMENT__PACKAGE_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

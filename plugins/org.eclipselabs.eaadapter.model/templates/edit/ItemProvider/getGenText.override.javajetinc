@@ -10,7 +10,9 @@
 	public String getText(Object object)
 	{
 <%if (genClass.getName().equals("EAConnector")) {%>
-		return getString("_UI_<%=genClass.getName()%>_type") + ": " + <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getConnectorLabel((EAConnector)object);
+		String type = ((EAConnector) object).getType();
+		type = (type == null || type.isEmpty()) ? "" : " (" + type + ")";
+		return getString("_UI_<%=genClass.getName()%>_type") + type + ": " + <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getConnectorLabel((EAConnector)object);
 <%} else if (genClass.getName().equals("Filter")) {%>
 		Filter filter = (Filter)object;
 		String label = getString("_UI_Filter_type") + ": " + 

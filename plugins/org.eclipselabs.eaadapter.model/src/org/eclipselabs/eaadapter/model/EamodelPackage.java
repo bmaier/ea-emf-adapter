@@ -144,15 +144,6 @@ public interface EamodelPackage extends EPackage {
 	int EA_ATTRIBUTE__STEREOTYPE = AbstracthierachyPackage.EA_MODIFIABLE_ELEMENT__STEREOTYPE;
 
 	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_ATTRIBUTE__HAS_DSTEREOTYPE = AbstracthierachyPackage.EA_MODIFIABLE_ELEMENT__HAS_DSTEREOTYPE;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -513,15 +504,6 @@ public interface EamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int EA_CONNECTOR__STEREOTYPE = AbstracthierachyPackage.EA_TYPED_ELEMENT__STEREOTYPE;
-
-	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_CONNECTOR__HAS_DSTEREOTYPE = AbstracthierachyPackage.EA_TYPED_ELEMENT__HAS_DSTEREOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1265,22 +1247,13 @@ public interface EamodelPackage extends EPackage {
 	int EA_DIAGRAM__STEREOTYPE = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_DIAGRAM__HAS_DSTEREOTYPE = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Swimlanes</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EA_DIAGRAM__SWIMLANES = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 2;
+	int EA_DIAGRAM__SWIMLANES = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1289,7 +1262,7 @@ public interface EamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EA_DIAGRAM__TYPE = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 3;
+	int EA_DIAGRAM__TYPE = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Package</b></em>' container reference.
@@ -1298,7 +1271,7 @@ public interface EamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EA_DIAGRAM__PACKAGE = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 4;
+	int EA_DIAGRAM__PACKAGE = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Ea Link</b></em>' attribute.
@@ -1307,7 +1280,7 @@ public interface EamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EA_DIAGRAM__EA_LINK = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 5;
+	int EA_DIAGRAM__EA_LINK = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Links</b></em>' containment reference list.
@@ -1316,7 +1289,7 @@ public interface EamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EA_DIAGRAM__DIAGRAM_LINKS = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 6;
+	int EA_DIAGRAM__DIAGRAM_LINKS = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Diagram Objects</b></em>' containment reference list.
@@ -1325,7 +1298,7 @@ public interface EamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EA_DIAGRAM__DIAGRAM_OBJECTS = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 7;
+	int EA_DIAGRAM__DIAGRAM_OBJECTS = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>EA Diagram</em>' class.
@@ -1334,7 +1307,7 @@ public interface EamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EA_DIAGRAM_FEATURE_COUNT = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 8;
+	int EA_DIAGRAM_FEATURE_COUNT = AbstracthierachyPackage.EA_OWNED_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.eaadapter.model.impl.EADiagramLinkImpl <em>EA Diagram Link</em>}' class.
@@ -1637,15 +1610,6 @@ public interface EamodelPackage extends EPackage {
 	int EA_ELEMENT__STEREOTYPE = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG__STEREOTYPE;
 
 	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_ELEMENT__HAS_DSTEREOTYPE = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG__HAS_DSTEREOTYPE;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1934,22 +1898,13 @@ public interface EamodelPackage extends EPackage {
 	int EA_ELEMENT__EA_LINK = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 28;
 
 	/**
-	 * The feature id for the '<em><b>Has A2d Dependency</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_ELEMENT__HAS_A2D_DEPENDENCY = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 29;
-
-	/**
 	 * The feature id for the '<em><b>Parent ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EA_ELEMENT__PARENT_ID = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 30;
+	int EA_ELEMENT__PARENT_ID = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 29;
 
 	/**
 	 * The feature id for the '<em><b>Package ID</b></em>' attribute.
@@ -1958,7 +1913,7 @@ public interface EamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EA_ELEMENT__PACKAGE_ID = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 31;
+	int EA_ELEMENT__PACKAGE_ID = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 30;
 
 	/**
 	 * The number of structural features of the '<em>EA Element</em>' class.
@@ -1967,7 +1922,7 @@ public interface EamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EA_ELEMENT_FEATURE_COUNT = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 32;
+	int EA_ELEMENT_FEATURE_COUNT = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 31;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl <em>EA Method</em>}' class.
@@ -2041,15 +1996,6 @@ public interface EamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int EA_METHOD__STEREOTYPE = AbstracthierachyPackage.EA_MODIFIABLE_ELEMENT__STEREOTYPE;
-
-	/**
-	 * The feature id for the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_METHOD__HAS_DSTEREOTYPE = AbstracthierachyPackage.EA_MODIFIABLE_ELEMENT__HAS_DSTEREOTYPE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -4354,17 +4300,6 @@ public interface EamodelPackage extends EPackage {
 	EAttribute getEAElement_EaLink();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.eaadapter.model.EAElement#getHasA2dDependency <em>Has A2d Dependency</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Has A2d Dependency</em>'.
-	 * @see org.eclipselabs.eaadapter.model.EAElement#getHasA2dDependency()
-	 * @see #getEAElement()
-	 * @generated
-	 */
-	EAttribute getEAElement_HasA2dDependency();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.eclipselabs.eaadapter.model.EAElement#getParentID <em>Parent ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6086,14 +6021,6 @@ public interface EamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EA_ELEMENT__EA_LINK = eINSTANCE.getEAElement_EaLink();
-
-		/**
-		 * The meta object literal for the '<em><b>Has A2d Dependency</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EA_ELEMENT__HAS_A2D_DEPENDENCY = eINSTANCE.getEAElement_HasA2dDependency();
 
 		/**
 		 * The meta object literal for the '<em><b>Parent ID</b></em>' attribute feature.

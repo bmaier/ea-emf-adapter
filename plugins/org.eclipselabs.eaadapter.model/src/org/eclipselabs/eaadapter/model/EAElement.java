@@ -54,7 +54,6 @@ import org.sparx.Element;
  *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getMethods <em>Methods</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getEaLink <em>Ea Link</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getHasA2dDependency <em>Has A2d Dependency</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getParentID <em>Parent ID</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getPackageID <em>Package ID</em>}</li>
  * </ul>
@@ -692,22 +691,6 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @generated
 	 */
 	void setEaLink(Element value);
-
-	/**
-	 * Returns the value of the '<em><b>Has A2d Dependency</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * <div class='userdoc'>
-	 * Returns, whether this element has an ingoing or outgoing connector which has the stereotype <i>A2D</i> and is of the type <i>dependency</i>.
-	 * </div>
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Has A2d Dependency</em>' attribute.
-	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_HasA2dDependency()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" transient="true" changeable="false" volatile="true"
-	 * @generated
-	 */
-	Boolean getHasA2dDependency();
 
 	/**
 	 * Returns the value of the '<em><b>Parent ID</b></em>' attribute.

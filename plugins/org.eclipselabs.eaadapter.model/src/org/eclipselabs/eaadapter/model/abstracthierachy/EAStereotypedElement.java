@@ -16,7 +16,6 @@ package org.eclipselabs.eaadapter.model.abstracthierachy;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.eaadapter.model.abstracthierachy.EAStereotypedElement#getStereotype <em>Stereotype</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.abstracthierachy.EAStereotypedElement#getHasDStereotype <em>Has DStereotype</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,21 +49,5 @@ public interface EAStereotypedElement extends EANamedElement {
 	 * @generated
 	 */
 	void setStereotype(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Has DStereotype</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * <div class='userdoc'>
-	 * Each stereotyped element can be checked whether the stereotype contains a '-X'.
-	 * </div>
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Has DStereotype</em>' attribute.
-	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAStereotypedElement_HasDStereotype()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" transient="true" changeable="false" volatile="true"
-	 * @generated
-	 */
-	Boolean getHasDStereotype();
 
 } // EAStereotypedElement

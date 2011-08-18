@@ -1362,7 +1362,7 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEAElement_HasA2dDependency() {
+	public EAttribute getEAElement_ParentID() {
 		return (EAttribute)eaElementEClass.getEStructuralFeatures().get(26);
 	}
 
@@ -1371,17 +1371,8 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEAElement_ParentID() {
-		return (EAttribute)eaElementEClass.getEStructuralFeatures().get(27);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getEAElement_PackageID() {
-		return (EAttribute)eaElementEClass.getEStructuralFeatures().get(28);
+		return (EAttribute)eaElementEClass.getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -2086,7 +2077,6 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		createEReference(eaElementEClass, EA_ELEMENT__METHODS);
 		createEReference(eaElementEClass, EA_ELEMENT__TAGGED_VALUES);
 		createEAttribute(eaElementEClass, EA_ELEMENT__EA_LINK);
-		createEAttribute(eaElementEClass, EA_ELEMENT__HAS_A2D_DEPENDENCY);
 		createEAttribute(eaElementEClass, EA_ELEMENT__PARENT_ID);
 		createEAttribute(eaElementEClass, EA_ELEMENT__PACKAGE_ID);
 
@@ -2348,7 +2338,6 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		initEReference(getEAElement_Methods(), this.getEAMethod(), this.getEAMethod_Element(), "methods", null, 0, -1, EAElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEAElement_TaggedValues(), this.getEATaggedValue(), null, "taggedValues", null, 0, -1, EAElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAElement_EaLink(), theDatatypesPackage.getT_Element(), "eaLink", null, 0, 1, EAElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAElement_HasA2dDependency(), theDatatypesPackage.getBoolean(), "hasA2dDependency", null, 0, 1, EAElement.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAElement_ParentID(), theDatatypesPackage.getInteger(), "parentID", null, 0, 1, EAElement.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAElement_PackageID(), theDatatypesPackage.getInteger(), "packageID", null, 0, 1, EAElement.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

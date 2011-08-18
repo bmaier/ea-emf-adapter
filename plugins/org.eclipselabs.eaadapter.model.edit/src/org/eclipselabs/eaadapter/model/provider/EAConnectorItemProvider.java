@@ -75,7 +75,6 @@ public class EAConnectorItemProvider
 			addNotesPropertyDescriptor(object);
 			addGuidPropertyDescriptor(object);
 			addStereotypePropertyDescriptor(object);
-			addHasDStereotypePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addConnectorIDPropertyDescriptor(object);
 			addDirectionPropertyDescriptor(object);
@@ -242,28 +241,6 @@ public class EAConnectorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_EAStereotypedElement_stereotype_feature", "_UI_EAStereotypedElement_type"),
 				 AbstracthierachyPackage.Literals.EA_STEREOTYPED_ELEMENT__STEREOTYPE,
 				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has DStereotype feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasDStereotypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EAStereotypedElement_hasDStereotype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EAStereotypedElement_hasDStereotype_feature", "_UI_EAStereotypedElement_type"),
-				 AbstracthierachyPackage.Literals.EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE,
-				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -1139,7 +1116,9 @@ public class EAConnectorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EAConnector_type") + ": " + EAUtil.getConnectorLabel((EAConnector)object);
+		String type = ((EAConnector) object).getType();
+		type = (type == null || type.isEmpty()) ? "" : " (" + type + ")";
+		return getString("_UI_EAConnector_type") + type + ": " + EAUtil.getConnectorLabel((EAConnector)object);
 	}
 
 	/**
@@ -1160,7 +1139,6 @@ public class EAConnectorItemProvider
 			case EamodelPackage.EA_CONNECTOR__NOTES:
 			case EamodelPackage.EA_CONNECTOR__GUID:
 			case EamodelPackage.EA_CONNECTOR__STEREOTYPE:
-			case EamodelPackage.EA_CONNECTOR__HAS_DSTEREOTYPE:
 			case EamodelPackage.EA_CONNECTOR__TYPE:
 			case EamodelPackage.EA_CONNECTOR__CONNECTOR_ID:
 			case EamodelPackage.EA_CONNECTOR__DIRECTION:

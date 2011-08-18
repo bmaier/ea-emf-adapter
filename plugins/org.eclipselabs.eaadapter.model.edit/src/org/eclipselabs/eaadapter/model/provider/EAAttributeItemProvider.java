@@ -75,7 +75,6 @@ public class EAAttributeItemProvider
 			addNotesPropertyDescriptor(object);
 			addGuidPropertyDescriptor(object);
 			addStereotypePropertyDescriptor(object);
-			addHasDStereotypePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addVisibilityPropertyDescriptor(object);
 			addIsConstPropertyDescriptor(object);
@@ -223,28 +222,6 @@ public class EAAttributeItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_EAStereotypedElement_stereotype_feature", "_UI_EAStereotypedElement_type"),
 				 AbstracthierachyPackage.Literals.EA_STEREOTYPED_ELEMENT__STEREOTYPE,
 				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has DStereotype feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasDStereotypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EAStereotypedElement_hasDStereotype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EAStereotypedElement_hasDStereotype_feature", "_UI_EAStereotypedElement_type"),
-				 AbstracthierachyPackage.Literals.EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE,
-				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -730,7 +707,6 @@ public class EAAttributeItemProvider
 			case EamodelPackage.EA_ATTRIBUTE__NOTES:
 			case EamodelPackage.EA_ATTRIBUTE__GUID:
 			case EamodelPackage.EA_ATTRIBUTE__STEREOTYPE:
-			case EamodelPackage.EA_ATTRIBUTE__HAS_DSTEREOTYPE:
 			case EamodelPackage.EA_ATTRIBUTE__TYPE:
 			case EamodelPackage.EA_ATTRIBUTE__VISIBILITY:
 			case EamodelPackage.EA_ATTRIBUTE__IS_CONST:

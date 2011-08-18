@@ -55,7 +55,6 @@ import org.sparx.DiagramObject;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EADiagramImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EADiagramImpl#getIsLocked <em>Is Locked</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EADiagramImpl#getStereotype <em>Stereotype</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.impl.EADiagramImpl#getHasDStereotype <em>Has DStereotype</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EADiagramImpl#getSwimlanes <em>Swimlanes</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EADiagramImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EADiagramImpl#getPackage <em>Package</em>}</li>
@@ -267,16 +266,6 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 	 * @ordered
 	 */
 	protected String stereotype = null;
-
-	/**
-	 * The default value of the '{@link #getHasDStereotype() <em>Has DStereotype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasDStereotype()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean HAS_DSTEREOTYPE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getSwimlanes() <em>Swimlanes</em>}' attribute.
@@ -806,15 +795,6 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getHasDStereotype() {
-		return getStereotype().contains("-D");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getSwimlanes() {
 		// if value was already fetched, use the old one.
 		if (getRepository() != null && repository.getCaching() && swimlanes != null) return swimlanes;
@@ -1150,8 +1130,6 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				return getIsLocked();
 			case EamodelPackage.EA_DIAGRAM__STEREOTYPE:
 				return getStereotype();
-			case EamodelPackage.EA_DIAGRAM__HAS_DSTEREOTYPE:
-				return getHasDStereotype();
 			case EamodelPackage.EA_DIAGRAM__SWIMLANES:
 				return getSwimlanes();
 			case EamodelPackage.EA_DIAGRAM__TYPE:
@@ -1292,8 +1270,6 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 				return IS_LOCKED_EDEFAULT == null ? isLocked != null : !IS_LOCKED_EDEFAULT.equals(isLocked);
 			case EamodelPackage.EA_DIAGRAM__STEREOTYPE:
 				return STEREOTYPE_EDEFAULT == null ? stereotype != null : !STEREOTYPE_EDEFAULT.equals(stereotype);
-			case EamodelPackage.EA_DIAGRAM__HAS_DSTEREOTYPE:
-				return HAS_DSTEREOTYPE_EDEFAULT == null ? getHasDStereotype() != null : !HAS_DSTEREOTYPE_EDEFAULT.equals(getHasDStereotype());
 			case EamodelPackage.EA_DIAGRAM__SWIMLANES:
 				return SWIMLANES_EDEFAULT == null ? swimlanes != null : !SWIMLANES_EDEFAULT.equals(swimlanes);
 			case EamodelPackage.EA_DIAGRAM__TYPE:
@@ -1324,7 +1300,6 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 		if (baseClass == EAStereotypedElement.class) {
 			switch (derivedFeatureID) {
 				case EamodelPackage.EA_DIAGRAM__STEREOTYPE: return AbstracthierachyPackage.EA_STEREOTYPED_ELEMENT__STEREOTYPE;
-				case EamodelPackage.EA_DIAGRAM__HAS_DSTEREOTYPE: return AbstracthierachyPackage.EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE;
 				default: return -1;
 			}
 		}
@@ -1345,7 +1320,6 @@ public class EADiagramImpl extends EObjectImpl implements EADiagram {
 		if (baseClass == EAStereotypedElement.class) {
 			switch (baseFeatureID) {
 				case AbstracthierachyPackage.EA_STEREOTYPED_ELEMENT__STEREOTYPE: return EamodelPackage.EA_DIAGRAM__STEREOTYPE;
-				case AbstracthierachyPackage.EA_STEREOTYPED_ELEMENT__HAS_DSTEREOTYPE: return EamodelPackage.EA_DIAGRAM__HAS_DSTEREOTYPE;
 				default: return -1;
 			}
 		}

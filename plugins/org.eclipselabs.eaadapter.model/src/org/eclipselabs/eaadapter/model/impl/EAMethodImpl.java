@@ -54,7 +54,6 @@ import org.sparx.Parameter;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl#getGuid <em>Guid</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl#getStereotype <em>Stereotype</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl#getHasDStereotype <em>Has DStereotype</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl#getIsConst <em>Is Const</em>}</li>
@@ -220,16 +219,6 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 	 * @ordered
 	 */
 	protected String stereotype = null;
-
-	/**
-	 * The default value of the '{@link #getHasDStereotype() <em>Has DStereotype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasDStereotype()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean HAS_DSTEREOTYPE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -882,15 +871,6 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 		stereotype = newStereotype;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_METHOD__STEREOTYPE, oldStereotype, stereotype));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getHasDStereotype() {
-		return getStereotype().contains("-D");
 	}
 
 	/**
@@ -2032,8 +2012,6 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				return getGuid();
 			case EamodelPackage.EA_METHOD__STEREOTYPE:
 				return getStereotype();
-			case EamodelPackage.EA_METHOD__HAS_DSTEREOTYPE:
-				return getHasDStereotype();
 			case EamodelPackage.EA_METHOD__TYPE:
 				return getType();
 			case EamodelPackage.EA_METHOD__VISIBILITY:
@@ -2262,8 +2240,6 @@ public class EAMethodImpl extends EObjectImpl implements EAMethod {
 				return GUID_EDEFAULT == null ? guid != null : !GUID_EDEFAULT.equals(guid);
 			case EamodelPackage.EA_METHOD__STEREOTYPE:
 				return STEREOTYPE_EDEFAULT == null ? stereotype != null : !STEREOTYPE_EDEFAULT.equals(stereotype);
-			case EamodelPackage.EA_METHOD__HAS_DSTEREOTYPE:
-				return HAS_DSTEREOTYPE_EDEFAULT == null ? getHasDStereotype() != null : !HAS_DSTEREOTYPE_EDEFAULT.equals(getHasDStereotype());
 			case EamodelPackage.EA_METHOD__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case EamodelPackage.EA_METHOD__VISIBILITY:

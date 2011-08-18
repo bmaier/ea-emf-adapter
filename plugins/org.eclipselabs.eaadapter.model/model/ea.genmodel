@@ -143,7 +143,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAElement/methods"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ea.ecore#//EAElement/taggedValues"/>
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/eaLink"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/hasA2dDependency"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/parentID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/packageID"/>
     </genClasses>
@@ -302,7 +301,6 @@
       </genClasses>
       <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EAStereotypedElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAStereotypedElement/stereotype"/>
-        <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EAStereotypedElement/hasDStereotype"/>
       </genClasses>
       <genClasses image="false" ecoreClass="ea.ecore#//abstracthierachy/EATaggedElement">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//abstracthierachy/EATaggedElement/value"/>

@@ -326,12 +326,6 @@
         <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;DO NOT TOUCH THIS! This attributed is used as a link to the Enterprise Architect and is managed internally only!&#xD;&#xA;&lt;/div>"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasA2dDependency" eType="#//datatypes/Boolean"
-        changeable="false" volatile="true" transient="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;Returns, whether this element has an ingoing or outgoing connector which has the stereotype &lt;i>A2D&lt;/i> and is of the type &lt;i>dependency&lt;/i>.&#xD;&#xA;&lt;/div>"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parentID" eType="#//datatypes/Integer"
         volatile="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="packageID" eType="#//datatypes/Integer"
@@ -729,12 +723,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="EAStereotypedElement" abstract="true"
         interface="true" eSuperTypes="#//abstracthierachy/EANamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="stereotype" eType="#//datatypes/String"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasDStereotype" eType="#//datatypes/Boolean"
-          changeable="false" volatile="true" transient="true">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;Each stereotyped element can be checked whether the stereotype contains a '-X'.&#xD;&#xA;&lt;/div>"/>
-        </eAnnotations>
-      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EATaggedElement" abstract="true" interface="true"
         eSuperTypes="#//abstracthierachy/EANamedElement">

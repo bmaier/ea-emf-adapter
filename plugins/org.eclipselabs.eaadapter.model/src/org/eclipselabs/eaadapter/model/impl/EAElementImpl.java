@@ -15,8 +15,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
@@ -63,7 +61,6 @@ import org.sparx.TaggedValue;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getGuid <em>Guid</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getStereotype <em>Stereotype</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getHasDStereotype <em>Has DStereotype</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getClassifierID <em>Classifier ID</em>}</li>
@@ -96,7 +93,6 @@ import org.sparx.TaggedValue;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getMethods <em>Methods</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getTaggedValues <em>Tagged Values</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getEaLink <em>Ea Link</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getHasA2dDependency <em>Has A2d Dependency</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getParentID <em>Parent ID</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getPackageID <em>Package ID</em>}</li>
  * </ul>
@@ -244,16 +240,6 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 	 * @ordered
 	 */
 	protected String stereotype = null;
-
-	/**
-	 * The default value of the '{@link #getHasDStereotype() <em>Has DStereotype</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasDStereotype()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean HAS_DSTEREOTYPE_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -696,16 +682,6 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 	protected Element eaLink = null;
 
 	/**
-	 * The default value of the '{@link #getHasA2dDependency() <em>Has A2d Dependency</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasA2dDependency()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean HAS_A2D_DEPENDENCY_EDEFAULT = null;
-
-	/**
 	 * The default value of the '{@link #getParentID() <em>Parent ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,15 +992,6 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 		stereotype = newStereotype;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_ELEMENT__STEREOTYPE, oldStereotype, stereotype));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean getHasDStereotype() {
-		return getStereotype().contains("-D");
 	}
 
 	/**
@@ -2481,36 +2448,6 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getHasA2dDependency() {
-		// check connectors
-		if (getConnectors() != null) {
-			for (EAConnector connector : getConnectors()) {
-				if (connector.getIsA2dDependency())
-					return true;
-			}
-		}
-		// check cross references
-		if (repository != null) {
-			Map<EObject, java.util.Collection<EStructuralFeature.Setting>> map = EcoreUtil.CrossReferencer.find(repository.getModels());
-			java.util.Collection<EStructuralFeature.Setting> refs = map.get(this);
-			if (refs != null) {
-				for (EStructuralFeature.Setting setting : refs) {
-					if (setting.getEObject() instanceof EAConnector) {
-						EAConnector connector = (EAConnector) setting.getEObject();
-						if (connector.getIsA2dDependency())
-							return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Integer getParentID() {
 		// This feature is marked volatile, in case of the EA model we just ignore it.
 		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
@@ -2726,8 +2663,6 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				return getGuid();
 			case EamodelPackage.EA_ELEMENT__STEREOTYPE:
 				return getStereotype();
-			case EamodelPackage.EA_ELEMENT__HAS_DSTEREOTYPE:
-				return getHasDStereotype();
 			case EamodelPackage.EA_ELEMENT__TYPE:
 				return getType();
 			case EamodelPackage.EA_ELEMENT__VISIBILITY:
@@ -2792,8 +2727,6 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				return getTaggedValues();
 			case EamodelPackage.EA_ELEMENT__EA_LINK:
 				return getEaLink();
-			case EamodelPackage.EA_ELEMENT__HAS_A2D_DEPENDENCY:
-				return getHasA2dDependency();
 			case EamodelPackage.EA_ELEMENT__PARENT_ID:
 				return getParentID();
 			case EamodelPackage.EA_ELEMENT__PACKAGE_ID:
@@ -3067,8 +3000,6 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				return GUID_EDEFAULT == null ? guid != null : !GUID_EDEFAULT.equals(guid);
 			case EamodelPackage.EA_ELEMENT__STEREOTYPE:
 				return STEREOTYPE_EDEFAULT == null ? stereotype != null : !STEREOTYPE_EDEFAULT.equals(stereotype);
-			case EamodelPackage.EA_ELEMENT__HAS_DSTEREOTYPE:
-				return HAS_DSTEREOTYPE_EDEFAULT == null ? getHasDStereotype() != null : !HAS_DSTEREOTYPE_EDEFAULT.equals(getHasDStereotype());
 			case EamodelPackage.EA_ELEMENT__TYPE:
 				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 			case EamodelPackage.EA_ELEMENT__VISIBILITY:
@@ -3133,8 +3064,6 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				return taggedValues != null && !taggedValues.isEmpty();
 			case EamodelPackage.EA_ELEMENT__EA_LINK:
 				return EA_LINK_EDEFAULT == null ? eaLink != null : !EA_LINK_EDEFAULT.equals(eaLink);
-			case EamodelPackage.EA_ELEMENT__HAS_A2D_DEPENDENCY:
-				return HAS_A2D_DEPENDENCY_EDEFAULT == null ? getHasA2dDependency() != null : !HAS_A2D_DEPENDENCY_EDEFAULT.equals(getHasA2dDependency());
 			case EamodelPackage.EA_ELEMENT__PARENT_ID:
 				return PARENT_ID_EDEFAULT == null ? getParentID() != null : !PARENT_ID_EDEFAULT.equals(getParentID());
 			case EamodelPackage.EA_ELEMENT__PACKAGE_ID:
