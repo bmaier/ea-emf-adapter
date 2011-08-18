@@ -31,7 +31,7 @@ import org.eclipselabs.eaadapter.model.EAConnector;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
 import org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage;
-import org.eclipselabs.eaadapter.model.util.EAUtil;
+import org.eclipselabs.eaadapter.model.util.EAEditUtil;
 
 
 /**
@@ -1118,7 +1118,7 @@ public class EAConnectorItemProvider
 	public String getText(Object object) {
 		String type = ((EAConnector) object).getType();
 		type = (type == null || type.isEmpty()) ? "" : " (" + type + ")";
-		return getString("_UI_EAConnector_type") + type + ": " + EAUtil.getConnectorLabel((EAConnector)object);
+		return getString("_UI_EAConnector_type") + type + ": " + EAEditUtil.getConnectorLabel((EAConnector)object);
 	}
 
 	/**
@@ -1214,14 +1214,22 @@ public class EAConnectorItemProvider
 		return EaEditPlugin.INSTANCE;
 	}
 
+	/**
+	 * If there is a user defined icon for this child, return it.
+	 * Otherwise call super.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object getCreateChildImage(Object owner, Object feature,
 			Object child, Collection<?> selection) {
 		if (feature instanceof EReference) {
-			Object image = EAUtil.getImageFor(((EReference)feature).getEType());
+			Object image = EAEditUtil.getImageFor(((EReference)feature).getEType());
 			if (image != null)
 				return image;
 		}
 		return super.getCreateChildImage(owner, feature, child, selection);
 	}
+
 }

@@ -29,7 +29,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
 import org.eclipselabs.eaadapter.model.Filter;
 import org.eclipselabs.eaadapter.model.datatypes.FilterType;
-import org.eclipselabs.eaadapter.model.util.EAUtil;
+import org.eclipselabs.eaadapter.model.util.EAEditUtil;
 
 
 /**
@@ -266,11 +266,18 @@ public class FilterItemProvider
 		return EaEditPlugin.INSTANCE;
 	}
 
+	/**
+	 * If there is a user defined icon for this child, return it.
+	 * Otherwise call super.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object getCreateChildImage(Object owner, Object feature,
 			Object child, Collection<?> selection) {
 		if (feature instanceof EReference) {
-			Object image = EAUtil.getImageFor(((EReference)feature).getEType());
+			Object image = EAEditUtil.getImageFor(((EReference)feature).getEType());
 			if (image != null)
 				return image;
 		}

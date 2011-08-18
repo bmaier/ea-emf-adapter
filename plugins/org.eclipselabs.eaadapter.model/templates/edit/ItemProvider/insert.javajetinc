@@ -9,7 +9,7 @@
 	public Object getCreateChildImage(Object owner, Object feature,
 			Object child, Collection<?> selection) {
 		if (feature instanceof <%=genModel.getImportedName("org.eclipse.emf.ecore.EReference")%>) {
-			Object image = <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.getImageFor(((EReference)feature).getEType());
+			Object image = <%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAEditUtil")%>.getImageFor(((EReference)feature).getEType());
 			if (image != null)
 				return image;
 		}
