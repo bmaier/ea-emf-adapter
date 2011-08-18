@@ -513,4 +513,17 @@ public interface EARepository extends EObject {
 	 */
 	void prefetch();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * <div class='userdoc'>
+	 * This closes the EA. Please do not call this manually - the behaviour is undefined.
+	 * </div>
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void exitEA();
+
 } // EARepository

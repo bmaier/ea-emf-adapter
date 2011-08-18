@@ -766,13 +766,14 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 		// close ea
 		try {
 			eaLink.CloseFile();
+			eaLink.Exit();
 		} catch (Exception e) {
-			System.err.println("Error while closing file:");
+			System.err.println("Error while closing file:" + e.getMessage());
 			e.printStackTrace();
 		}
 		models = null;
 	}
-
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -789,6 +790,23 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 				for (EAPackage p : packages) {
 					EAUtil.iterateOverEClass(p, null, true);
 				}
+			}
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void exitEA() {
+		if (eaLink != null) {
+			closeFile(); // close file if it's still open
+			try {
+				eaLink.Exit(); // now try to close EA!
+			} catch (Exception e) {
+				System.err.println("Error while exiting EA:" + e.getMessage());
+				e.printStackTrace();
 			}
 		}
 	}

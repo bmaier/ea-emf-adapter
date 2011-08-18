@@ -206,6 +206,7 @@
       <genOperations ecoreOperation="ea.ecore#//EARepository/openFile"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/closeFile"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/prefetch"/>
+      <genOperations ecoreOperation="ea.ecore#//EARepository/exitEA"/>
     </genClasses>
     <genClasses ecoreClass="ea.ecore#//EATaggedValue">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EATaggedValue/eaLink"/>

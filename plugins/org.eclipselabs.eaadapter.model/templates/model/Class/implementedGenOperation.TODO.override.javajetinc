@@ -55,11 +55,22 @@
 		// close ea
 		try {
 			eaLink.CloseFile();
+			eaLink.Exit();
 		} catch (Exception e) {
-			System.err.println("Error while closing file:");
+			System.err.println("Error while closing file:" + e.getMessage());
 			e.printStackTrace();
 		}
 		models = null;
+<%  } else if (genOperation.getName().equals("exitEA")) {%>
+		if (eaLink != null) {
+			closeFile(); // close file if it's still open
+			try {
+				eaLink.Exit(); // now try to close EA!
+			} catch (Exception e) {
+				System.err.println("Error while exiting EA:" + e.getMessage());
+				e.printStackTrace();
+			}
+		}
 <%  } else if (genOperation.getName().equals("prefetch")) {%>
 		if (prefetchCompleteModel) {
 			<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.iterateOverEClass(this, null, true);

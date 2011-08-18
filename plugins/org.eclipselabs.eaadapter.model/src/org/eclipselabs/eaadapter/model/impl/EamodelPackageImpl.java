@@ -2404,6 +2404,8 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 
 		addEOperation(eaRepositoryEClass, null, "prefetch", 0, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(eaRepositoryEClass, null, "exitEA", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(eaTaggedValueEClass, EATaggedValue.class, "EATaggedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEATaggedValue_EaLink(), theDatatypesPackage.getT_TaggedValue(), "eaLink", null, 0, 1, EATaggedValue.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
