@@ -371,6 +371,16 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	protected static final String TRANSITION_EVENT_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getTransitionEvent() <em>Transition Event</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransitionEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transitionEvent = null;
+
+	/**
 	 * The default value of the '{@link #getTransitionAction() <em>Transition Action</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -381,6 +391,16 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	protected static final String TRANSITION_ACTION_EDEFAULT = null;
 
 	/**
+	 * The cached value of the '{@link #getTransitionAction() <em>Transition Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransitionAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transitionAction = null;
+
+	/**
 	 * The default value of the '{@link #getTransitionGuard() <em>Transition Guard</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,6 +409,16 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @ordered
 	 */
 	protected static final String TRANSITION_GUARD_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTransitionGuard() <em>Transition Guard</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransitionGuard()
+	 * @generated
+	 * @ordered
+	 */
+	protected String transitionGuard = null;
 
 	/**
 	 * The default value of the '{@link #getRouteStyle() <em>Route Style</em>}' attribute.
@@ -1466,9 +1496,18 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @generated
 	 */
 	public String getTransitionEvent() {
-		// This feature is marked volatile, in case of the EA model we just ignore it.
-		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
-		return null;
+		// if value was already fetched, use the old one.
+		if (getRepository() != null && repository.getCaching() && transitionEvent != null) return transitionEvent;
+		// fetch value from ea model if adapter link is present
+		if (eaLink != null) {
+			try {
+				transitionEvent = eaLink.GetTransitionEvent();
+			} catch (Exception e) {
+				EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+			}
+		}
+		// return value
+		return transitionEvent;
 	}
 
 	/**
@@ -1478,8 +1517,27 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @generated
 	 */
 	public void setTransitionEvent(String newTransitionEvent) {
-		// This feature is marked volatile, in case of the EA model we just ignore it.
-		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
+		if (repository != null) {
+			if (!repository.getReadonlyEaLink()) {
+				// (if you get an error here, that eaLink cannot be resolved, you need to add that attribute to the model)
+				if (eaLink == null) return;
+				if (newTransitionEvent != null && newTransitionEvent.equals(transitionEvent)) return;
+				// update EA link
+				try {
+					eaLink.SetTransitionEvent(newTransitionEvent);
+					if (!updateEaLink(eaLink)) return;
+				} catch (Exception e) {
+					if (eaLink == null)
+						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
+					else EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+				}
+			}
+		}
+		// update emf object
+		String oldTransitionEvent = transitionEvent;
+		transitionEvent = newTransitionEvent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_CONNECTOR__TRANSITION_EVENT, oldTransitionEvent, transitionEvent));
 	}
 
 	/**
@@ -1488,9 +1546,18 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @generated
 	 */
 	public String getTransitionAction() {
-		// This feature is marked volatile, in case of the EA model we just ignore it.
-		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
-		return null;
+		// if value was already fetched, use the old one.
+		if (getRepository() != null && repository.getCaching() && transitionAction != null) return transitionAction;
+		// fetch value from ea model if adapter link is present
+		if (eaLink != null) {
+			try {
+				transitionAction = eaLink.GetTransitionAction();
+			} catch (Exception e) {
+				EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+			}
+		}
+		// return value
+		return transitionAction;
 	}
 
 	/**
@@ -1500,8 +1567,27 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @generated
 	 */
 	public void setTransitionAction(String newTransitionAction) {
-		// This feature is marked volatile, in case of the EA model we just ignore it.
-		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
+		if (repository != null) {
+			if (!repository.getReadonlyEaLink()) {
+				// (if you get an error here, that eaLink cannot be resolved, you need to add that attribute to the model)
+				if (eaLink == null) return;
+				if (newTransitionAction != null && newTransitionAction.equals(transitionAction)) return;
+				// update EA link
+				try {
+					eaLink.SetTransitionAction(newTransitionAction);
+					if (!updateEaLink(eaLink)) return;
+				} catch (Exception e) {
+					if (eaLink == null)
+						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
+					else EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+				}
+			}
+		}
+		// update emf object
+		String oldTransitionAction = transitionAction;
+		transitionAction = newTransitionAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_CONNECTOR__TRANSITION_ACTION, oldTransitionAction, transitionAction));
 	}
 
 	/**
@@ -1510,9 +1596,18 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @generated
 	 */
 	public String getTransitionGuard() {
-		// This feature is marked volatile, in case of the EA model we just ignore it.
-		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
-		return null;
+		// if value was already fetched, use the old one.
+		if (getRepository() != null && repository.getCaching() && transitionGuard != null) return transitionGuard;
+		// fetch value from ea model if adapter link is present
+		if (eaLink != null) {
+			try {
+				transitionGuard = eaLink.GetTransitionGuard();
+			} catch (Exception e) {
+				EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+			}
+		}
+		// return value
+		return transitionGuard;
 	}
 
 	/**
@@ -1522,8 +1617,27 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @generated
 	 */
 	public void setTransitionGuard(String newTransitionGuard) {
-		// This feature is marked volatile, in case of the EA model we just ignore it.
-		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
+		if (repository != null) {
+			if (!repository.getReadonlyEaLink()) {
+				// (if you get an error here, that eaLink cannot be resolved, you need to add that attribute to the model)
+				if (eaLink == null) return;
+				if (newTransitionGuard != null && newTransitionGuard.equals(transitionGuard)) return;
+				// update EA link
+				try {
+					eaLink.SetTransitionGuard(newTransitionGuard);
+					if (!updateEaLink(eaLink)) return;
+				} catch (Exception e) {
+					if (eaLink == null)
+						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
+					else EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+				}
+			}
+		}
+		// update emf object
+		String oldTransitionGuard = transitionGuard;
+		transitionGuard = newTransitionGuard;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_CONNECTOR__TRANSITION_GUARD, oldTransitionGuard, transitionGuard));
 	}
 
 	/**
@@ -1671,6 +1785,9 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 		if (type != null) newEaLink.SetType(type);
 		if (direction != null) newEaLink.SetDirection(direction);
 		if (subtype != null) newEaLink.SetSubtype(subtype);
+		if (transitionEvent != null) newEaLink.SetTransitionEvent(transitionEvent);
+		if (transitionAction != null) newEaLink.SetTransitionAction(transitionAction);
+		if (transitionGuard != null) newEaLink.SetTransitionGuard(transitionGuard);
 		if (routeStyle != null) newEaLink.SetRouteStyle(routeStyle);
 		if (sequenceNo != null) newEaLink.SetSequenceNo(sequenceNo);  
 		updateEaLink(newEaLink); // this initializes subelements of the ea object
@@ -3561,11 +3678,11 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 			case EamodelPackage.EA_CONNECTOR__VIRTUAL_INHERITANCE:
 				return VIRTUAL_INHERITANCE_EDEFAULT == null ? getVirtualInheritance() != null : !VIRTUAL_INHERITANCE_EDEFAULT.equals(getVirtualInheritance());
 			case EamodelPackage.EA_CONNECTOR__TRANSITION_EVENT:
-				return TRANSITION_EVENT_EDEFAULT == null ? getTransitionEvent() != null : !TRANSITION_EVENT_EDEFAULT.equals(getTransitionEvent());
+				return TRANSITION_EVENT_EDEFAULT == null ? transitionEvent != null : !TRANSITION_EVENT_EDEFAULT.equals(transitionEvent);
 			case EamodelPackage.EA_CONNECTOR__TRANSITION_ACTION:
-				return TRANSITION_ACTION_EDEFAULT == null ? getTransitionAction() != null : !TRANSITION_ACTION_EDEFAULT.equals(getTransitionAction());
+				return TRANSITION_ACTION_EDEFAULT == null ? transitionAction != null : !TRANSITION_ACTION_EDEFAULT.equals(transitionAction);
 			case EamodelPackage.EA_CONNECTOR__TRANSITION_GUARD:
-				return TRANSITION_GUARD_EDEFAULT == null ? getTransitionGuard() != null : !TRANSITION_GUARD_EDEFAULT.equals(getTransitionGuard());
+				return TRANSITION_GUARD_EDEFAULT == null ? transitionGuard != null : !TRANSITION_GUARD_EDEFAULT.equals(transitionGuard);
 			case EamodelPackage.EA_CONNECTOR__ROUTE_STYLE:
 				return ROUTE_STYLE_EDEFAULT == null ? routeStyle != null : !ROUTE_STYLE_EDEFAULT.equals(routeStyle);
 			case EamodelPackage.EA_CONNECTOR__SEQUENCE_NO:
@@ -3659,6 +3776,12 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 		result.append(getDirection());
 		result.append(", subtype: ");
 		result.append(getSubtype());
+		result.append(", transitionEvent: ");
+		result.append(getTransitionEvent());
+		result.append(", transitionAction: ");
+		result.append(getTransitionAction());
+		result.append(", transitionGuard: ");
+		result.append(getTransitionGuard());
 		result.append(", routeStyle: ");
 		result.append(getRouteStyle());
 		result.append(", sequenceNo: ");

@@ -260,7 +260,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Transition Event</em>' attribute.
 	 * @see #setTransitionEvent(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_TransitionEvent()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
 	 * @generated
 	 */
 	String getTransitionEvent();
@@ -286,7 +286,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Transition Action</em>' attribute.
 	 * @see #setTransitionAction(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_TransitionAction()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
 	 * @generated
 	 */
 	String getTransitionAction();
@@ -312,7 +312,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Transition Guard</em>' attribute.
 	 * @see #setTransitionGuard(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_TransitionGuard()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
 	 * @generated
 	 */
 	String getTransitionGuard();

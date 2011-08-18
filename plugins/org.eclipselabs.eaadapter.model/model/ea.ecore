@@ -62,12 +62,9 @@
         volatile="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="virtualInheritance" eType="#//datatypes/String"
         volatile="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transitionEvent" eType="#//datatypes/String"
-        volatile="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transitionAction" eType="#//datatypes/String"
-        volatile="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transitionGuard" eType="#//datatypes/String"
-        volatile="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transitionEvent" eType="#//datatypes/String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transitionAction" eType="#//datatypes/String"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transitionGuard" eType="#//datatypes/String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="routeStyle" eType="#//datatypes/Integer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceNo" eType="#//datatypes/Integer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diagramID" eType="#//datatypes/Integer"
