@@ -69,7 +69,7 @@
 		stereotype += " " + element.getType();
 	  <%}%>
 		return label == null || label.length() == 0 ?
-			getString("_UI_<%=genClass.getName()%>_type") :<%=genModel.getNonNLS()%>
+			getString("_UI_<%=genClass.getName()%>_type") + stereotype :<%=genModel.getNonNLS()%>
 			getString("_UI_<%=genClass.getName()%>_type") + stereotype + ": " + label;<%=genModel.getNonNLS()%><%=genModel.getNonNLS(2)%>
 	<%} else {%>
 		return label == null || label.length() == 0 ?

@@ -662,7 +662,7 @@ public class EAMethodItemProvider
 				"" : " \u00AB" + element.getStereotype() + "\u00BB";
 	  
 		return label == null || label.length() == 0 ?
-			getString("_UI_EAMethod_type") :
+			getString("_UI_EAMethod_type") + stereotype :
 			getString("_UI_EAMethod_type") + stereotype + ": " + label;
 	
 	}

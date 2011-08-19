@@ -684,7 +684,7 @@ public class EAAttributeItemProvider
 				"" : " \u00AB" + element.getStereotype() + "\u00BB";
 	  
 		return label == null || label.length() == 0 ?
-			getString("_UI_EAAttribute_type") :
+			getString("_UI_EAAttribute_type") + stereotype :
 			getString("_UI_EAAttribute_type") + stereotype + ": " + label;
 	
 	}

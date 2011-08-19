@@ -897,7 +897,7 @@ public class EAElementItemProvider
 		stereotype += " " + element.getType();
 	  
 		return label == null || label.length() == 0 ?
-			getString("_UI_EAElement_type") :
+			getString("_UI_EAElement_type") + stereotype :
 			getString("_UI_EAElement_type") + stereotype + ": " + label;
 	
 	}
