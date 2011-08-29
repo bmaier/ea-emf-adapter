@@ -84,6 +84,16 @@
 				}
 			}
 		}
+<%  } else if (genOperation.getName().equals("exportXMI")) {%>
+		for (<%=genModel.getImportedName("org.sparx.EnumXMIType")%> type : <%=genModel.getImportedName("org.sparx.EnumXMIType")%>.values()) {
+			if (type.name().toLowerCase().equals(xmiType.toLowerCase())) {
+				final String result = eaLink.GetProjectInterface().ExportPackageXMIEx(packageGuid, type,
+						diagrams ? 1 : 0, diagramFormat, formattedXML ? 1 : 0, useDTD ? 1 : 0, filename, 0);
+				return result;
+			}
+		}
+		throw new <%=genModel.getImportedName("java.lang.IllegalArgumentException")%>("XMI type not found: " + xmiType + ". Available options: " + 
+				<%=genModel.getImportedName("java.util.Arrays")%>.toString(<%=genModel.getImportedName("org.sparx.EnumXMIType")%>.values()));
 <%  } else {%>
 		// unused
 		return true;

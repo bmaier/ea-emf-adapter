@@ -207,6 +207,15 @@
       <genOperations ecoreOperation="ea.ecore#//EARepository/closeFile"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/prefetch"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/exitEA"/>
+      <genOperations ecoreOperation="ea.ecore#//EARepository/exportXMI">
+        <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/packageGuid"/>
+        <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/xmiType"/>
+        <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/diagrams"/>
+        <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/diagramFormat"/>
+        <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/formattedXML"/>
+        <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/useDTD"/>
+        <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/filename"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="ea.ecore#//EATaggedValue">
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EATaggedValue/eaLink"/>

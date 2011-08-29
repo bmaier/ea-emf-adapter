@@ -452,6 +452,18 @@
         <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;This closes the EA. Please do not call this manually - the behaviour is undefined.&#xD;&#xA;&lt;/div>"/>
       </eAnnotations>
     </eOperations>
+    <eOperations name="exportXMI" eType="#//datatypes/String">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;&lt;p>Export the given package as XMI into the specified file.&lt;/p>&#xD;&#xA;&lt;p>Parameters:&#xD;&#xA;&lt;ul>&lt;li>&lt;b>packageGuid&lt;/b>: The guid of the package that shall be exported.&#xD;&#xA;&lt;li>&lt;b>xmiType&lt;/b>: The XMI type. Please see {@link EnumXMIType} for available types or check &lt;a href='http://www.sparxsystems.com/enterprise_architect_user_guide/9.0/automation/xmitypeenum.html'>EA Documentation&lt;/a>.&#xD;&#xA;&lt;li>&lt;b>diagrams&lt;/b>: Whether or not to include diagram exports.&#xD;&#xA;&lt;li>&lt;b>diagramFormat&lt;/b>: Which format to use; check &lt;a href='http://www.sparxsystems.com/enterprise_architect_user_guide/9.0/automation/project_2.html'>EA Documentation&lt;/a>.&#xD;&#xA;&lt;li>&lt;b>formattedXML&lt;/b>: Whether or not the output shall be formatted.&#xD;&#xA;&lt;li>&lt;b>useDTD&lt;/b>: Whether or not a DTD shall be used.&#xD;&#xA;&lt;li>&lt;b>filename&lt;/b>: The OS-specific filename for storing the exported XMI.&#xD;&#xA;&lt;/ul>&#xD;&#xA;&lt;/div>"/>
+      </eAnnotations>
+      <eParameters name="packageGuid" eType="#//datatypes/String"/>
+      <eParameters name="xmiType" eType="#//datatypes/String"/>
+      <eParameters name="diagrams" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="diagramFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="formattedXML" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="useDTD" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eParameters name="filename" eType="#//datatypes/String"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
         eType="#//EAPackage" transient="true" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

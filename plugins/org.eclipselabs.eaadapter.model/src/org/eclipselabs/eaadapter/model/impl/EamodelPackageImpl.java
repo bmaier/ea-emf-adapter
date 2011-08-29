@@ -8,6 +8,7 @@ package org.eclipselabs.eaadapter.model.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -2405,6 +2406,15 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		addEOperation(eaRepositoryEClass, null, "prefetch", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(eaRepositoryEClass, null, "exitEA", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		EOperation op = addEOperation(eaRepositoryEClass, theDatatypesPackage.getString(), "exportXMI", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatypesPackage.getString(), "packageGuid", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatypesPackage.getString(), "xmiType", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "diagrams", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "diagramFormat", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "formattedXML", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEBoolean(), "useDTD", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theDatatypesPackage.getString(), "filename", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(eaTaggedValueEClass, EATaggedValue.class, "EATaggedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEATaggedValue_EaLink(), theDatatypesPackage.getT_TaggedValue(), "eaLink", null, 0, 1, EATaggedValue.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

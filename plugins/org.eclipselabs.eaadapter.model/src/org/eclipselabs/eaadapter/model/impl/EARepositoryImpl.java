@@ -7,6 +7,7 @@
 package org.eclipselabs.eaadapter.model.impl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -29,6 +30,7 @@ import org.eclipselabs.eaadapter.model.EamodelPackage;
 import org.eclipselabs.eaadapter.model.Filter;
 import org.eclipselabs.eaadapter.model.util.EAObjectContainmentEList;
 import org.eclipselabs.eaadapter.model.util.EAUtil;
+import org.sparx.EnumXMIType;
 import org.sparx.Repository;
 
 
@@ -809,6 +811,23 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String exportXMI(String packageGuid, String xmiType, boolean diagrams, int diagramFormat, boolean formattedXML, boolean useDTD, String filename) {
+		for (EnumXMIType type : EnumXMIType.values()) {
+			if (type.name().toLowerCase().equals(xmiType.toLowerCase())) {
+				final String result = eaLink.GetProjectInterface().ExportPackageXMIEx(packageGuid, type,
+						diagrams ? 1 : 0, diagramFormat, formattedXML ? 1 : 0, useDTD ? 1 : 0, filename, 0);
+				return result;
+			}
+		}
+		throw new IllegalArgumentException("XMI type not found: " + xmiType + ". Available options: " + 
+				Arrays.toString(EnumXMIType.values()));
 	}
 
 	/**

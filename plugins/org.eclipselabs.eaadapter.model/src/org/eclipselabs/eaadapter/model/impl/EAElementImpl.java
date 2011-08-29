@@ -8,6 +8,7 @@ package org.eclipselabs.eaadapter.model.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -42,9 +43,12 @@ import org.eclipselabs.eaadapter.model.util.EAUtil;
 import org.sparx.Attribute;
 import org.sparx.Collection;
 import org.sparx.Connector;
+import org.sparx.CustomProperty;
 import org.sparx.Element;
 import org.sparx.Method;
+import org.sparx.Property;
 import org.sparx.TaggedValue;
+import org.sparx.Transition;
 
 
 /**
@@ -3208,4 +3212,50 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 		return obj != null && hashCode() == obj.hashCode();
 	}
 
+	public String getProperties() {
+		final String s = 
+				"1: " + eaLink.GetAbstract() + "\n" +
+				"2: " + eaLink.GetActionFlags() + "\n" +
+				"3: " + eaLink.GetAlias() + "\n" +
+				"4: " + eaLink.GetClassfierID() + "\n" +
+				"5: " + eaLink.GetClassifierID() + "\n" +
+				"6: " + eaLink.GetClassifierName() + "\n" +
+				"7: " + eaLink.GetClassifierType() + "\n" +
+				"8: " + eaLink.GetComplexity() + "\n" +
+				"8: " + eaLink.GetDifficulty() + "\n" +
+				"9: " + eaLink.GetElementGUID() + "\n" +
+				"10: " + eaLink.GetElementID() + "\n" +
+				"11: " + eaLink.GetEventFlags() + "\n" +
+				"12: " + eaLink.GetExtensionPoints() + "\n" +
+				"13: " + eaLink.GetGenfile() + "\n" +
+				"14: " + eaLink.GetGenlinks() + "\n" +
+				"15: " + eaLink.GetGentype() + "\n" +
+				"16: " + eaLink.GetHeader1() + "\n" +
+				"17: " + eaLink.GetLinkedDocument() + "\n" +
+				"18: " + eaLink.GetMetaType() + "\n" +
+				"19: " + eaLink.GetMultiplicity() + "\n" +
+				"20: " + eaLink.GetName() + "\n" +
+				"21: " + eaLink.GetPackageID() + "\n" +
+				"22: " + eaLink.GetParentID() + "\n" +
+				"23: " + eaLink.GetPersistence() + "\n" +
+				"24: " + eaLink.GetPropertyType() + "\n" +
+				"25: " + eaLink.GetRunState() + "\n" +
+				"26: " + eaLink.GetStatus() + "\n" +
+				"27: " + eaLink.GetSubtype() + "\n" +
+				"28: " + eaLink.GetTag() + "\n" +
+				"29: " + eaLink.GetType() + "\n" +
+				"30: " + eaLink.GetVersion();
+		for (CustomProperty p : eaLink.GetCustomProperties()) {
+			System.out.println("CustomProp: " + p.GetName() + " - " + p.GetValue());
+		}
+		for (Iterator<Property> i = eaLink.GetProperties().iterator(); i.hasNext();) {
+			final Property p = i.next();
+			System.out.println("Prop: " + p.GetName() + " - " + p.GetValue() + " : " + p.GetType());
+		}
+		for (Transition t : eaLink.GetStateTransitions()) {
+			System.out.println("StateTransition: " + t.GetEvent() + " - " + t.GetTxState());
+		}
+		return s;
+	}
+	
 } //EAElementImpl

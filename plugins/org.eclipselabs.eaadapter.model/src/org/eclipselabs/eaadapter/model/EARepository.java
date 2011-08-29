@@ -8,6 +8,7 @@ package org.eclipselabs.eaadapter.model;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.sparx.EnumXMIType;
 import org.sparx.Repository;
 
 /**
@@ -526,4 +527,27 @@ public interface EARepository extends EObject {
 	 */
 	void exitEA();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * <div class='userdoc'>
+	 * <p>Export the given package as XMI into the specified file.</p>
+	 * <p>Parameters:
+	 * <ul><li><b>packageGuid</b>: The guid of the package that shall be exported.
+	 * <li><b>xmiType</b>: The XMI type. Please see {@link EnumXMIType} for available types or check <a href='http://www.sparxsystems.com/enterprise_architect_user_guide/9.0/automation/xmitypeenum.html'>EA Documentation</a>.
+	 * <li><b>diagrams</b>: Whether or not to include diagram exports.
+	 * <li><b>diagramFormat</b>: Which format to use; check <a href='http://www.sparxsystems.com/enterprise_architect_user_guide/9.0/automation/project_2.html'>EA Documentation</a>.
+	 * <li><b>formattedXML</b>: Whether or not the output shall be formatted.
+	 * <li><b>useDTD</b>: Whether or not a DTD shall be used.
+	 * <li><b>filename</b>: The OS-specific filename for storing the exported XMI.
+	 * </ul>
+	 * </div>
+	 * <!-- end-model-doc -->
+	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" packageGuidDataType="org.eclipselabs.eaadapter.model.datatypes.String" xmiTypeDataType="org.eclipselabs.eaadapter.model.datatypes.String" filenameDataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @generated
+	 */
+	String exportXMI(String packageGuid, String xmiType, boolean diagrams, int diagramFormat, boolean formattedXML, boolean useDTD, String filename);
+
+	
 } // EARepository
