@@ -8,14 +8,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.util.EList;
@@ -24,12 +22,11 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
-import org.eclipselabs.eaadapter.model.EamodelPackage;
-import org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage;
 import org.eclipselabs.eaadapter.model.abstracthierachy.EABaseClass;
 import org.eclipselabs.eaadapter.model.abstracthierachy.EANamedElement;
 
@@ -40,44 +37,6 @@ import org.eclipselabs.eaadapter.model.abstracthierachy.EANamedElement;
  * </div>
  */
 public class EAUtil {
-
-
-	/**
-	 * <div class='userdoc'>
-	 * This map contains all attributes, sorted by their parent classes, which need to be transformed if they are mapped from the analysis- to the design-model.
-	 * </div> 
-	 */
-	public static final Map<String, Set<String>> analyseToDesignMappings = new HashMap<String, Set<String>>();
-	
-	static {
-		// set only containing name attribute
-		Set<String> nameAttribute = new HashSet<String>();
-		nameAttribute.add(AbstracthierachyPackage.Literals.EA_NAMED_ELEMENT__NAME.getName());
-
-		// set containing name and type attributes
-		Set<String> typeAttributes = new HashSet<String>();
-		typeAttributes.add(AbstracthierachyPackage.Literals.EA_NAMED_ELEMENT__NAME.getName());
-		typeAttributes.add(AbstracthierachyPackage.Literals.EA_TYPED_ELEMENT__TYPE.getName());
-
-		// set containing all connector relevant attributes
-		Set<String> connectorAttributes = new HashSet<String>();
-		connectorAttributes.add(AbstracthierachyPackage.Literals.EA_NAMED_ELEMENT__NAME.getName());
-		connectorAttributes.add(EamodelPackage.Literals.EA_CONNECTOR__CLIENT_ROLE.getName());
-		connectorAttributes.add(EamodelPackage.Literals.EA_CONNECTOR__SUPPLIER_ROLE.getName());
-
-		// set parameter attributes
-		Set<String> parameterAttributes = new HashSet<String>();
-		parameterAttributes.add(AbstracthierachyPackage.Literals.EA_NAMED_ELEMENT__NAME.getName());
-		parameterAttributes.add(EamodelPackage.Literals.EA_PARAMETER__TYPE.getName());
-		
-		// add mappings
-		analyseToDesignMappings.put(EamodelPackage.Literals.EA_ATTRIBUTE.getName(), typeAttributes);
-		analyseToDesignMappings.put(EamodelPackage.Literals.EA_ELEMENT.getName(), typeAttributes);
-		analyseToDesignMappings.put(EamodelPackage.Literals.EA_METHOD.getName(), typeAttributes);
-		analyseToDesignMappings.put(EamodelPackage.Literals.EA_PARAMETER.getName(), parameterAttributes);
-		analyseToDesignMappings.put(EamodelPackage.Literals.EA_CONNECTOR.getName(), connectorAttributes);
-		analyseToDesignMappings.put(EamodelPackage.Literals.EA_PACKAGE.getName(), nameAttribute);
-	}
 
 	/**
 	 * <div class='userdoc'>
@@ -141,7 +100,7 @@ public class EAUtil {
 	 * Examples for <b>structures</b>:<ul>
 	 * <li>"Views.Logical_View.Analyse"</li>
 	 * <li>"Views.Logical_View.Analyse, Views.Logical_View.Design"</li>
-	 * <li>"Views.Logical_View.Analyse.AWK, Views.Logical_View.Design.de.telekom.awk"</li>
+	 * <li>"Views.Logical_View.Analyse.SubAnalyse, Views.Logical_View.Design.my.implementation"</li>
 	 * </ul>
 	 * </div>
 	 * @param structures
@@ -368,87 +327,6 @@ public class EAUtil {
 		return false;
 	}
 	
-	
-	/**
-	 * <div class='userdoc'>
-	 * Map analysis string to design string, if necessary.
-	 * </div>
-	 * @param value	value to map.
-	 * @param type	the type which contains the attribute.
-	 * @param attribute	the attribute which holds the value.
-	 * @return	the design value.
-	 */
-	public static String mapAnalysisStringToDesign(String value, String type, String attribute) {
-		Set<String> attributes = analyseToDesignMappings.get(type);
-		if (attributes != null && attributes.contains(attribute)) {
-			return mapAnalysisStringToDesign(value);
-		}
-		return value;
-	}
-	
-	/**
-	 * <div class='userdoc'>
-	 * Convert a name from the analysis model to a safe name for the design model.<br>
-	 * The logic is taken from the VB-Scripts EaTools.<br>  
-	 * Examples: 
-	 * <ul><li>"kunden-id" -&gt; "KundenId"
-	 *   <li>"K_Übergröße" -&gt; "Uebergroesse"
-	 *   <li>"T_Schlüssel8" -&gt; "Schluessel8"
-	 * </ul>
-	 * </div>
-	 * @param analysisString
-	 * @return
-	 */
-	public static String mapAnalysisStringToDesign(String analysisString) {
-		analysisString = analysisString.trim();
-		if (analysisString.startsWith("T_") || analysisString.startsWith("K_"))
-			analysisString = analysisString.substring(2);
-		if (analysisString.endsWith(",null"))
-			analysisString = analysisString.substring(0, analysisString.length() - 5);
-		
-		String designName = "";
-		int length = analysisString.length();
-		int position = 1; 
-		for (int i = 0; i < length; i++) {
-			String designChar = String.valueOf(analysisString.charAt(i));
-			switch (analysisString.charAt(i)) {
-			case 'Ä': designChar = "Ae"; break;
-			case 'Ö': designChar = "Oe"; break;
-			case 'Ü': designChar = "Ue"; break;
-			case 'ä': designChar = "ae"; break;
-			case 'ö': designChar = "oe"; break;
-			case 'ü': designChar = "ue"; break;
-			case 'ß': designChar = "ss"; break;
-			case ',': designChar = "_"; break;
-			case '_': 
-			case '-': 
-			case '<': 
-			case '>': 
-				designChar = "";
-				position = 0;
-				break;
-			case '0':
-			case '1':
-			case '2':
-			case '3':
-			case '4':
-			case '5':
-			case '6':
-			case '7':
-			case '8':
-			case '9':
-				position = 1;
-				break;
-			}
-			if (position++ == 1)
-				if (designChar.length() > 1)
-					designName += designChar.substring(0, 1).toUpperCase() + designChar.substring(1).toLowerCase();
-				else designName += designChar.toUpperCase();
-			else designName += designChar.toLowerCase();
-		}
-		return designName;
-	}
-	
 	/**
 	 * <div class='userdoc'>
 	 * Returns the full path within the model.<br>
@@ -568,37 +446,11 @@ public class EAUtil {
 		for (String file : files) {
 			System.out.println(file + "  -->  " + getFileURI(file));
 		}
-		
-		
-		String[]tests = new String[]{
-				"blub",
-				"kunden-id",
-				"ächtß",
-				"12345-oder_67890",
-				"T_KlöDEckel-Über_8DRUCK-idßchenÄr-dOUBLE",
-				"T_Zeichen<255>",
-				"T_Zeichen<255>,null"
-		};
-		for (String test : tests) {
-			System.out.println(test  + " -> " + mapAnalysisStringToDesign(test));
-		}
-		
-		tests = new String[]{
-				"blub",
-				"org.eclipselabs.eaadapter.test",
-				"bla,blub",
-				" blau, bim ",
-				"de.bla.ding, gubbel",
-				" aha , grunz.blau   ",
-				"urks.de,de.ea,aha,de.blub.ea.model"
-		};
-		for (String test : tests) {
-			System.out.println("\n]]] " + test);
-			loadPackages(test, null);
-		}
 	}
 
 	/**
+	 * For internal use only!
+	 * 
 	 * Some dummy logger to keep generated code intact!
 	 * 
 	 * Reason: original code had some proprietary logger.
@@ -617,10 +469,24 @@ public class EAUtil {
 		}
 	}
 	
+	/**
+	 * For internal use only.
+	 */
 	public static Logger getLogger(Class<?> class1) {
 		return new Logger();
 	}
 
+	/**
+	 * Get element of the specified type and the given identifier.
+	 * This is a type-specific identifier!
+	 * If you want to retrieve an element based on its globally unique identifier (guid), use
+	 * {@link EAUtil#findElementWithGuid(EARepository, String, boolean)}.
+	 * 
+	 * @param p
+	 * @param id
+	 * @param clazz
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	public static <T> T findElementWithId(EABaseClass p, int id, Class<T> clazz) {
 		if (clazz.isInstance(p) && p.getId() == id)
@@ -640,6 +506,34 @@ public class EAUtil {
 				final T e = findElementWithId((EABaseClass) obj, id, clazz);
 				if (e != null)
 					return e;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Find the element with the given GUID in the specified resource.
+	 * If the element is already indexed, it is returned immediately.
+	 * If the element cannot be found and <code>intensiveLoad</code> is set,
+	 * all contents of the resource is loaded. Else, <code>null</code> is returned.
+	 * 
+	 * @param resource
+	 * @param guid
+	 * @param intensiveLoad
+	 * @return 
+	 */
+	public static EABaseClass findElementWithGuid(EARepository repository, String guid, boolean intensiveLoad) {
+		final Resource resource = repository.eResource();
+		final EObject obj = resource.getEObject(guid);
+		if (obj instanceof EABaseClass)
+			return (EABaseClass) obj;
+		if (obj == null && intensiveLoad) {
+			final HashMap<EObject, EReference> refs = new HashMap<EObject, EReference>();
+			for (EAPackage p : repository.getModels()) {
+				loadGuids(p, refs);
+				final EObject o = resource.getEObject(guid);
+				if (o instanceof EABaseClass)
+					return (EABaseClass) o;
 			}
 		}
 		return null;
