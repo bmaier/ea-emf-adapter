@@ -187,12 +187,6 @@
         <details key="documentation" value="Attribute of the &lt;b>SupplierEnd&lt;/b> object of type &lt;code>ConnectorEnd&lt;/code>.&lt;br>&#xD;&#xA;So, this is a wrapper attribute."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isA2dDependency" eType="#//datatypes/Boolean"
-        changeable="false" volatile="true" transient="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;Returns, whether the connection has the stereotype &lt;i>A2D&lt;/i> and is of the type &lt;i>dependency&lt;/i>.&#xD;&#xA;&lt;/div>"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EAConnectorEnd" eSuperTypes="#//abstracthierachy/EABaseClass">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregation" eType="#//datatypes/Integer"/>

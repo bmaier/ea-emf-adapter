@@ -1,36 +1,7 @@
-<%if (genFeature.getName().equals("isA2dDependency")) {%>
-		return getStereotype().equals("A2D") && getType().equals("Dependency");
-<%} else if (genFeature.getName().equals("hasDStereotype")) {%>
-		return getStereotype().contains("-D");
-<%} else if (genFeature.getName().equals("hasA2dDependency")) {%>
-		// check connectors
-		if (getConnectors() != null) {
-			for (<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.EAConnector")%> connector : getConnectors()) {
-				if (connector.getIsA2dDependency())
-					return true;
-			}
-		}
-		// check cross references
-		if (repository != null) {
-			<%=genModel.getImportedName("java.util.Map")%><<%=genModel.getImportedName("org.eclipse.emf.ecore.EObject")%>, java.util.Collection<EStructuralFeature.Setting>> map = <%=genModel.getImportedName("org.eclipse.emf.ecore.util.EcoreUtil")%>.CrossReferencer.find(repository.getModels());
-			java.util.Collection<EStructuralFeature.Setting> refs = map.get(this);
-			if (refs != null) {
-				for (<%=genModel.getImportedName("org.eclipse.emf.ecore.EStructuralFeature")%>.Setting setting : refs) {
-					if (setting.getEObject() instanceof EAConnector) {
-						EAConnector connector = (EAConnector) setting.getEObject();
-						if (connector.getIsA2dDependency())
-							return true;
-					}
-				}
-			}
-		}
-		return false;
-<%} else {%>
 		// This feature is marked volatile, in case of the EA model we just ignore it.
 		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
-  <%if (genFeature.isListType()) {%>
+<%if (genFeature.isListType()) {%>
 		return new <%=genModel.getImportedName("org.eclipse.emf.common.util.BasicEList")%><<%=collectionType%>>();
-  <%} else {%>
+<%} else {%>
 		return null;
-  <%}%>
 <%}%>

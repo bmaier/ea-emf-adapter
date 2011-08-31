@@ -69,7 +69,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_roleType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_stereotype"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/supplier_visibility"/>
-      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnector/isA2dDependency"/>
     </genClasses>
     <genClasses ecoreClass="ea.ecore#//EAConnectorEnd">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAConnectorEnd/aggregation"/>

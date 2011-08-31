@@ -751,15 +751,6 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEAConnector_IsA2dDependency() {
-		return (EAttribute)eaConnectorEClass.getEStructuralFeatures().get(39);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEAConnectorEnd() {
 		return eaConnectorEndEClass;
 	}
@@ -2004,7 +1995,6 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		createEAttribute(eaConnectorEClass, EA_CONNECTOR__SUPPLIER_ROLE_TYPE);
 		createEAttribute(eaConnectorEClass, EA_CONNECTOR__SUPPLIER_STEREOTYPE);
 		createEAttribute(eaConnectorEClass, EA_CONNECTOR__SUPPLIER_VISIBILITY);
-		createEAttribute(eaConnectorEClass, EA_CONNECTOR__IS_A2D_DEPENDENCY);
 
 		eaConnectorEndEClass = createEClass(EA_CONNECTOR_END);
 		createEAttribute(eaConnectorEndEClass, EA_CONNECTOR_END__AGGREGATION);
@@ -2265,7 +2255,6 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		initEAttribute(getEAConnector_Supplier_roleType(), theDatatypesPackage.getString(), "supplier_roleType", null, 0, 1, EAConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAConnector_Supplier_stereotype(), theDatatypesPackage.getString(), "supplier_stereotype", null, 0, 1, EAConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAConnector_Supplier_visibility(), theDatatypesPackage.getString(), "supplier_visibility", null, 0, 1, EAConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAConnector_IsA2dDependency(), theDatatypesPackage.getBoolean(), "isA2dDependency", null, 0, 1, EAConnector.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaConnectorEndEClass, EAConnectorEnd.class, "EAConnectorEnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEAConnectorEnd_Aggregation(), theDatatypesPackage.getInteger(), "aggregation", null, 0, 1, EAConnectorEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

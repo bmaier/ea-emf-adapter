@@ -69,7 +69,6 @@ import org.sparx.Connector;
  *   <li>{@link org.eclipselabs.eaadapter.model.EAConnector#getSupplier_roleType <em>Supplier role Type</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EAConnector#getSupplier_stereotype <em>Supplier stereotype</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EAConnector#getSupplier_visibility <em>Supplier visibility</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.EAConnector#getIsA2dDependency <em>Is A2d Dependency</em>}</li>
  * </ul>
  * </p>
  *
@@ -1047,21 +1046,5 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @generated
 	 */
 	void setSupplier_visibility(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Is A2d Dependency</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * <div class='userdoc'>
-	 * Returns, whether the connection has the stereotype <i>A2D</i> and is of the type <i>dependency</i>.
-	 * </div>
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Is A2d Dependency</em>' attribute.
-	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_IsA2dDependency()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" transient="true" changeable="false" volatile="true"
-	 * @generated
-	 */
-	Boolean getIsA2dDependency();
 
 } // EAConnector

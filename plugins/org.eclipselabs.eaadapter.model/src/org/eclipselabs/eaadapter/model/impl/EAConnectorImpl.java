@@ -93,7 +93,6 @@ import org.sparx.Element;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getSupplier_roleType <em>Supplier role Type</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getSupplier_stereotype <em>Supplier stereotype</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getSupplier_visibility <em>Supplier visibility</em>}</li>
- *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAConnectorImpl#getIsA2dDependency <em>Is A2d Dependency</em>}</li>
  * </ul>
  * </p>
  *
@@ -928,16 +927,6 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * @ordered
 	 */
 	protected String supplier_visibility = null;
-
-	/**
-	 * The default value of the '{@link #getIsA2dDependency() <em>Is A2d Dependency</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsA2dDependency()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean IS_A2D_DEPENDENCY_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3176,15 +3165,6 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getIsA2dDependency() {
-		return getStereotype().equals("A2D") && getType().equals("Dependency");
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public void setNewParent(EAVersiondElement parent) {
 		if (eaLink == null) return;
 
@@ -3382,8 +3362,6 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				return getSupplier_stereotype();
 			case EamodelPackage.EA_CONNECTOR__SUPPLIER_VISIBILITY:
 				return getSupplier_visibility();
-			case EamodelPackage.EA_CONNECTOR__IS_A2D_DEPENDENCY:
-				return getIsA2dDependency();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -3741,8 +3719,6 @@ public class EAConnectorImpl extends EObjectImpl implements EAConnector {
 				return SUPPLIER_STEREOTYPE_EDEFAULT == null ? supplier_stereotype != null : !SUPPLIER_STEREOTYPE_EDEFAULT.equals(supplier_stereotype);
 			case EamodelPackage.EA_CONNECTOR__SUPPLIER_VISIBILITY:
 				return SUPPLIER_VISIBILITY_EDEFAULT == null ? supplier_visibility != null : !SUPPLIER_VISIBILITY_EDEFAULT.equals(supplier_visibility);
-			case EamodelPackage.EA_CONNECTOR__IS_A2D_DEPENDENCY:
-				return IS_A2D_DEPENDENCY_EDEFAULT == null ? getIsA2dDependency() != null : !IS_A2D_DEPENDENCY_EDEFAULT.equals(getIsA2dDependency());
 		}
 		return super.eIsSet(featureID);
 	}

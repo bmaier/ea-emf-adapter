@@ -866,22 +866,13 @@ public interface EamodelPackage extends EPackage {
 	int EA_CONNECTOR__SUPPLIER_VISIBILITY = AbstracthierachyPackage.EA_TYPED_ELEMENT_FEATURE_COUNT + 38;
 
 	/**
-	 * The feature id for the '<em><b>Is A2d Dependency</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EA_CONNECTOR__IS_A2D_DEPENDENCY = AbstracthierachyPackage.EA_TYPED_ELEMENT_FEATURE_COUNT + 39;
-
-	/**
 	 * The number of structural features of the '<em>EA Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EA_CONNECTOR_FEATURE_COUNT = AbstracthierachyPackage.EA_TYPED_ELEMENT_FEATURE_COUNT + 40;
+	int EA_CONNECTOR_FEATURE_COUNT = AbstracthierachyPackage.EA_TYPED_ELEMENT_FEATURE_COUNT + 39;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.eaadapter.model.impl.EAConnectorEndImpl <em>EA Connector End</em>}' class.
@@ -3558,17 +3549,6 @@ public interface EamodelPackage extends EPackage {
 	EAttribute getEAConnector_Supplier_visibility();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.eclipselabs.eaadapter.model.EAConnector#getIsA2dDependency <em>Is A2d Dependency</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is A2d Dependency</em>'.
-	 * @see org.eclipselabs.eaadapter.model.EAConnector#getIsA2dDependency()
-	 * @see #getEAConnector()
-	 * @generated
-	 */
-	EAttribute getEAConnector_IsA2dDependency();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.eaadapter.model.EAConnectorEnd <em>EA Connector End</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5465,14 +5445,6 @@ public interface EamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EA_CONNECTOR__SUPPLIER_VISIBILITY = eINSTANCE.getEAConnector_Supplier_visibility();
-
-		/**
-		 * The meta object literal for the '<em><b>Is A2d Dependency</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EA_CONNECTOR__IS_A2D_DEPENDENCY = eINSTANCE.getEAConnector_IsA2dDependency();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.eaadapter.model.impl.EAConnectorEndImpl <em>EA Connector End</em>}' class.

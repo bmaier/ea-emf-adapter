@@ -111,7 +111,6 @@ public class EAConnectorItemProvider
 			addSupplier_roleTypePropertyDescriptor(object);
 			addSupplier_stereotypePropertyDescriptor(object);
 			addSupplier_visibilityPropertyDescriptor(object);
-			addIsA2dDependencyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -1041,28 +1040,6 @@ public class EAConnectorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Is A2d Dependency feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsA2dDependencyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EAConnector_isA2dDependency_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EAConnector_isA2dDependency_feature", "_UI_EAConnector_type"),
-				 EamodelPackage.Literals.EA_CONNECTOR__IS_A2D_DEPENDENCY,
-				 false,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -1174,7 +1151,6 @@ public class EAConnectorItemProvider
 			case EamodelPackage.EA_CONNECTOR__SUPPLIER_ROLE_TYPE:
 			case EamodelPackage.EA_CONNECTOR__SUPPLIER_STEREOTYPE:
 			case EamodelPackage.EA_CONNECTOR__SUPPLIER_VISIBILITY:
-			case EamodelPackage.EA_CONNECTOR__IS_A2D_DEPENDENCY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EamodelPackage.EA_CONNECTOR__TAGGED_VALUES:
