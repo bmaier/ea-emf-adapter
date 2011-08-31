@@ -1,15 +1,15 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: EA Tools Plug-in
+Bundle-Name: EA EMF Adapter Tools
 Bundle-SymbolicName: org.eclipselabs.eaadapter.tools;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.eclipselabs.eaadapter.tools.plugin.EaToolsPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipselabs.eaadapter.model
 Eclipse-LazyStart: true
-Bundle-Vendor: Patrick Könemann
+Bundle-Vendor: Patrick Koenemann
 Export-Package: org.eclipselabs.eaadapter.tools.commands
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
