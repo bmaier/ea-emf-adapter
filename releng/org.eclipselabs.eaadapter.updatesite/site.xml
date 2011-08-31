@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="EA EMF Adapter Update Site">
+      The update site for the EA EMF Adapter.
+   </description>
+   <feature url="features/org.eclipselabs.eaadapter.feature_1.0.0.201108311111.jar" id="org.eclipselabs.eaadapter.feature" version="1.0.0.201108311111" os="win32">
+      <category name="ea-emf-adapter"/>
+   </feature>
+   <category-def name="ea-emf-adapter" label="EA EMF Adapter"/>
+</site>
