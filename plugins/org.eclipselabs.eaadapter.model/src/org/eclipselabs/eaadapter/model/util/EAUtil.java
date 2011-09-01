@@ -17,6 +17,7 @@ import java.util.Queue;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -537,5 +538,22 @@ public class EAUtil {
 			}
 		}
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static <T> List<T> filterElements(EABaseClass element, IElementFilter filter) {
+		final List<T> result = new ArrayList<T>();
+		for (TreeIterator<EObject> iter = element.eAllContents(); iter.hasNext(); ) {
+			final EObject obj = iter.next();
+			if (obj instanceof EABaseClass) {
+				if (filter.accept((EABaseClass) obj))
+					result.add((T) obj);
+			}
+		}
+		return result;
+	}
+	
+	public static interface IElementFilter {
+		boolean accept(EABaseClass obj);
 	}
 }
