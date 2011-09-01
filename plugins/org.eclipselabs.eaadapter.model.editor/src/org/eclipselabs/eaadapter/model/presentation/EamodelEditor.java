@@ -1537,7 +1537,7 @@ s	 * @generated
 					try {
 						dialog.run(true, true, new IRunnableWithProgress(){
 							public void run(IProgressMonitor monitor) {
-								monitor.beginTask("Loading models from EA repository...", 3);
+								monitor.beginTask("Loading EA models: " + rep.getFile(), 3);
 								monitor.worked(1);
 								
 								try {
