@@ -43,6 +43,7 @@ import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EValidator;
@@ -79,6 +80,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -105,6 +107,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.ui.IActionBars;
@@ -872,8 +875,7 @@ public class EamodelEditor
 		// Assumes that the input is a file object.
 		//
 		IFileEditorInput modelFile = (IFileEditorInput)getEditorInput();
-		@SuppressWarnings("deprecation")
-		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString());;
+		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -1509,9 +1511,54 @@ s	 * @generated
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setFocus() {
+		final EList<Resource> resources = getEditingDomain().getResourceSet().getResources();
+		if (resources.size() == 1) {
+			final EList<EObject> contents = resources.get(0).getContents();
+			if (contents.size() == 1 && contents.get(0) instanceof EARepository) {
+				final EARepository rep = (EARepository) contents.get(0);
+
+				if (rep.getEaLink() == null) {
+					
+					/*
+					 * If link to EA is not yet initialized, we have a very time-consuming task:
+					 * opening EA, and, if configured, prefetching the model.
+					 * 
+					 * To show the user what is happening, we use a progress dialog.
+					 * However, the actual communication with EA must always be *in the same thread*!
+					 * Which is the UI thread in case of this editor!
+					 * So we have to perform the initialization in the UI thread which, unfortuantely,
+					 * blocks the UI :-( At least the user sees what is blocking the UI...
+					 */
+					final Shell shell = getSite().getShell();
+					ProgressMonitorDialog dialog = new ProgressMonitorDialog(shell);
+					try {
+						dialog.run(true, true, new IRunnableWithProgress(){
+							public void run(IProgressMonitor monitor) {
+								monitor.beginTask("Loading models from EA repository...", 3);
+								monitor.worked(1);
+								
+								try {
+									shell.getDisplay().syncExec(new Runnable() {
+										@Override
+										public void run() {
+											rep.getModels();
+										}
+									});
+								} finally {
+									monitor.worked(1);
+								}
+								monitor.done();
+							}
+						});
+					} catch (Exception e) {
+					}
+				}
+			}
+		}
+		
 		if (currentViewerPane != null) {
 			currentViewerPane.setFocus();
 		}
