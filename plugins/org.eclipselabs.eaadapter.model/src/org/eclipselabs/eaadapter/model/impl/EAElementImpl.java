@@ -99,6 +99,7 @@ import org.sparx.Transition;
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getEaLink <em>Ea Link</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getParentID <em>Parent ID</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getPackageID <em>Package ID</em>}</li>
+ *   <li>{@link org.eclipselabs.eaadapter.model.impl.EAElementImpl#getIsActive <em>Is Active</em>}</li>
  * </ul>
  * </p>
  *
@@ -704,6 +705,26 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 	 * @ordered
 	 */
 	protected static final Integer PACKAGE_ID_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getIsActive() <em>Is Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_ACTIVE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIsActive() <em>Is Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsActive()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isActive = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2422,7 +2443,8 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 		if (multiplicity != null) newEaLink.SetMultiplicity(multiplicity);
 		if (propertyType != null) newEaLink.SetPropertyType(propertyType);
 		if (subtype != null) newEaLink.SetSubtype(subtype);
-		if (tag != null) newEaLink.SetTag(tag); 
+		if (tag != null) newEaLink.SetTag(tag);
+		if (isActive != null) newEaLink.SetIsActive(isActive); 
 		updateEaLink(newEaLink);
 		// update emf object
 		Element oldEaLink = eaLink;
@@ -2489,6 +2511,56 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 	public void setPackageID(Integer newPackageID) {
 		// This feature is marked volatile, in case of the EA model we just ignore it.
 		// If you need to implement this, ensure that you remove @generated or mark it @generated NOT
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getIsActive() {
+		// if value was already fetched, use the old one.
+		if (getRepository() != null && repository.getCaching() && isActive != null) return isActive;
+		// fetch value from ea model if adapter link is present
+		if (eaLink != null) {
+			try {
+				isActive = eaLink.GetIsActive();
+			} catch (Exception e) {
+				EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+			}
+		}
+		// return value
+		return isActive;
+	}
+
+	/**
+	 * Setter for an attribute which encapsulates an attribute in the EA model.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsActive(Boolean newIsActive) {
+		if (repository != null) {
+			if (!repository.getReadonlyEaLink()) {
+				// (if you get an error here, that eaLink cannot be resolved, you need to add that attribute to the model)
+				if (eaLink == null) return;
+				if (newIsActive != null && newIsActive.equals(isActive)) return;
+				// update EA link
+				try {
+					eaLink.SetIsActive(newIsActive);
+					if (!updateEaLink(eaLink)) return;
+				} catch (Exception e) {
+					if (eaLink == null)
+						EAUtil.getLogger(getClass()).error("EA Link is null!", e);
+					else EAUtil.getLogger(getClass()).error("Perhaps EA has produced an error: " + eaLink.GetLastError(), e);
+				}
+			}
+		}
+		// update emf object
+		Boolean oldIsActive = isActive;
+		isActive = newIsActive;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EamodelPackage.EA_ELEMENT__IS_ACTIVE, oldIsActive, isActive));
 	}
 
 	/**
@@ -2735,6 +2807,8 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				return getParentID();
 			case EamodelPackage.EA_ELEMENT__PACKAGE_ID:
 				return getPackageID();
+			case EamodelPackage.EA_ELEMENT__IS_ACTIVE:
+				return getIsActive();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2860,6 +2934,9 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 			case EamodelPackage.EA_ELEMENT__PACKAGE_ID:
 				setPackageID((Integer)newValue);
 				return;
+			case EamodelPackage.EA_ELEMENT__IS_ACTIVE:
+				setIsActive((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2979,6 +3056,9 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 			case EamodelPackage.EA_ELEMENT__PACKAGE_ID:
 				setPackageID(PACKAGE_ID_EDEFAULT);
 				return;
+			case EamodelPackage.EA_ELEMENT__IS_ACTIVE:
+				setIsActive(IS_ACTIVE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -3072,6 +3152,8 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 				return PARENT_ID_EDEFAULT == null ? getParentID() != null : !PARENT_ID_EDEFAULT.equals(getParentID());
 			case EamodelPackage.EA_ELEMENT__PACKAGE_ID:
 				return PACKAGE_ID_EDEFAULT == null ? getPackageID() != null : !PACKAGE_ID_EDEFAULT.equals(getPackageID());
+			case EamodelPackage.EA_ELEMENT__IS_ACTIVE:
+				return IS_ACTIVE_EDEFAULT == null ? isActive != null : !IS_ACTIVE_EDEFAULT.equals(isActive);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -3179,6 +3261,8 @@ public class EAElementImpl extends EObjectImpl implements EAElement {
 		result.append(getTag());
 		result.append(", eaLink: ");
 		result.append(getEaLink());
+		result.append(", isActive: ");
+		result.append(getIsActive());
 		result.append(')');
 		return result.toString();
 	}

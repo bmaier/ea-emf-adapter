@@ -144,6 +144,7 @@
       <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/eaLink"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/parentID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/packageID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAElement/isActive"/>
     </genClasses>
     <genClasses ecoreClass="ea.ecore#//EAMethod">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ea.ecore#//EAMethod/returnType"/>

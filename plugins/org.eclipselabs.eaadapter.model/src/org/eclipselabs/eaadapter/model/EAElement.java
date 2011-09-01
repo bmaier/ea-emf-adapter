@@ -56,6 +56,7 @@ import org.sparx.Element;
  *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getEaLink <em>Ea Link</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getParentID <em>Parent ID</em>}</li>
  *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getPackageID <em>Package ID</em>}</li>
+ *   <li>{@link org.eclipselabs.eaadapter.model.EAElement#getIsActive <em>Is Active</em>}</li>
  * </ul>
  * </p>
  *
@@ -743,5 +744,31 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @generated
 	 */
 	void setPackageID(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Active</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Active</em>' attribute.
+	 * @see #setIsActive(Boolean)
+	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_IsActive()
+	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @generated
+	 */
+	Boolean getIsActive();
+
+	/**
+	 * Sets the value of the '{@link org.eclipselabs.eaadapter.model.EAElement#getIsActive <em>Is Active</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Active</em>' attribute.
+	 * @see #getIsActive()
+	 * @generated
+	 */
+	void setIsActive(Boolean value);
 
 } // EAElement

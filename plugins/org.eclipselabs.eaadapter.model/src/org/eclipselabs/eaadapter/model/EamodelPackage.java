@@ -1907,13 +1907,22 @@ public interface EamodelPackage extends EPackage {
 	int EA_ELEMENT__PACKAGE_ID = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 30;
 
 	/**
+	 * The feature id for the '<em><b>Is Active</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EA_ELEMENT__IS_ACTIVE = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 31;
+
+	/**
 	 * The number of structural features of the '<em>EA Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EA_ELEMENT_FEATURE_COUNT = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 31;
+	int EA_ELEMENT_FEATURE_COUNT = AbstracthierachyPackage.EA_CLASSIFIER_ID_LONG_FEATURE_COUNT + 32;
 
 	/**
 	 * The meta object id for the '{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl <em>EA Method</em>}' class.
@@ -4302,6 +4311,17 @@ public interface EamodelPackage extends EPackage {
 	EAttribute getEAElement_PackageID();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.eclipselabs.eaadapter.model.EAElement#getIsActive <em>Is Active</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Active</em>'.
+	 * @see org.eclipselabs.eaadapter.model.EAElement#getIsActive()
+	 * @see #getEAElement()
+	 * @generated
+	 */
+	EAttribute getEAElement_IsActive();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipselabs.eaadapter.model.EAMethod <em>EA Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6009,6 +6029,14 @@ public interface EamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EA_ELEMENT__PACKAGE_ID = eINSTANCE.getEAElement_PackageID();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Active</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EA_ELEMENT__IS_ACTIVE = eINSTANCE.getEAElement_IsActive();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipselabs.eaadapter.model.impl.EAMethodImpl <em>EA Method</em>}' class.

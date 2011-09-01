@@ -1372,6 +1372,15 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEAElement_IsActive() {
+		return (EAttribute)eaElementEClass.getEStructuralFeatures().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEAMethod() {
 		return eaMethodEClass;
 	}
@@ -2070,6 +2079,7 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		createEAttribute(eaElementEClass, EA_ELEMENT__EA_LINK);
 		createEAttribute(eaElementEClass, EA_ELEMENT__PARENT_ID);
 		createEAttribute(eaElementEClass, EA_ELEMENT__PACKAGE_ID);
+		createEAttribute(eaElementEClass, EA_ELEMENT__IS_ACTIVE);
 
 		eaMethodEClass = createEClass(EA_METHOD);
 		createEAttribute(eaMethodEClass, EA_METHOD__RETURN_TYPE);
@@ -2330,6 +2340,7 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 		initEAttribute(getEAElement_EaLink(), theDatatypesPackage.getT_Element(), "eaLink", null, 0, 1, EAElement.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAElement_ParentID(), theDatatypesPackage.getInteger(), "parentID", null, 0, 1, EAElement.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEAElement_PackageID(), theDatatypesPackage.getInteger(), "packageID", null, 0, 1, EAElement.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAElement_IsActive(), theDatatypesPackage.getBoolean(), "isActive", null, 0, 1, EAElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaMethodEClass, EAMethod.class, "EAMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEAMethod_ReturnType(), theDatatypesPackage.getString(), "returnType", null, 0, 1, EAMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
