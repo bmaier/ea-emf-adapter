@@ -11,7 +11,9 @@ public class EaToolsPlugin extends Plugin{
     //log manager
 //    private PluginLogManager logManager;
     
-    private static EaToolsPlugin eaToolsPlugin;
+    public static final String PLUGIN_ID = "org.eclipselabs.eaadapter.tools";
+    
+	private static EaToolsPlugin eaToolsPlugin;
 
     public EaToolsPlugin(){
     	super();

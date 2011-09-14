@@ -5,7 +5,7 @@
    <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
-            id="org.eclipselabs.eaadapter.tools.contribution1"
+            id="org.eclipselabs.eaadapter.tools.findDupGuids"
             nameFilter="*.eamodel"
             objectClass="org.eclipse.core.resources.IFile">
          <menu
@@ -20,14 +20,18 @@
                label="Check for duplicate GUIDs"
                class="org.eclipselabs.eaadapter.tools.popup.actions.CheckDuplicateGuidsAction"
                menubarPath="org.eclipselabs.eaadapter.tools.menu1/group1"
-               enablesFor="1"
-               id="org.eclipselabs.eaadapter.tools.newAction">
+               id="org.eclipselabs.eaadapter.tools.checkDupGuidsAction">
          </action>
       </objectContribution>
       <objectContribution
-            id="org.eclipselabs.eaadapter.tools.contribution2"
-            nameFilter="*.eamodel"
-            objectClass="org.eclipse.core.resources.IFile">
+            id="org.eclipselabs.eaadapter.tools.findDupGuids2"
+            objectClass="org.eclipselabs.eaadapter.model.EARepository">
+         <action
+               class="org.eclipselabs.eaadapter.tools.popup.actions.CheckDuplicateGuidsAction"
+               id="org.eclipselabs.eaadapter.tools.checkDupGuidsAction2"
+               label="Check for duplicate GUIDs"
+               menubarPath="org.eclipselabs.eaadapter.tools.menu1/group1">
+         </action>
          <menu
                id="org.eclipselabs.eaadapter.tools.menu1"
                label="EA Tools"
@@ -36,16 +40,9 @@
                   name="group1">
             </separator>
          </menu>
-         <action
-               class="org.eclipselabs.eaadapter.tools.popup.actions.RemoveXElementsAction"
-               enablesFor="1"
-               id="org.eclipselabs.eaadapter.tools.newAction2"
-               label="Remove all X-stereotyped elements"
-               menubarPath="org.eclipselabs.eaadapter.tools.menu1/group1">
-         </action>
       </objectContribution>
       <objectContribution
-            id="org.eclipselabs.eaadapter.tools.contribution3"
+            id="org.eclipselabs.eaadapter.tools.collectStatistics"
             nameFilter="*.eamodel"
             objectClass="org.eclipse.core.resources.IFile">
          <menu
@@ -58,8 +55,25 @@
          </menu>
          <action
                class="org.eclipselabs.eaadapter.tools.popup.actions.CollectStatisticsAction"
-               enablesFor="1"
-               id="org.eclipselabs.eaadapter.tools.newAction3"
+               id="org.eclipselabs.eaadapter.tools.collectStatisticsAction"
+               label="Collect Statistics"
+               menubarPath="org.eclipselabs.eaadapter.tools.menu1/group1">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="org.eclipselabs.eaadapter.tools.collectStatistics2"
+            objectClass="org.eclipselabs.eaadapter.model.EARepository">
+         <menu
+               id="org.eclipselabs.eaadapter.tools.menu1"
+               label="EA Tools"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.eclipselabs.eaadapter.tools.popup.actions.CollectStatisticsAction"
+               id="org.eclipselabs.eaadapter.tools.collectStatisticsAction2"
                label="Collect Statistics"
                menubarPath="org.eclipselabs.eaadapter.tools.menu1/group1">
          </action>
