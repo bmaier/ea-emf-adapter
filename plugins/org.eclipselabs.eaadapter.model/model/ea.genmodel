@@ -206,7 +206,6 @@
       <genOperations ecoreOperation="ea.ecore#//EARepository/openFile"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/closeFile"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/prefetch"/>
-      <genOperations ecoreOperation="ea.ecore#//EARepository/exitEA"/>
       <genOperations ecoreOperation="ea.ecore#//EARepository/exportXMI">
         <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/packageGuid"/>
         <genParameters ecoreParameter="ea.ecore#//EARepository/exportXMI/xmiType"/>

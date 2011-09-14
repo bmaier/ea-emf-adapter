@@ -6,6 +6,7 @@
  */
 package org.eclipselabs.eaadapter.model.impl;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -717,7 +718,9 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 			return true;
 			
 		// same file already open?
-		eaLink = repositories.get(modelFile);
+		final WeakReference<Repository> weakLink = repositories.get(modelFile);
+		if (weakLink != null)
+			eaLink = weakLink.get();
 		if (eaLink != null && checkEaLink(modelFile))
 			return true;
 			
@@ -737,7 +740,8 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 			
 			// if repository is successfully opened, save it in the repository map
 			if (success) {
-				repositories.put(modelFile, eaLink);
+				final WeakReference<Repository> weakEaLink = new WeakReference<Repository>(eaLink);
+				repositories.put(modelFile, weakEaLink);
 				final int show = isShowWindow() ? 1 : 0;
 				eaLink.ShowWindow(show);
 			} else {
@@ -773,6 +777,7 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 			System.err.println("Error while closing file:" + e.getMessage());
 			e.printStackTrace();
 		}
+		eaLink = null;
 		models = null;
 	}
 	
@@ -792,23 +797,6 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 				for (EAPackage p : packages) {
 					EAUtil.iterateOverEClass(p, null, true);
 				}
-			}
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void exitEA() {
-		if (eaLink != null) {
-			closeFile(); // close file if it's still open
-			try {
-				eaLink.Exit(); // now try to close EA!
-			} catch (Exception e) {
-				System.err.println("Error while exiting EA:" + e.getMessage());
-				e.printStackTrace();
 			}
 		}
 	}
@@ -1088,7 +1076,7 @@ public class EARepositoryImpl extends EObjectImpl implements EARepository {
 	 * 
 	 * @generated
 	 */
-	transient private static Map<String,Repository> repositories = new HashMap<String,Repository>();
+	transient private static Map<String,WeakReference<Repository>> repositories = new HashMap<String,WeakReference<Repository>>();
 
 	/**
 	 * If eaLink is not null but EA was closed for other reasons, eaLink points to an invalid place.

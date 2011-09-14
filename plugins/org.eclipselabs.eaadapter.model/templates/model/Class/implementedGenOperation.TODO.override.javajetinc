@@ -11,7 +11,9 @@
 			return true;
 			
 		// same file already open?
-		eaLink = repositories.get(modelFile);
+		final <%=genModel.getImportedName("java.lang.ref.WeakReference")%><Repository> weakLink = repositories.get(modelFile);
+		if (weakLink != null)
+			eaLink = weakLink.get();
 		if (eaLink != null && checkEaLink(modelFile))
 			return true;
 			
@@ -31,7 +33,8 @@
 			
 			// if repository is successfully opened, save it in the repository map
 			if (success) {
-				repositories.put(modelFile, eaLink);
+				final <%=genModel.getImportedName("java.lang.ref.WeakReference")%><Repository> weakEaLink = new <%=genModel.getImportedName("java.lang.ref.WeakReference")%><Repository>(eaLink);
+				repositories.put(modelFile, weakEaLink);
 				final int show = isShowWindow() ? 1 : 0;
 				eaLink.ShowWindow(show);
 			} else {
@@ -60,17 +63,8 @@
 			System.err.println("Error while closing file:" + e.getMessage());
 			e.printStackTrace();
 		}
+		eaLink = null;
 		models = null;
-<%  } else if (genOperation.getName().equals("exitEA")) {%>
-		if (eaLink != null) {
-			closeFile(); // close file if it's still open
-			try {
-				eaLink.Exit(); // now try to close EA!
-			} catch (Exception e) {
-				System.err.println("Error while exiting EA:" + e.getMessage());
-				e.printStackTrace();
-			}
-		}
 <%  } else if (genOperation.getName().equals("prefetch")) {%>
 		if (prefetchCompleteModel) {
 			<%=genModel.getImportedName("org.eclipselabs.eaadapter.model.util.EAUtil")%>.iterateOverEClass(this, null, true);

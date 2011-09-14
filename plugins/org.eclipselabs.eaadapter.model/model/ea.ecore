@@ -434,17 +434,12 @@
     </eOperations>
     <eOperations name="closeFile">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;This closes the EA. Please do not call this manually - the behaviour is undefined.&#xD;&#xA;&lt;/div>"/>
+        <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;This closes the EA.&#xD;&#xA;&lt;b>Do not call this when you are still working with the model!!!&lt;/b>&#xD;&#xA;&lt;/div>"/>
       </eAnnotations>
     </eOperations>
     <eOperations name="prefetch">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;Manually perform the prefetching of all GUIDs defined by &lt;code>prefetchCompleteModel&lt;/code> or &lt;code>prefetchPackageGuids&lt;/code>.&lt;br>&#xD;&#xA;For more information, see documentation of the attribute &lt;code>prefetchingEnabled&lt;/code>.&#xD;&#xA;&lt;/div>"/>
-      </eAnnotations>
-    </eOperations>
-    <eOperations name="exitEA">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="&lt;div class='userdoc'>&#xD;&#xA;This closes the EA. Please do not call this manually - the behaviour is undefined.&#xD;&#xA;&lt;/div>"/>
       </eAnnotations>
     </eOperations>
     <eOperations name="exportXMI" eType="#//datatypes/String">

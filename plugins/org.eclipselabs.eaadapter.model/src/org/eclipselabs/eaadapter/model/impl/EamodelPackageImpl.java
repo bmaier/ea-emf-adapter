@@ -2405,8 +2405,6 @@ public class EamodelPackageImpl extends EPackageImpl implements EamodelPackage {
 
 		addEOperation(eaRepositoryEClass, null, "prefetch", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		addEOperation(eaRepositoryEClass, null, "exitEA", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		EOperation op = addEOperation(eaRepositoryEClass, theDatatypesPackage.getString(), "exportXMI", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatypesPackage.getString(), "packageGuid", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatypesPackage.getString(), "xmiType", 0, 1, IS_UNIQUE, IS_ORDERED);

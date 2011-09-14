@@ -156,6 +156,11 @@ public class EamodelEditor
 	protected AdapterFactoryEditingDomain editingDomain;
 
 	/**
+	 * Keep track of ea model resource for proper cleanup on dispose.
+	 */
+	private Resource eaModelResource;
+
+	/**
 	 * This is the one adapter factory used for providing views of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -869,7 +874,7 @@ public class EamodelEditor
 	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void createModel() {
 		// Assumes that the input is a file object.
@@ -877,27 +882,20 @@ public class EamodelEditor
 		IFileEditorInput modelFile = (IFileEditorInput)getEditorInput();
 		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
 		Exception exception = null;
-		Resource resource = null;
+		eaModelResource = null;
 		try {
 			// Load the resource through the editing domain.
 			//
-			resource = editingDomain.getResourceSet().getResource(resourceURI, true);
+			eaModelResource = editingDomain.getResourceSet().getResource(resourceURI, true);
 		}
 		catch (Exception e) {
 			exception = e;
-			resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+			eaModelResource = editingDomain.getResourceSet().getResource(resourceURI, false);
 		}
 		
-		// set prefetching off
-//		EObject root = resource.getContents().get(0);
-//		if (root instanceof EARepository) {
-//			EARepository repository = (EARepository) root;
-//			repository.setPrefetchingEnabled(false);
-//		}
-		
-		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
+		Diagnostic diagnostic = analyzeResourceProblems(eaModelResource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
-			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
+			resourceToDiagnosticMap.put(eaModelResource,  analyzeResourceProblems(eaModelResource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
 	}
@@ -1299,7 +1297,7 @@ public class EamodelEditor
 	 * Only the repository of the EA Model is not transient, so this flag is used to monitor changed within the repository object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-s	 * @generated 
+	 * @generated 
 	 */
 	protected boolean repositoryChanged = false;
 
@@ -1708,7 +1706,7 @@ s	 * @generated
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void dispose() {
 		updateProblemIndication = false;
@@ -1717,6 +1715,13 @@ s	 * @generated
 
 		getSite().getPage().removePartListener(partListener);
 
+		// close EA
+		for (EObject obj : eaModelResource.getContents()) {
+			if (obj instanceof EARepository) {
+				((EARepository) obj).closeFile();
+			}
+		}
+		
 		adapterFactory.dispose();
 
 		if (getActionBarContributor().getActiveEditor() == this) {

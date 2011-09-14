@@ -118,7 +118,7 @@
 	 * 
 	 * @generated
 	 */
-	transient private static <%=genModel.getImportedName("java.util.Map")%><String,Repository> repositories = new <%=genModel.getImportedName("java.util.HashMap")%><String,Repository>();
+	transient private static <%=genModel.getImportedName("java.util.Map")%><String,<%=genModel.getImportedName("java.lang.ref.WeakReference")%><Repository>> repositories = new <%=genModel.getImportedName("java.util.HashMap")%><String,<%=genModel.getImportedName("java.lang.ref.WeakReference")%><Repository>>();
 
 	/**
 	 * If eaLink is not null but EA was closed for other reasons, eaLink points to an invalid place.
