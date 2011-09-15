@@ -53,7 +53,7 @@ public interface EAParameter extends EANamedElement {
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #setType(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAParameter_Type()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getType();
@@ -79,7 +79,7 @@ public interface EAParameter extends EANamedElement {
 	 * @return the value of the '<em>Default</em>' attribute.
 	 * @see #setDefault(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAParameter_Default()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getDefault();
@@ -105,7 +105,7 @@ public interface EAParameter extends EANamedElement {
 	 * @return the value of the '<em>Position</em>' attribute.
 	 * @see #setPosition(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAParameter_Position()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getPosition();
@@ -131,7 +131,7 @@ public interface EAParameter extends EANamedElement {
 	 * @return the value of the '<em>Is Const</em>' attribute.
 	 * @see #setIsConst(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAParameter_IsConst()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsConst();
@@ -157,7 +157,7 @@ public interface EAParameter extends EANamedElement {
 	 * @return the value of the '<em>Kind</em>' attribute.
 	 * @see #setKind(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAParameter_Kind()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getKind();
@@ -182,7 +182,7 @@ public interface EAParameter extends EANamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Classifier ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAParameter_ClassifierID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	String getClassifierID();
@@ -197,7 +197,7 @@ public interface EAParameter extends EANamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAParameter_OperationID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Integer getOperationID();

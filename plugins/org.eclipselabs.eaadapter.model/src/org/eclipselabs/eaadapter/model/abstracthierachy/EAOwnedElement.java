@@ -36,7 +36,7 @@ public interface EAOwnedElement extends EAVersiondElement {
 	 * @return the value of the '<em>Author</em>' attribute.
 	 * @see #setAuthor(String)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAOwnedElement_Author()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getAuthor();
@@ -62,7 +62,7 @@ public interface EAOwnedElement extends EAVersiondElement {
 	 * @return the value of the '<em>Is Locked</em>' attribute.
 	 * @see #setIsLocked(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAOwnedElement_IsLocked()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsLocked();

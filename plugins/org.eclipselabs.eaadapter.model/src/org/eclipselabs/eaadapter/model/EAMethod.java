@@ -62,7 +62,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Return Type</em>' attribute.
 	 * @see #setReturnType(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_ReturnType()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getReturnType();
@@ -88,7 +88,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Return Is Array</em>' attribute.
 	 * @see #setReturnIsArray(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_ReturnIsArray()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getReturnIsArray();
@@ -114,7 +114,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Code</em>' attribute.
 	 * @see #setCode(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_Code()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getCode();
@@ -140,7 +140,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Throws</em>' attribute.
 	 * @see #setThrows(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_Throws()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getThrows();
@@ -166,7 +166,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Is Pure</em>' attribute.
 	 * @see #setIsPure(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_IsPure()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsPure();
@@ -192,7 +192,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Is Root</em>' attribute.
 	 * @see #setIsRoot(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_IsRoot()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsRoot();
@@ -218,7 +218,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Is Leaf</em>' attribute.
 	 * @see #setIsLeaf(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_IsLeaf()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsLeaf();
@@ -244,7 +244,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Is Query</em>' attribute.
 	 * @see #setIsQuery(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_IsQuery()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsQuery();
@@ -270,7 +270,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Is Synchronized</em>' attribute.
 	 * @see #setIsSynchronized(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_IsSynchronized()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsSynchronized();
@@ -296,7 +296,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Is Abstract</em>' attribute.
 	 * @see #setIsAbstract(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_IsAbstract()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsAbstract();
@@ -322,7 +322,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * @return the value of the '<em>Concurrency</em>' attribute.
 	 * @see #setConcurrency(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_Concurrency()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getConcurrency();
@@ -347,7 +347,7 @@ public interface EAMethod extends EAModifiableElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Classifier ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAMethod_ClassifierID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	String getClassifierID();

@@ -77,7 +77,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Abstract</em>' attribute.
 	 * @see #setAbstract(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Abstract()
-	 * @model default="0" dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model default="0"
 	 * @generated
 	 */
 	String getAbstract();
@@ -103,7 +103,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Classifier Name</em>' attribute.
 	 * @see #setClassifierName(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_ClassifierName()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getClassifierName();
@@ -128,7 +128,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Classifier Type</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_ClassifierType()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	String getClassifierType();
@@ -144,7 +144,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Complexity</em>' attribute.
 	 * @see #setComplexity(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Complexity()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getComplexity();
@@ -170,7 +170,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Difficulty</em>' attribute.
 	 * @see #setDifficulty(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Difficulty()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getDifficulty();
@@ -196,7 +196,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Extension Points</em>' attribute.
 	 * @see #setExtensionPoints(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_ExtensionPoints()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getExtensionPoints();
@@ -222,7 +222,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Genlinks</em>' attribute.
 	 * @see #setGenlinks(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Genlinks()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getGenlinks();
@@ -248,7 +248,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Genfile</em>' attribute.
 	 * @see #setGenfile(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Genfile()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getGenfile();
@@ -274,7 +274,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Gentype</em>' attribute.
 	 * @see #setGentype(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Gentype()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getGentype();
@@ -300,7 +300,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Multiplicity</em>' attribute.
 	 * @see #setMultiplicity(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Multiplicity()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getMultiplicity();
@@ -326,7 +326,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Phase</em>' attribute.
 	 * @see #setPhase(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Phase()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getPhase();
@@ -352,7 +352,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Priority</em>' attribute.
 	 * @see #setPriority(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Priority()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getPriority();
@@ -378,7 +378,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Property Type</em>' attribute.
 	 * @see #setPropertyType(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_PropertyType()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getPropertyType();
@@ -404,7 +404,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Status</em>' attribute.
 	 * @see #setStatus(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Status()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getStatus();
@@ -430,7 +430,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Stereotype Ex</em>' attribute.
 	 * @see #setStereotypeEx(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_StereotypeEx()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getStereotypeEx();
@@ -456,7 +456,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Subtype</em>' attribute.
 	 * @see #setSubtype(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Subtype()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getSubtype();
@@ -482,7 +482,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Tablespace</em>' attribute.
 	 * @see #setTablespace(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Tablespace()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getTablespace();
@@ -508,7 +508,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Tag</em>' attribute.
 	 * @see #setTag(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_Tag()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getTag();
@@ -704,7 +704,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Parent ID</em>' attribute.
 	 * @see #setParentID(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_ParentID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	Integer getParentID();
@@ -730,7 +730,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Package ID</em>' attribute.
 	 * @see #setPackageID(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_PackageID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	Integer getPackageID();
@@ -756,7 +756,7 @@ public interface EAElement extends EAClassifierIDLong, EAOwnedElement {
 	 * @return the value of the '<em>Is Active</em>' attribute.
 	 * @see #setIsActive(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAElement_IsActive()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsActive();

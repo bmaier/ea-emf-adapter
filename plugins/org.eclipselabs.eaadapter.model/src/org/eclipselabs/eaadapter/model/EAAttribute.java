@@ -61,7 +61,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Containment</em>' attribute.
 	 * @see #setContainment(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_Containment()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getContainment();
@@ -87,7 +87,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Is Collection</em>' attribute.
 	 * @see #setIsCollection(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_IsCollection()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsCollection();
@@ -113,7 +113,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Is Ordered</em>' attribute.
 	 * @see #setIsOrdered(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_IsOrdered()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsOrdered();
@@ -139,7 +139,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Allow Duplicates</em>' attribute.
 	 * @see #setAllowDuplicates(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_AllowDuplicates()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getAllowDuplicates();
@@ -165,7 +165,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Is Derived</em>' attribute.
 	 * @see #setIsDerived(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_IsDerived()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsDerived();
@@ -191,7 +191,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Container</em>' attribute.
 	 * @see #setContainer(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_Container()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getContainer();
@@ -217,7 +217,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Scale</em>' attribute.
 	 * @see #setScale(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_Scale()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getScale();
@@ -243,7 +243,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Precision</em>' attribute.
 	 * @see #setPrecision(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_Precision()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getPrecision();
@@ -269,7 +269,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Length</em>' attribute.
 	 * @see #setLength(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_Length()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getLength();
@@ -295,7 +295,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Lower Bound</em>' attribute.
 	 * @see #setLowerBound(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_LowerBound()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getLowerBound();
@@ -321,7 +321,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Upper Bound</em>' attribute.
 	 * @see #setUpperBound(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_UpperBound()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getUpperBound();
@@ -347,7 +347,7 @@ public interface EAAttribute extends EAModifiableElement, EAClassifierIDLong {
 	 * @return the value of the '<em>Default</em>' attribute.
 	 * @see #setDefault(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAAttribute_Default()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getDefault();

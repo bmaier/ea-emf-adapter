@@ -37,7 +37,7 @@ public interface EAAbstractPackage extends EAVersiondElement {
 	 * @return the value of the '<em>Code Path</em>' attribute.
 	 * @see #setCodePath(String)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAAbstractPackage_CodePath()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getCodePath();
@@ -63,7 +63,7 @@ public interface EAAbstractPackage extends EAVersiondElement {
 	 * @return the value of the '<em>Flags</em>' attribute.
 	 * @see #setFlags(String)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAAbstractPackage_Flags()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getFlags();
@@ -88,7 +88,7 @@ public interface EAAbstractPackage extends EAVersiondElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Is Model</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAAbstractPackage_IsModel()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Boolean getIsModel();

@@ -577,8 +577,8 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
 		EamodelPackage theEamodelPackage = (EamodelPackage)EPackage.Registry.INSTANCE.getEPackage(EamodelPackage.eNS_URI);
+		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -599,52 +599,52 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(eaAbstractPackageEClass, EAAbstractPackage.class, "EAAbstractPackage", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAAbstractPackage_CodePath(), theDatatypesPackage.getString(), "codePath", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAAbstractPackage_Flags(), theDatatypesPackage.getString(), "flags", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAAbstractPackage_IsModel(), theDatatypesPackage.getBoolean(), "isModel", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAAbstractPackage_CodePath(), ecorePackage.getEString(), "codePath", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAAbstractPackage_Flags(), ecorePackage.getEString(), "flags", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAAbstractPackage_IsModel(), ecorePackage.getEBooleanObject(), "isModel", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaBaseClassEClass, EABaseClass.class, "EABaseClass", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEABaseClass_ObjectType(), theDatatypesPackage.getString(), "objectType", null, 0, 1, EABaseClass.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEABaseClass_Id(), theDatatypesPackage.getInteger(), "id", null, 0, 1, EABaseClass.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEABaseClass_ObjectType(), ecorePackage.getEString(), "objectType", null, 0, 1, EABaseClass.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEABaseClass_Id(), ecorePackage.getEIntegerObject(), "id", null, 0, 1, EABaseClass.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEABaseClass_Repository(), theEamodelPackage.getEARepository(), null, "repository", null, 0, 1, EABaseClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(eaBaseClassEClass, theDatatypesPackage.getBoolean(), "initializeAdapter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = addEOperation(eaBaseClassEClass, ecorePackage.getEBooleanObject(), "initializeAdapter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatypesPackage.getEACollection(), "collection", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(eaBaseClassEClass, theDatatypesPackage.getBoolean(), "deleteAdapter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(eaBaseClassEClass, ecorePackage.getEBooleanObject(), "deleteAdapter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theDatatypesPackage.getEACollection(), "collection", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(eaClassifierIDLongEClass, EAClassifierIDLong.class, "EAClassifierIDLong", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAClassifierIDLong_ClassifierID(), theDatatypesPackage.getInteger(), "classifierID", null, 0, 1, EAClassifierIDLong.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAClassifierIDLong_ClassifierID(), ecorePackage.getEIntegerObject(), "classifierID", null, 0, 1, EAClassifierIDLong.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaModifiableElementEClass, EAModifiableElement.class, "EAModifiableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAModifiableElement_IsConst(), theDatatypesPackage.getBoolean(), "isConst", null, 0, 1, EAModifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAModifiableElement_IsStatic(), theDatatypesPackage.getBoolean(), "isStatic", null, 0, 1, EAModifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAModifiableElement_IsConst(), ecorePackage.getEBooleanObject(), "isConst", null, 0, 1, EAModifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAModifiableElement_IsStatic(), ecorePackage.getEBooleanObject(), "isStatic", null, 0, 1, EAModifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaNamedElementEClass, EANamedElement.class, "EANamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEANamedElement_Name(), theDatatypesPackage.getString(), "name", "name", 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEANamedElement_Notes(), theDatatypesPackage.getString(), "notes", null, 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEANamedElement_Guid(), theDatatypesPackage.getString(), "guid", null, 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEANamedElement_Name(), ecorePackage.getEString(), "name", "name", 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEANamedElement_Notes(), ecorePackage.getEString(), "notes", null, 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEANamedElement_Guid(), ecorePackage.getEString(), "guid", null, 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaOwnedElementEClass, EAOwnedElement.class, "EAOwnedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAOwnedElement_Author(), theDatatypesPackage.getString(), "author", null, 0, 1, EAOwnedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAOwnedElement_IsLocked(), theDatatypesPackage.getBoolean(), "isLocked", null, 0, 1, EAOwnedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAOwnedElement_Author(), ecorePackage.getEString(), "author", null, 0, 1, EAOwnedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAOwnedElement_IsLocked(), ecorePackage.getEBooleanObject(), "isLocked", null, 0, 1, EAOwnedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaStereotypedElementEClass, EAStereotypedElement.class, "EAStereotypedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAStereotypedElement_Stereotype(), theDatatypesPackage.getString(), "stereotype", null, 0, 1, EAStereotypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAStereotypedElement_Stereotype(), ecorePackage.getEString(), "stereotype", null, 0, 1, EAStereotypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaTaggedElementEClass, EATaggedElement.class, "EATaggedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEATaggedElement_Value(), theDatatypesPackage.getString(), "value", null, 0, 1, EATaggedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEATaggedElement_TagID(), theDatatypesPackage.getInteger(), "tagID", null, 0, 1, EATaggedElement.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEATaggedElement_Value(), ecorePackage.getEString(), "value", null, 0, 1, EATaggedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEATaggedElement_TagID(), ecorePackage.getEIntegerObject(), "tagID", null, 0, 1, EATaggedElement.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaTypedElementEClass, EATypedElement.class, "EATypedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEATypedElement_Type(), theDatatypesPackage.getString(), "type", null, 0, 1, EATypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEATypedElement_Type(), ecorePackage.getEString(), "type", null, 0, 1, EATypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaVersiondElementEClass, EAVersiondElement.class, "EAVersiondElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAVersiondElement_Version(), theDatatypesPackage.getString(), "version", null, 0, 1, EAVersiondElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAVersiondElement_Version(), ecorePackage.getEString(), "version", null, 0, 1, EAVersiondElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaVisibilityElementEClass, EAVisibilityElement.class, "EAVisibilityElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAVisibilityElement_Visibility(), theDatatypesPackage.getString(), "visibility", "Public", 0, 1, EAVisibilityElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEAVisibilityElement_Visibility(), ecorePackage.getEString(), "visibility", "Public", 0, 1, EAVisibilityElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eaMovableElementEClass, EAMovableElement.class, "EAMovableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -252,9 +252,6 @@
         <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterAttribute/stereotype"/>
         <genEnumLiterals ecoreEnumLiteral="ea.ecore#//datatypes/FilterAttribute/type"/>
       </genEnums>
-      <genDataTypes ecoreDataType="ea.ecore#//datatypes/String"/>
-      <genDataTypes ecoreDataType="ea.ecore#//datatypes/Boolean"/>
-      <genDataTypes ecoreDataType="ea.ecore#//datatypes/Integer"/>
       <genDataTypes ecoreDataType="ea.ecore#//datatypes/EACollection"/>
       <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Attribute"/>
       <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_AttributeTag"/>
@@ -271,7 +268,6 @@
       <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Parameter"/>
       <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_Repository"/>
       <genDataTypes ecoreDataType="ea.ecore#//datatypes/T_TaggedValue"/>
-      <genDataTypes ecoreDataType="ea.ecore#//datatypes/EClass"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Abstracthierachy" basePackage="org.eclipselabs.eaadapter.model"
         disposableProviderFactory="true" ecorePackage="ea.ecore#//abstracthierachy">

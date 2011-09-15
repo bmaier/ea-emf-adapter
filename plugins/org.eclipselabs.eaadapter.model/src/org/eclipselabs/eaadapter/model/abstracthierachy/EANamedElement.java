@@ -45,7 +45,7 @@ public interface EANamedElement extends EABaseClass {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEANamedElement_Name()
-	 * @model default="name" dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model default="name"
 	 * @generated
 	 */
 	String getName();
@@ -72,7 +72,7 @@ public interface EANamedElement extends EABaseClass {
 	 * @return the value of the '<em>Notes</em>' attribute.
 	 * @see #setNotes(String)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEANamedElement_Notes()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getNotes();
@@ -101,7 +101,7 @@ public interface EANamedElement extends EABaseClass {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Guid</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEANamedElement_Guid()
-	 * @model id="true" dataType="org.eclipselabs.eaadapter.model.datatypes.String" changeable="false"
+	 * @model id="true" changeable="false"
 	 * @generated
 	 */
 	String getGuid();

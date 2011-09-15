@@ -82,14 +82,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 				return createFilterTypeFromString(eDataType, initialValue);
 			case DatatypesPackage.FILTER_ATTRIBUTE:
 				return createFilterAttributeFromString(eDataType, initialValue);
-			case DatatypesPackage.STRING:
-				return createStringFromString(eDataType, initialValue);
-			case DatatypesPackage.BOOLEAN:
-				return createBooleanFromString(eDataType, initialValue);
-			case DatatypesPackage.INTEGER:
-				return createIntegerFromString(eDataType, initialValue);
-			case DatatypesPackage.ECLASS:
-				return createEClassFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -109,14 +101,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 				return convertFilterTypeToString(eDataType, instanceValue);
 			case DatatypesPackage.FILTER_ATTRIBUTE:
 				return convertFilterAttributeToString(eDataType, instanceValue);
-			case DatatypesPackage.STRING:
-				return convertStringToString(eDataType, instanceValue);
-			case DatatypesPackage.BOOLEAN:
-				return convertBooleanToString(eDataType, instanceValue);
-			case DatatypesPackage.INTEGER:
-				return convertIntegerToString(eDataType, instanceValue);
-			case DatatypesPackage.ECLASS:
-				return convertEClassToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -180,78 +164,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	 */
 	public String convertFilterAttributeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String createStringFromString(EDataType eDataType, String initialValue) {
-		return (String)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertStringToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Boolean createBooleanFromString(EDataType eDataType, String initialValue) {
-		return (Boolean)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertBooleanToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Integer createIntegerFromString(EDataType eDataType, String initialValue) {
-		return (Integer)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertIntegerToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass createEClassFromString(EDataType eDataType, String initialValue) {
-		return (EClass)super.createFromString(eDataType, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEClassToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**

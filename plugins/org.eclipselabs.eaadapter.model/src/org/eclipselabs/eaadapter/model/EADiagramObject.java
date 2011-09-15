@@ -45,7 +45,7 @@ public interface EADiagramObject extends EABaseClass {
 	 * @return the value of the '<em>Bottom</em>' attribute.
 	 * @see #setBottom(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramObject_Bottom()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getBottom();
@@ -124,7 +124,7 @@ public interface EADiagramObject extends EABaseClass {
 	 * @return the value of the '<em>Element ID</em>' attribute.
 	 * @see #setElementID(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramObject_ElementID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getElementID();
@@ -150,7 +150,7 @@ public interface EADiagramObject extends EABaseClass {
 	 * @return the value of the '<em>Left</em>' attribute.
 	 * @see #setLeft(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramObject_Left()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getLeft();
@@ -176,7 +176,7 @@ public interface EADiagramObject extends EABaseClass {
 	 * @return the value of the '<em>Right</em>' attribute.
 	 * @see #setRight(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramObject_Right()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getRight();
@@ -202,7 +202,7 @@ public interface EADiagramObject extends EABaseClass {
 	 * @return the value of the '<em>Sequence</em>' attribute.
 	 * @see #setSequence(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramObject_Sequence()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getSequence();
@@ -228,7 +228,7 @@ public interface EADiagramObject extends EABaseClass {
 	 * @return the value of the '<em>Top</em>' attribute.
 	 * @see #setTop(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramObject_Top()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getTop();

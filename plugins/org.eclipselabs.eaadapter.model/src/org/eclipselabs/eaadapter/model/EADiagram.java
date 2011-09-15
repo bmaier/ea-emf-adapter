@@ -45,7 +45,7 @@ public interface EADiagram extends EAOwnedElement, EAStereotypedElement {
 	 * @return the value of the '<em>Swimlanes</em>' attribute.
 	 * @see #setSwimlanes(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagram_Swimlanes()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSwimlanes();
@@ -70,7 +70,7 @@ public interface EADiagram extends EAOwnedElement, EAStereotypedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagram_Type()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	String getType();

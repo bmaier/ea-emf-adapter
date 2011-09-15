@@ -34,7 +34,7 @@ public interface EAClassifierIDLong extends EAVisibilityElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Classifier ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAClassifierIDLong_ClassifierID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Integer getClassifierID();

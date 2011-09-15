@@ -36,7 +36,7 @@ public interface EATaggedElement extends EANamedElement {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEATaggedElement_Value()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getValue();
@@ -61,7 +61,7 @@ public interface EATaggedElement extends EANamedElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tag ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEATaggedElement_TagID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Integer getTagID();

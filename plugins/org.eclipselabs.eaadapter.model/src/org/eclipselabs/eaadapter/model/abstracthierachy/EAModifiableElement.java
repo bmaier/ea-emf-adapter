@@ -36,7 +36,7 @@ public interface EAModifiableElement extends EAVisibilityElement {
 	 * @return the value of the '<em>Is Const</em>' attribute.
 	 * @see #setIsConst(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAModifiableElement_IsConst()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsConst();
@@ -62,7 +62,7 @@ public interface EAModifiableElement extends EAVisibilityElement {
 	 * @return the value of the '<em>Is Static</em>' attribute.
 	 * @see #setIsStatic(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAModifiableElement_IsStatic()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsStatic();

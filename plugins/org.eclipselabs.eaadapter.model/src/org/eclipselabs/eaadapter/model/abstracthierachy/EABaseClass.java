@@ -47,7 +47,7 @@ public interface EABaseClass extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Object Type</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEABaseClass_ObjectType()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	String getObjectType();
@@ -63,7 +63,7 @@ public interface EABaseClass extends EObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEABaseClass_Id()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Integer getId();
@@ -130,7 +130,7 @@ public interface EABaseClass extends EObject {
 	 * This method is used internally to create new elements.
 	 * </div>
 	 * <!-- end-model-doc -->
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" collectionDataType="org.eclipselabs.eaadapter.model.datatypes.EACollection"
+	 * @model collectionDataType="org.eclipselabs.eaadapter.model.datatypes.EACollection"
 	 * @generated
 	 */
 	@SuppressWarnings("rawtypes")
@@ -145,7 +145,7 @@ public interface EABaseClass extends EObject {
 	 * Used internally!
 	 * </div>
 	 * <!-- end-model-doc -->
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" collectionDataType="org.eclipselabs.eaadapter.model.datatypes.EACollection"
+	 * @model collectionDataType="org.eclipselabs.eaadapter.model.datatypes.EACollection"
 	 * @generated
 	 */
 	@SuppressWarnings("rawtypes")

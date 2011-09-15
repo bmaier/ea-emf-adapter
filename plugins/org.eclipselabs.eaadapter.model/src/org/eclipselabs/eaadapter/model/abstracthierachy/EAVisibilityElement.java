@@ -36,7 +36,7 @@ public interface EAVisibilityElement extends EATypedElement {
 	 * @return the value of the '<em>Visibility</em>' attribute.
 	 * @see #setVisibility(String)
 	 * @see org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage#getEAVisibilityElement_Visibility()
-	 * @model default="Public" dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model default="Public"
 	 * @generated
 	 */
 	String getVisibility();

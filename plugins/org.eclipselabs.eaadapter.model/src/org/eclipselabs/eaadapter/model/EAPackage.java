@@ -163,7 +163,7 @@ public interface EAPackage extends EAAbstractPackage {
 	 * @return the value of the '<em>Stereotype</em>' attribute.
 	 * @see #setStereotype(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAPackage_Stereotype()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getStereotype();

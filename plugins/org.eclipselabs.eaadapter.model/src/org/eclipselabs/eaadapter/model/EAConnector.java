@@ -87,7 +87,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Connector ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_ConnectorID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Integer getConnectorID();
@@ -103,7 +103,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Direction</em>' attribute.
 	 * @see #setDirection(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Direction()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getDirection();
@@ -129,7 +129,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Subtype</em>' attribute.
 	 * @see #setSubtype(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Subtype()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSubtype();
@@ -155,7 +155,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Is Leaf</em>' attribute.
 	 * @see #setIsLeaf(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_IsLeaf()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	Boolean getIsLeaf();
@@ -181,7 +181,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Is Root</em>' attribute.
 	 * @see #setIsRoot(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_IsRoot()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	Boolean getIsRoot();
@@ -207,7 +207,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Is Spec</em>' attribute.
 	 * @see #setIsSpec(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_IsSpec()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	Boolean getIsSpec();
@@ -233,7 +233,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Virtual Inheritance</em>' attribute.
 	 * @see #setVirtualInheritance(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_VirtualInheritance()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	String getVirtualInheritance();
@@ -259,7 +259,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Transition Event</em>' attribute.
 	 * @see #setTransitionEvent(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_TransitionEvent()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getTransitionEvent();
@@ -285,7 +285,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Transition Action</em>' attribute.
 	 * @see #setTransitionAction(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_TransitionAction()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getTransitionAction();
@@ -311,7 +311,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Transition Guard</em>' attribute.
 	 * @see #setTransitionGuard(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_TransitionGuard()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getTransitionGuard();
@@ -337,7 +337,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Route Style</em>' attribute.
 	 * @see #setRouteStyle(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_RouteStyle()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getRouteStyle();
@@ -363,7 +363,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Sequence No</em>' attribute.
 	 * @see #setSequenceNo(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_SequenceNo()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getSequenceNo();
@@ -389,7 +389,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Diagram ID</em>' attribute.
 	 * @see #setDiagramID(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_DiagramID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" volatile="true"
+	 * @model volatile="true"
 	 * @generated
 	 */
 	Integer getDiagramID();
@@ -457,7 +457,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Supplier ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_SupplierID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Integer getSupplierID();
@@ -504,7 +504,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Client ID</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_ClientID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	Integer getClientID();
@@ -590,7 +590,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client aggregation</em>' attribute.
 	 * @see #setClient_aggregation(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_aggregation()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getClient_aggregation();
@@ -616,7 +616,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client cardinality</em>' attribute.
 	 * @see #setClient_cardinality(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_cardinality()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getClient_cardinality();
@@ -642,7 +642,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client containment</em>' attribute.
 	 * @see #setClient_containment(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_containment()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getClient_containment();
@@ -668,7 +668,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client is Navigable</em>' attribute.
 	 * @see #setClient_isNavigable(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_isNavigable()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getClient_isNavigable();
@@ -694,7 +694,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client note</em>' attribute.
 	 * @see #setClient_note(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_note()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getClient_note();
@@ -720,7 +720,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client role</em>' attribute.
 	 * @see #setClient_role(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_role()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getClient_role();
@@ -746,7 +746,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client role Type</em>' attribute.
 	 * @see #setClient_roleType(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_roleType()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getClient_roleType();
@@ -772,7 +772,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client stereotype</em>' attribute.
 	 * @see #setClient_stereotype(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_stereotype()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getClient_stereotype();
@@ -798,7 +798,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Client visibility</em>' attribute.
 	 * @see #setClient_visibility(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Client_visibility()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getClient_visibility();
@@ -824,7 +824,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier aggregation</em>' attribute.
 	 * @see #setSupplier_aggregation(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_aggregation()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getSupplier_aggregation();
@@ -850,7 +850,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier cardinality</em>' attribute.
 	 * @see #setSupplier_cardinality(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_cardinality()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSupplier_cardinality();
@@ -876,7 +876,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier containment</em>' attribute.
 	 * @see #setSupplier_containment(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_containment()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSupplier_containment();
@@ -902,7 +902,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier is Navigable</em>' attribute.
 	 * @see #setSupplier_isNavigable(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_isNavigable()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getSupplier_isNavigable();
@@ -928,7 +928,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier note</em>' attribute.
 	 * @see #setSupplier_note(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_note()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSupplier_note();
@@ -954,7 +954,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier role</em>' attribute.
 	 * @see #setSupplier_role(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_role()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSupplier_role();
@@ -980,7 +980,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier role Type</em>' attribute.
 	 * @see #setSupplier_roleType(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_roleType()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSupplier_roleType();
@@ -1006,7 +1006,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier stereotype</em>' attribute.
 	 * @see #setSupplier_stereotype(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_stereotype()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSupplier_stereotype();
@@ -1032,7 +1032,7 @@ public interface EAConnector extends EATypedElement, EAMovableElement {
 	 * @return the value of the '<em>Supplier visibility</em>' attribute.
 	 * @see #setSupplier_visibility(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnector_Supplier_visibility()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getSupplier_visibility();

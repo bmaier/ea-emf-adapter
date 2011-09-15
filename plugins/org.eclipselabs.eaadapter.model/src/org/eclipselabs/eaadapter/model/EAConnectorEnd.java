@@ -50,7 +50,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Aggregation</em>' attribute.
 	 * @see #setAggregation(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Aggregation()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getAggregation();
@@ -76,7 +76,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Cardinality</em>' attribute.
 	 * @see #setCardinality(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Cardinality()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getCardinality();
@@ -103,7 +103,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Containment</em>' attribute.
 	 * @see #setContainment(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Containment()
-	 * @model default="Unspecified" dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model default="Unspecified"
 	 * @generated
 	 */
 	String getContainment();
@@ -129,7 +129,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Is Navigable</em>' attribute.
 	 * @see #setIsNavigable(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_IsNavigable()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsNavigable();
@@ -155,7 +155,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Note</em>' attribute.
 	 * @see #setNote(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Note()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getNote();
@@ -181,7 +181,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Role</em>' attribute.
 	 * @see #setRole(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Role()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getRole();
@@ -207,7 +207,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Role Type</em>' attribute.
 	 * @see #setRoleType(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_RoleType()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getRoleType();
@@ -233,7 +233,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Stereotype</em>' attribute.
 	 * @see #setStereotype(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Stereotype()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getStereotype();
@@ -260,7 +260,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Visibility</em>' attribute.
 	 * @see #setVisibility(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Visibility()
-	 * @model default="Public" dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model default="Public"
 	 * @generated
 	 */
 	String getVisibility();
@@ -312,7 +312,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Ordering</em>' attribute.
 	 * @see #setOrdering(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Ordering()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getOrdering();
@@ -338,7 +338,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * @return the value of the '<em>Qualifier</em>' attribute.
 	 * @see #setQualifier(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_Qualifier()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getQualifier();
@@ -363,7 +363,7 @@ public interface EAConnectorEnd extends EABaseClass {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>End</em>' attribute.
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEAConnectorEnd_End()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" changeable="false"
+	 * @model changeable="false"
 	 * @generated
 	 */
 	String getEnd();

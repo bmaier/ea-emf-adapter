@@ -6,7 +6,6 @@
  */
 package org.eclipselabs.eaadapter.model.datatypes.impl;
 
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
@@ -64,27 +63,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	private EEnum filterAttributeEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType stringEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType booleanEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType integerEDataType = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,13 +177,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	private EDataType t_TaggedValueEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType eClassEDataType = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -299,33 +270,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 */
 	public EEnum getFilterAttribute() {
 		return filterAttributeEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getString() {
-		return stringEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getBoolean() {
-		return booleanEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getInteger() {
-		return integerEDataType;
 	}
 
 	/**
@@ -477,15 +421,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getEClass() {
-		return eClassEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public DatatypesFactory getDatatypesFactory() {
 		return (DatatypesFactory)getEFactoryInstance();
 	}
@@ -514,9 +449,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		filterAttributeEEnum = createEEnum(FILTER_ATTRIBUTE);
 
 		// Create data types
-		stringEDataType = createEDataType(STRING);
-		booleanEDataType = createEDataType(BOOLEAN);
-		integerEDataType = createEDataType(INTEGER);
 		eaCollectionEDataType = createEDataType(EA_COLLECTION);
 		t_AttributeEDataType = createEDataType(TATTRIBUTE);
 		t_AttributeTagEDataType = createEDataType(TATTRIBUTE_TAG);
@@ -533,7 +465,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		t_ParameterEDataType = createEDataType(TPARAMETER);
 		t_RepositoryEDataType = createEDataType(TREPOSITORY);
 		t_TaggedValueEDataType = createEDataType(TTAGGED_VALUE);
-		eClassEDataType = createEDataType(ECLASS);
 	}
 
 	/**
@@ -585,9 +516,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		addEEnumLiteral(filterAttributeEEnum, FilterAttribute.TYPE);
 
 		// Initialize data types
-		initEDataType(stringEDataType, String.class, "String", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(booleanEDataType, Boolean.class, "Boolean", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(integerEDataType, Integer.class, "Integer", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(eaCollectionEDataType, Collection.class, "EACollection", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(t_AttributeEDataType, Attribute.class, "T_Attribute", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(t_AttributeTagEDataType, AttributeTag.class, "T_AttributeTag", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -604,7 +532,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEDataType(t_ParameterEDataType, Parameter.class, "T_Parameter", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(t_RepositoryEDataType, Repository.class, "T_Repository", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(t_TaggedValueEDataType, TaggedValue.class, "T_TaggedValue", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(eClassEDataType, EClass.class, "EClass", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 	}
 
 } //DatatypesPackageImpl

@@ -89,36 +89,6 @@ public interface DatatypesPackage extends EPackage {
 	int FILTER_ATTRIBUTE = 2;
 
 	/**
-	 * The meta object id for the '<em>String</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.String
-	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getString()
-	 * @generated
-	 */
-	int STRING = 3;
-
-	/**
-	 * The meta object id for the '<em>Boolean</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Boolean
-	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getBoolean()
-	 * @generated
-	 */
-	int BOOLEAN = 4;
-
-	/**
-	 * The meta object id for the '<em>Integer</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Integer
-	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getInteger()
-	 * @generated
-	 */
-	int INTEGER = 5;
-
-	/**
 	 * The meta object id for the '<em>EA Collection</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,7 +96,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getEACollection()
 	 * @generated
 	 */
-	int EA_COLLECTION = 6;
+	int EA_COLLECTION = 3;
 
 	/**
 	 * The meta object id for the '<em>TAttribute</em>' data type.
@@ -136,7 +106,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_Attribute()
 	 * @generated
 	 */
-	int TATTRIBUTE = 7;
+	int TATTRIBUTE = 4;
 
 	/**
 	 * The meta object id for the '<em>TAttribute Tag</em>' data type.
@@ -146,7 +116,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_AttributeTag()
 	 * @generated
 	 */
-	int TATTRIBUTE_TAG = 8;
+	int TATTRIBUTE_TAG = 5;
 
 	/**
 	 * The meta object id for the '<em>TConnector</em>' data type.
@@ -156,7 +126,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_Connector()
 	 * @generated
 	 */
-	int TCONNECTOR = 9;
+	int TCONNECTOR = 6;
 
 	/**
 	 * The meta object id for the '<em>TConnector End</em>' data type.
@@ -166,7 +136,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_ConnectorEnd()
 	 * @generated
 	 */
-	int TCONNECTOR_END = 10;
+	int TCONNECTOR_END = 7;
 
 	/**
 	 * The meta object id for the '<em>TConntector Tag</em>' data type.
@@ -176,7 +146,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_ConntectorTag()
 	 * @generated
 	 */
-	int TCONNTECTOR_TAG = 11;
+	int TCONNTECTOR_TAG = 8;
 
 	/**
 	 * The meta object id for the '<em>TDiagram</em>' data type.
@@ -186,7 +156,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_Diagram()
 	 * @generated
 	 */
-	int TDIAGRAM = 12;
+	int TDIAGRAM = 9;
 
 	/**
 	 * The meta object id for the '<em>TDiagram Link</em>' data type.
@@ -196,7 +166,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_DiagramLink()
 	 * @generated
 	 */
-	int TDIAGRAM_LINK = 13;
+	int TDIAGRAM_LINK = 10;
 
 	/**
 	 * The meta object id for the '<em>TDiagram Object</em>' data type.
@@ -206,7 +176,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_DiagramObject()
 	 * @generated
 	 */
-	int TDIAGRAM_OBJECT = 14;
+	int TDIAGRAM_OBJECT = 11;
 
 	/**
 	 * The meta object id for the '<em>TElement</em>' data type.
@@ -216,7 +186,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_Element()
 	 * @generated
 	 */
-	int TELEMENT = 15;
+	int TELEMENT = 12;
 
 	/**
 	 * The meta object id for the '<em>TMethod</em>' data type.
@@ -226,7 +196,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_Method()
 	 * @generated
 	 */
-	int TMETHOD = 16;
+	int TMETHOD = 13;
 
 	/**
 	 * The meta object id for the '<em>TMethod Tag</em>' data type.
@@ -236,7 +206,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_MethodTag()
 	 * @generated
 	 */
-	int TMETHOD_TAG = 17;
+	int TMETHOD_TAG = 14;
 
 	/**
 	 * The meta object id for the '<em>TPackage</em>' data type.
@@ -246,7 +216,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_Package()
 	 * @generated
 	 */
-	int TPACKAGE = 18;
+	int TPACKAGE = 15;
 
 	/**
 	 * The meta object id for the '<em>TParameter</em>' data type.
@@ -256,7 +226,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_Parameter()
 	 * @generated
 	 */
-	int TPARAMETER = 19;
+	int TPARAMETER = 16;
 
 	/**
 	 * The meta object id for the '<em>TRepository</em>' data type.
@@ -266,7 +236,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_Repository()
 	 * @generated
 	 */
-	int TREPOSITORY = 20;
+	int TREPOSITORY = 17;
 
 	/**
 	 * The meta object id for the '<em>TTagged Value</em>' data type.
@@ -276,18 +246,7 @@ public interface DatatypesPackage extends EPackage {
 	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getT_TaggedValue()
 	 * @generated
 	 */
-	int TTAGGED_VALUE = 21;
-
-	/**
-	 * The meta object id for the '<em>EClass</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecore.EClass
-	 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getEClass()
-	 * @generated
-	 */
-	int ECLASS = 22;
-
+	int TTAGGED_VALUE = 18;
 
 	/**
 	 * Returns the meta object for enum '{@link org.eclipselabs.eaadapter.model.datatypes.FilterClass <em>Filter Class</em>}'.
@@ -318,39 +277,6 @@ public interface DatatypesPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getFilterAttribute();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.String <em>String</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>String</em>'.
-	 * @see java.lang.String
-	 * @model instanceClass="java.lang.String"
-	 * @generated
-	 */
-	EDataType getString();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.Boolean <em>Boolean</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Boolean</em>'.
-	 * @see java.lang.Boolean
-	 * @model instanceClass="java.lang.Boolean"
-	 * @generated
-	 */
-	EDataType getBoolean();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.Integer <em>Integer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Integer</em>'.
-	 * @see java.lang.Integer
-	 * @model instanceClass="java.lang.Integer"
-	 * @generated
-	 */
-	EDataType getInteger();
 
 	/**
 	 * Returns the meta object for data type '{@link org.sparx.Collection <em>EA Collection</em>}'.
@@ -529,17 +455,6 @@ public interface DatatypesPackage extends EPackage {
 	EDataType getT_TaggedValue();
 
 	/**
-	 * Returns the meta object for data type '{@link org.eclipse.emf.ecore.EClass <em>EClass</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>EClass</em>'.
-	 * @see org.eclipse.emf.ecore.EClass
-	 * @model instanceClass="org.eclipse.emf.ecore.EClass"
-	 * @generated
-	 */
-	EDataType getEClass();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -590,36 +505,6 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum FILTER_ATTRIBUTE = eINSTANCE.getFilterAttribute();
-
-		/**
-		 * The meta object literal for the '<em>String</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.String
-		 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getString()
-		 * @generated
-		 */
-		EDataType STRING = eINSTANCE.getString();
-
-		/**
-		 * The meta object literal for the '<em>Boolean</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.Boolean
-		 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getBoolean()
-		 * @generated
-		 */
-		EDataType BOOLEAN = eINSTANCE.getBoolean();
-
-		/**
-		 * The meta object literal for the '<em>Integer</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.Integer
-		 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getInteger()
-		 * @generated
-		 */
-		EDataType INTEGER = eINSTANCE.getInteger();
 
 		/**
 		 * The meta object literal for the '<em>EA Collection</em>' data type.
@@ -780,16 +665,6 @@ public interface DatatypesPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType TTAGGED_VALUE = eINSTANCE.getT_TaggedValue();
-
-		/**
-		 * The meta object literal for the '<em>EClass</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.eclipse.emf.ecore.EClass
-		 * @see org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl#getEClass()
-		 * @generated
-		 */
-		EDataType ECLASS = eINSTANCE.getEClass();
 
 	}
 

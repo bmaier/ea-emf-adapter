@@ -157,7 +157,7 @@ public interface Filter extends EObject {
 	 * @return the value of the '<em>Filter Expression</em>' attribute.
 	 * @see #setFilterExpression(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getFilter_FilterExpression()
-	 * @model default="" dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model default=""
 	 * @generated
 	 */
 	String getFilterExpression();
@@ -185,7 +185,7 @@ public interface Filter extends EObject {
 	 * @return the value of the '<em>Negate</em>' attribute.
 	 * @see #setNegate(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getFilter_Negate()
-	 * @model default="false" dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model default="false"
 	 * @generated
 	 */
 	Boolean getNegate();

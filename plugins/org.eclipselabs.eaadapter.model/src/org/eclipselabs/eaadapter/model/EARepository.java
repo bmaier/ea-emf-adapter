@@ -108,7 +108,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>File</em>' attribute.
 	 * @see #setFile(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_File()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getFile();
@@ -135,7 +135,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>User</em>' attribute.
 	 * @see #setUser(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_User()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getUser();
@@ -162,7 +162,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>Password</em>' attribute.
 	 * @see #setPassword(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_Password()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getPassword();
@@ -192,7 +192,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>Caching</em>' attribute.
 	 * @see #setCaching(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_Caching()
-	 * @model default="true" dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model default="true"
 	 * @generated
 	 */
 	Boolean getCaching();
@@ -221,7 +221,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>Readonly Ea Link</em>' attribute.
 	 * @see #setReadonlyEaLink(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_ReadonlyEaLink()
-	 * @model default="false" dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model default="false"
 	 * @generated
 	 */
 	Boolean getReadonlyEaLink();
@@ -250,7 +250,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>Diagrams</em>' attribute.
 	 * @see #setDiagrams(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_Diagrams()
-	 * @model default="false" dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model default="false"
 	 * @generated
 	 */
 	Boolean getDiagrams();
@@ -282,7 +282,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>Prefetch Complete Model</em>' attribute.
 	 * @see #setPrefetchCompleteModel(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_PrefetchCompleteModel()
-	 * @model default="false" dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model default="false"
 	 * @generated
 	 */
 	Boolean getPrefetchCompleteModel();
@@ -314,7 +314,7 @@ public interface EARepository extends EObject {
 	 * @return the value of the '<em>Prefetch Package Guids</em>' attribute.
 	 * @see #setPrefetchPackageGuids(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEARepository_PrefetchPackageGuids()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getPrefetchPackageGuids();
@@ -482,7 +482,7 @@ public interface EARepository extends EObject {
 	 * This method is not supposed to be called manually! It is used internally when the reference <code>models</code> is accessed the first time.
 	 * </div>
 	 * <!-- end-model-doc -->
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean openFile();
@@ -532,7 +532,7 @@ public interface EARepository extends EObject {
 	 * </ul>
 	 * </div>
 	 * <!-- end-model-doc -->
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String" packageGuidDataType="org.eclipselabs.eaadapter.model.datatypes.String" xmiTypeDataType="org.eclipselabs.eaadapter.model.datatypes.String" filenameDataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String exportXMI(String packageGuid, String xmiType, boolean diagrams, int diagramFormat, boolean formattedXML, boolean useDTD, String filename);

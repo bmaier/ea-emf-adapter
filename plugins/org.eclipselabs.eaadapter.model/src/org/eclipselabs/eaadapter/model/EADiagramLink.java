@@ -97,7 +97,7 @@ public interface EADiagramLink extends EABaseClass {
 	 * @return the value of the '<em>Connector ID</em>' attribute.
 	 * @see #setConnectorID(Integer)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramLink_ConnectorID()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Integer"
+	 * @model
 	 * @generated
 	 */
 	Integer getConnectorID();
@@ -123,7 +123,7 @@ public interface EADiagramLink extends EABaseClass {
 	 * @return the value of the '<em>Geometry</em>' attribute.
 	 * @see #setGeometry(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramLink_Geometry()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getGeometry();
@@ -149,7 +149,7 @@ public interface EADiagramLink extends EABaseClass {
 	 * @return the value of the '<em>Is Hidden</em>' attribute.
 	 * @see #setIsHidden(Boolean)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramLink_IsHidden()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.Boolean"
+	 * @model
 	 * @generated
 	 */
 	Boolean getIsHidden();
@@ -175,7 +175,7 @@ public interface EADiagramLink extends EABaseClass {
 	 * @return the value of the '<em>Path</em>' attribute.
 	 * @see #setPath(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramLink_Path()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getPath();
@@ -201,7 +201,7 @@ public interface EADiagramLink extends EABaseClass {
 	 * @return the value of the '<em>Style</em>' attribute.
 	 * @see #setStyle(String)
 	 * @see org.eclipselabs.eaadapter.model.EamodelPackage#getEADiagramLink_Style()
-	 * @model dataType="org.eclipselabs.eaadapter.model.datatypes.String"
+	 * @model
 	 * @generated
 	 */
 	String getStyle();
