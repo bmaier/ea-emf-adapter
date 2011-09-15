@@ -6,6 +6,7 @@
  */
 package org.eclipselabs.eaadapter.model.datatypes.impl;
 
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
@@ -15,25 +16,7 @@ import org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage;
 import org.eclipselabs.eaadapter.model.abstracthierachy.impl.AbstracthierachyPackageImpl;
 import org.eclipselabs.eaadapter.model.datatypes.DatatypesFactory;
 import org.eclipselabs.eaadapter.model.datatypes.DatatypesPackage;
-import org.eclipselabs.eaadapter.model.datatypes.FilterAttribute;
-import org.eclipselabs.eaadapter.model.datatypes.FilterClass;
-import org.eclipselabs.eaadapter.model.datatypes.FilterType;
 import org.eclipselabs.eaadapter.model.impl.EamodelPackageImpl;
-import org.sparx.Attribute;
-import org.sparx.AttributeTag;
-import org.sparx.Collection;
-import org.sparx.Connector;
-import org.sparx.ConnectorEnd;
-import org.sparx.ConnectorTag;
-import org.sparx.Diagram;
-import org.sparx.DiagramLink;
-import org.sparx.DiagramObject;
-import org.sparx.Element;
-import org.sparx.Method;
-import org.sparx.MethodTag;
-import org.sparx.Parameter;
-import org.sparx.Repository;
-import org.sparx.TaggedValue;
 
 
 /**
@@ -210,8 +193,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
-	 * @see #createPackageContents()
-	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static DatatypesPackage init() {
@@ -226,15 +207,13 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		EamodelPackageImpl theEamodelPackage = (EamodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EamodelPackage.eNS_URI) instanceof EamodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EamodelPackage.eNS_URI) : EamodelPackage.eINSTANCE);
 		AbstracthierachyPackageImpl theAbstracthierachyPackage = (AbstracthierachyPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI) instanceof AbstracthierachyPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI) : AbstracthierachyPackage.eINSTANCE);
 
-		// Create package meta-data objects
-		theDatatypesPackage.createPackageContents();
-		theEamodelPackage.createPackageContents();
-		theAbstracthierachyPackage.createPackageContents();
+		// Load packages
+		theEamodelPackage.loadPackage();
 
-		// Initialize created meta-data
-		theDatatypesPackage.initializePackageContents();
-		theEamodelPackage.initializePackageContents();
-		theAbstracthierachyPackage.initializePackageContents();
+		// Fix loaded packages
+		theDatatypesPackage.fixPackageContents();
+		theEamodelPackage.fixPackageContents();
+		theAbstracthierachyPackage.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theDatatypesPackage.freeze();
@@ -251,6 +230,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EEnum getFilterClass() {
+		if (filterClassEEnum == null) {
+			filterClassEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(16);
+		}
 		return filterClassEEnum;
 	}
 
@@ -260,6 +242,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EEnum getFilterType() {
+		if (filterTypeEEnum == null) {
+			filterTypeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(17);
+		}
 		return filterTypeEEnum;
 	}
 
@@ -269,6 +254,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EEnum getFilterAttribute() {
+		if (filterAttributeEEnum == null) {
+			filterAttributeEEnum = (EEnum)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(18);
+		}
 		return filterAttributeEEnum;
 	}
 
@@ -278,6 +266,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getEACollection() {
+		if (eaCollectionEDataType == null) {
+			eaCollectionEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(0);
+		}
 		return eaCollectionEDataType;
 	}
 
@@ -287,6 +278,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_Attribute() {
+		if (t_AttributeEDataType == null) {
+			t_AttributeEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(1);
+		}
 		return t_AttributeEDataType;
 	}
 
@@ -296,6 +290,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_AttributeTag() {
+		if (t_AttributeTagEDataType == null) {
+			t_AttributeTagEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(2);
+		}
 		return t_AttributeTagEDataType;
 	}
 
@@ -305,6 +302,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_Connector() {
+		if (t_ConnectorEDataType == null) {
+			t_ConnectorEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(3);
+		}
 		return t_ConnectorEDataType;
 	}
 
@@ -314,6 +314,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_ConnectorEnd() {
+		if (t_ConnectorEndEDataType == null) {
+			t_ConnectorEndEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(4);
+		}
 		return t_ConnectorEndEDataType;
 	}
 
@@ -323,6 +326,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_ConntectorTag() {
+		if (t_ConntectorTagEDataType == null) {
+			t_ConntectorTagEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(5);
+		}
 		return t_ConntectorTagEDataType;
 	}
 
@@ -332,6 +338,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_Diagram() {
+		if (t_DiagramEDataType == null) {
+			t_DiagramEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(6);
+		}
 		return t_DiagramEDataType;
 	}
 
@@ -341,6 +350,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_DiagramLink() {
+		if (t_DiagramLinkEDataType == null) {
+			t_DiagramLinkEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(7);
+		}
 		return t_DiagramLinkEDataType;
 	}
 
@@ -350,6 +362,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_DiagramObject() {
+		if (t_DiagramObjectEDataType == null) {
+			t_DiagramObjectEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(8);
+		}
 		return t_DiagramObjectEDataType;
 	}
 
@@ -359,6 +374,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_Element() {
+		if (t_ElementEDataType == null) {
+			t_ElementEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(9);
+		}
 		return t_ElementEDataType;
 	}
 
@@ -368,6 +386,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_Method() {
+		if (t_MethodEDataType == null) {
+			t_MethodEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(10);
+		}
 		return t_MethodEDataType;
 	}
 
@@ -377,6 +398,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_MethodTag() {
+		if (t_MethodTagEDataType == null) {
+			t_MethodTagEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(11);
+		}
 		return t_MethodTagEDataType;
 	}
 
@@ -386,6 +410,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_Package() {
+		if (t_PackageEDataType == null) {
+			t_PackageEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(12);
+		}
 		return t_PackageEDataType;
 	}
 
@@ -395,6 +422,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_Parameter() {
+		if (t_ParameterEDataType == null) {
+			t_ParameterEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(13);
+		}
 		return t_ParameterEDataType;
 	}
 
@@ -404,6 +434,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_Repository() {
+		if (t_RepositoryEDataType == null) {
+			t_RepositoryEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(14);
+		}
 		return t_RepositoryEDataType;
 	}
 
@@ -413,6 +446,9 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	public EDataType getT_TaggedValue() {
+		if (t_TaggedValueEDataType == null) {
+			t_TaggedValueEDataType = (EDataType)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI).getEClassifiers().get(15);
+		}
 		return t_TaggedValueEDataType;
 	}
 
@@ -430,108 +466,32 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private boolean isCreated = false;
+	private boolean isFixed = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
+	 * Fixes up the loaded package, to make it appear as if it had been programmatically built.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createPackageContents() {
-		if (isCreated) return;
-		isCreated = true;
-
-		// Create enums
-		filterClassEEnum = createEEnum(FILTER_CLASS);
-		filterTypeEEnum = createEEnum(FILTER_TYPE);
-		filterAttributeEEnum = createEEnum(FILTER_ATTRIBUTE);
-
-		// Create data types
-		eaCollectionEDataType = createEDataType(EA_COLLECTION);
-		t_AttributeEDataType = createEDataType(TATTRIBUTE);
-		t_AttributeTagEDataType = createEDataType(TATTRIBUTE_TAG);
-		t_ConnectorEDataType = createEDataType(TCONNECTOR);
-		t_ConnectorEndEDataType = createEDataType(TCONNECTOR_END);
-		t_ConntectorTagEDataType = createEDataType(TCONNTECTOR_TAG);
-		t_DiagramEDataType = createEDataType(TDIAGRAM);
-		t_DiagramLinkEDataType = createEDataType(TDIAGRAM_LINK);
-		t_DiagramObjectEDataType = createEDataType(TDIAGRAM_OBJECT);
-		t_ElementEDataType = createEDataType(TELEMENT);
-		t_MethodEDataType = createEDataType(TMETHOD);
-		t_MethodTagEDataType = createEDataType(TMETHOD_TAG);
-		t_PackageEDataType = createEDataType(TPACKAGE);
-		t_ParameterEDataType = createEDataType(TPARAMETER);
-		t_RepositoryEDataType = createEDataType(TREPOSITORY);
-		t_TaggedValueEDataType = createEDataType(TTAGGED_VALUE);
+	public void fixPackageContents() {
+		if (isFixed) return;
+		isFixed = true;
+		fixEClassifiers();
 	}
 
 	/**
+	 * Sets the instance class on the given classifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private boolean isInitialized = false;
-
-	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void initializePackageContents() {
-		if (isInitialized) return;
-		isInitialized = true;
-
-		// Initialize package
-		setName(eNAME);
-		setNsPrefix(eNS_PREFIX);
-		setNsURI(eNS_URI);
-
-		// Initialize enums and add enum literals
-		initEEnum(filterClassEEnum, FilterClass.class, "FilterClass");
-		addEEnumLiteral(filterClassEEnum, FilterClass.NONE);
-		addEEnumLiteral(filterClassEEnum, FilterClass.ALL);
-		addEEnumLiteral(filterClassEEnum, FilterClass.ELEMENT);
-		addEEnumLiteral(filterClassEEnum, FilterClass.ATTRIBUTE);
-		addEEnumLiteral(filterClassEEnum, FilterClass.METHOD);
-		addEEnumLiteral(filterClassEEnum, FilterClass.CONNECTOR);
-		addEEnumLiteral(filterClassEEnum, FilterClass.TAGGED_VALUE);
-		addEEnumLiteral(filterClassEEnum, FilterClass.ATTRIBUTE_TAG);
-		addEEnumLiteral(filterClassEEnum, FilterClass.METHOD_TAG);
-		addEEnumLiteral(filterClassEEnum, FilterClass.CONNECTOR_TAG);
-		addEEnumLiteral(filterClassEEnum, FilterClass.PARAMETER);
-		addEEnumLiteral(filterClassEEnum, FilterClass.PACKAGE);
-
-		initEEnum(filterTypeEEnum, FilterType.class, "FilterType");
-		addEEnumLiteral(filterTypeEEnum, FilterType.EQUALS_STRING_LITERAL);
-		addEEnumLiteral(filterTypeEEnum, FilterType.CONTAINS_STRING_LITERAL);
-		addEEnumLiteral(filterTypeEEnum, FilterType.REGEX_LITERAL);
-
-		initEEnum(filterAttributeEEnum, FilterAttribute.class, "FilterAttribute");
-		addEEnumLiteral(filterAttributeEEnum, FilterAttribute.NAME);
-		addEEnumLiteral(filterAttributeEEnum, FilterAttribute.STEREOTYPE);
-		addEEnumLiteral(filterAttributeEEnum, FilterAttribute.TYPE);
-
-		// Initialize data types
-		initEDataType(eaCollectionEDataType, Collection.class, "EACollection", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_AttributeEDataType, Attribute.class, "T_Attribute", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_AttributeTagEDataType, AttributeTag.class, "T_AttributeTag", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_ConnectorEDataType, Connector.class, "T_Connector", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_ConnectorEndEDataType, ConnectorEnd.class, "T_ConnectorEnd", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_ConntectorTagEDataType, ConnectorTag.class, "T_ConntectorTag", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_DiagramEDataType, Diagram.class, "T_Diagram", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_DiagramLinkEDataType, DiagramLink.class, "T_DiagramLink", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_DiagramObjectEDataType, DiagramObject.class, "T_DiagramObject", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_ElementEDataType, Element.class, "T_Element", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_MethodEDataType, Method.class, "T_Method", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_MethodTagEDataType, MethodTag.class, "T_MethodTag", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_PackageEDataType, org.sparx.Package.class, "T_Package", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_ParameterEDataType, Parameter.class, "T_Parameter", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_RepositoryEDataType, Repository.class, "T_Repository", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(t_TaggedValueEDataType, TaggedValue.class, "T_TaggedValue", !IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+	@Override
+	protected void fixInstanceClass(EClassifier eClassifier) {
+		if (eClassifier.getInstanceClassName() == null) {
+			eClassifier.setInstanceClassName("org.eclipselabs.eaadapter.model.datatypes." + eClassifier.getName());
+			setGeneratedClassName(eClassifier);
+		}
 	}
 
 } //DatatypesPackageImpl

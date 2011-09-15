@@ -8,25 +8,13 @@ package org.eclipselabs.eaadapter.model.abstracthierachy.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipselabs.eaadapter.model.EamodelPackage;
 import org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyFactory;
 import org.eclipselabs.eaadapter.model.abstracthierachy.AbstracthierachyPackage;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EAAbstractPackage;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EABaseClass;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EAClassifierIDLong;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EAModifiableElement;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EAMovableElement;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EANamedElement;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EAOwnedElement;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EAStereotypedElement;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EATaggedElement;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EATypedElement;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EAVersiondElement;
-import org.eclipselabs.eaadapter.model.abstracthierachy.EAVisibilityElement;
 import org.eclipselabs.eaadapter.model.datatypes.DatatypesPackage;
 import org.eclipselabs.eaadapter.model.datatypes.impl.DatatypesPackageImpl;
 import org.eclipselabs.eaadapter.model.impl.EamodelPackageImpl;
@@ -157,8 +145,6 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #eNS_URI
-	 * @see #createPackageContents()
-	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static AbstracthierachyPackage init() {
@@ -173,15 +159,13 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 		EamodelPackageImpl theEamodelPackage = (EamodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EamodelPackage.eNS_URI) instanceof EamodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EamodelPackage.eNS_URI) : EamodelPackage.eINSTANCE);
 		DatatypesPackageImpl theDatatypesPackage = (DatatypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) instanceof DatatypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI) : DatatypesPackage.eINSTANCE);
 
-		// Create package meta-data objects
-		theAbstracthierachyPackage.createPackageContents();
-		theEamodelPackage.createPackageContents();
-		theDatatypesPackage.createPackageContents();
+		// Load packages
+		theEamodelPackage.loadPackage();
 
-		// Initialize created meta-data
-		theAbstracthierachyPackage.initializePackageContents();
-		theEamodelPackage.initializePackageContents();
-		theDatatypesPackage.initializePackageContents();
+		// Fix loaded packages
+		theAbstracthierachyPackage.fixPackageContents();
+		theEamodelPackage.fixPackageContents();
+		theDatatypesPackage.fixPackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAbstracthierachyPackage.freeze();
@@ -198,6 +182,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEAAbstractPackage() {
+		if (eaAbstractPackageEClass == null) {
+			eaAbstractPackageEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(0);
+		}
 		return eaAbstractPackageEClass;
 	}
 
@@ -207,7 +194,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAAbstractPackage_CodePath() {
-		return (EAttribute)eaAbstractPackageEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEAAbstractPackage().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -216,7 +203,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAAbstractPackage_Flags() {
-		return (EAttribute)eaAbstractPackageEClass.getEStructuralFeatures().get(1);
+        return (EAttribute)getEAAbstractPackage().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -225,7 +212,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAAbstractPackage_IsModel() {
-		return (EAttribute)eaAbstractPackageEClass.getEStructuralFeatures().get(2);
+        return (EAttribute)getEAAbstractPackage().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -234,6 +221,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEABaseClass() {
+		if (eaBaseClassEClass == null) {
+			eaBaseClassEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(1);
+		}
 		return eaBaseClassEClass;
 	}
 
@@ -243,7 +233,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEABaseClass_ObjectType() {
-		return (EAttribute)eaBaseClassEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEABaseClass().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -252,7 +242,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEABaseClass_Id() {
-		return (EAttribute)eaBaseClassEClass.getEStructuralFeatures().get(1);
+        return (EAttribute)getEABaseClass().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -261,7 +251,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EReference getEABaseClass_Repository() {
-		return (EReference)eaBaseClassEClass.getEStructuralFeatures().get(2);
+        return (EReference)getEABaseClass().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -270,6 +260,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEAClassifierIDLong() {
+		if (eaClassifierIDLongEClass == null) {
+			eaClassifierIDLongEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(2);
+		}
 		return eaClassifierIDLongEClass;
 	}
 
@@ -279,7 +272,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAClassifierIDLong_ClassifierID() {
-		return (EAttribute)eaClassifierIDLongEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEAClassifierIDLong().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -288,6 +281,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEAModifiableElement() {
+		if (eaModifiableElementEClass == null) {
+			eaModifiableElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(3);
+		}
 		return eaModifiableElementEClass;
 	}
 
@@ -297,7 +293,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAModifiableElement_IsConst() {
-		return (EAttribute)eaModifiableElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEAModifiableElement().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -306,7 +302,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAModifiableElement_IsStatic() {
-		return (EAttribute)eaModifiableElementEClass.getEStructuralFeatures().get(1);
+        return (EAttribute)getEAModifiableElement().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -315,6 +311,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEANamedElement() {
+		if (eaNamedElementEClass == null) {
+			eaNamedElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(4);
+		}
 		return eaNamedElementEClass;
 	}
 
@@ -324,7 +323,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEANamedElement_Name() {
-		return (EAttribute)eaNamedElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEANamedElement().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -333,7 +332,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEANamedElement_Notes() {
-		return (EAttribute)eaNamedElementEClass.getEStructuralFeatures().get(1);
+        return (EAttribute)getEANamedElement().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -342,7 +341,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEANamedElement_Guid() {
-		return (EAttribute)eaNamedElementEClass.getEStructuralFeatures().get(2);
+        return (EAttribute)getEANamedElement().getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -351,6 +350,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEAOwnedElement() {
+		if (eaOwnedElementEClass == null) {
+			eaOwnedElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(5);
+		}
 		return eaOwnedElementEClass;
 	}
 
@@ -360,7 +362,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAOwnedElement_Author() {
-		return (EAttribute)eaOwnedElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEAOwnedElement().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -369,7 +371,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAOwnedElement_IsLocked() {
-		return (EAttribute)eaOwnedElementEClass.getEStructuralFeatures().get(1);
+        return (EAttribute)getEAOwnedElement().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -378,6 +380,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEAStereotypedElement() {
+		if (eaStereotypedElementEClass == null) {
+			eaStereotypedElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(6);
+		}
 		return eaStereotypedElementEClass;
 	}
 
@@ -387,7 +392,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAStereotypedElement_Stereotype() {
-		return (EAttribute)eaStereotypedElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEAStereotypedElement().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -396,6 +401,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEATaggedElement() {
+		if (eaTaggedElementEClass == null) {
+			eaTaggedElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(7);
+		}
 		return eaTaggedElementEClass;
 	}
 
@@ -405,7 +413,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEATaggedElement_Value() {
-		return (EAttribute)eaTaggedElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEATaggedElement().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -414,7 +422,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEATaggedElement_TagID() {
-		return (EAttribute)eaTaggedElementEClass.getEStructuralFeatures().get(1);
+        return (EAttribute)getEATaggedElement().getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -423,6 +431,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEATypedElement() {
+		if (eaTypedElementEClass == null) {
+			eaTypedElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(8);
+		}
 		return eaTypedElementEClass;
 	}
 
@@ -432,7 +443,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEATypedElement_Type() {
-		return (EAttribute)eaTypedElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEATypedElement().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -441,6 +452,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEAVersiondElement() {
+		if (eaVersiondElementEClass == null) {
+			eaVersiondElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(9);
+		}
 		return eaVersiondElementEClass;
 	}
 
@@ -450,7 +464,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAVersiondElement_Version() {
-		return (EAttribute)eaVersiondElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEAVersiondElement().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -459,6 +473,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEAVisibilityElement() {
+		if (eaVisibilityElementEClass == null) {
+			eaVisibilityElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(10);
+		}
 		return eaVisibilityElementEClass;
 	}
 
@@ -468,7 +485,7 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EAttribute getEAVisibilityElement_Visibility() {
-		return (EAttribute)eaVisibilityElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute)getEAVisibilityElement().getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -477,6 +494,9 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * @generated
 	 */
 	public EClass getEAMovableElement() {
+		if (eaMovableElementEClass == null) {
+			eaMovableElementEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(AbstracthierachyPackage.eNS_URI).getEClassifiers().get(11);
+		}
 		return eaMovableElementEClass;
 	}
 
@@ -494,162 +514,32 @@ public class AbstracthierachyPackageImpl extends EPackageImpl implements Abstrac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private boolean isCreated = false;
+	private boolean isFixed = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
+	 * Fixes up the loaded package, to make it appear as if it had been programmatically built.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createPackageContents() {
-		if (isCreated) return;
-		isCreated = true;
-
-		// Create classes and their features
-		eaAbstractPackageEClass = createEClass(EA_ABSTRACT_PACKAGE);
-		createEAttribute(eaAbstractPackageEClass, EA_ABSTRACT_PACKAGE__CODE_PATH);
-		createEAttribute(eaAbstractPackageEClass, EA_ABSTRACT_PACKAGE__FLAGS);
-		createEAttribute(eaAbstractPackageEClass, EA_ABSTRACT_PACKAGE__IS_MODEL);
-
-		eaBaseClassEClass = createEClass(EA_BASE_CLASS);
-		createEAttribute(eaBaseClassEClass, EA_BASE_CLASS__OBJECT_TYPE);
-		createEAttribute(eaBaseClassEClass, EA_BASE_CLASS__ID);
-		createEReference(eaBaseClassEClass, EA_BASE_CLASS__REPOSITORY);
-
-		eaClassifierIDLongEClass = createEClass(EA_CLASSIFIER_ID_LONG);
-		createEAttribute(eaClassifierIDLongEClass, EA_CLASSIFIER_ID_LONG__CLASSIFIER_ID);
-
-		eaModifiableElementEClass = createEClass(EA_MODIFIABLE_ELEMENT);
-		createEAttribute(eaModifiableElementEClass, EA_MODIFIABLE_ELEMENT__IS_CONST);
-		createEAttribute(eaModifiableElementEClass, EA_MODIFIABLE_ELEMENT__IS_STATIC);
-
-		eaNamedElementEClass = createEClass(EA_NAMED_ELEMENT);
-		createEAttribute(eaNamedElementEClass, EA_NAMED_ELEMENT__NAME);
-		createEAttribute(eaNamedElementEClass, EA_NAMED_ELEMENT__NOTES);
-		createEAttribute(eaNamedElementEClass, EA_NAMED_ELEMENT__GUID);
-
-		eaOwnedElementEClass = createEClass(EA_OWNED_ELEMENT);
-		createEAttribute(eaOwnedElementEClass, EA_OWNED_ELEMENT__AUTHOR);
-		createEAttribute(eaOwnedElementEClass, EA_OWNED_ELEMENT__IS_LOCKED);
-
-		eaStereotypedElementEClass = createEClass(EA_STEREOTYPED_ELEMENT);
-		createEAttribute(eaStereotypedElementEClass, EA_STEREOTYPED_ELEMENT__STEREOTYPE);
-
-		eaTaggedElementEClass = createEClass(EA_TAGGED_ELEMENT);
-		createEAttribute(eaTaggedElementEClass, EA_TAGGED_ELEMENT__VALUE);
-		createEAttribute(eaTaggedElementEClass, EA_TAGGED_ELEMENT__TAG_ID);
-
-		eaTypedElementEClass = createEClass(EA_TYPED_ELEMENT);
-		createEAttribute(eaTypedElementEClass, EA_TYPED_ELEMENT__TYPE);
-
-		eaVersiondElementEClass = createEClass(EA_VERSIOND_ELEMENT);
-		createEAttribute(eaVersiondElementEClass, EA_VERSIOND_ELEMENT__VERSION);
-
-		eaVisibilityElementEClass = createEClass(EA_VISIBILITY_ELEMENT);
-		createEAttribute(eaVisibilityElementEClass, EA_VISIBILITY_ELEMENT__VISIBILITY);
-
-		eaMovableElementEClass = createEClass(EA_MOVABLE_ELEMENT);
+	public void fixPackageContents() {
+		if (isFixed) return;
+		isFixed = true;
+		fixEClassifiers();
 	}
 
 	/**
+	 * Sets the instance class on the given classifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private boolean isInitialized = false;
-
-	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void initializePackageContents() {
-		if (isInitialized) return;
-		isInitialized = true;
-
-		// Initialize package
-		setName(eNAME);
-		setNsPrefix(eNS_PREFIX);
-		setNsURI(eNS_URI);
-
-		// Obtain other dependent packages
-		EamodelPackage theEamodelPackage = (EamodelPackage)EPackage.Registry.INSTANCE.getEPackage(EamodelPackage.eNS_URI);
-		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
-
-		// Create type parameters
-
-		// Set bounds for type parameters
-
-		// Add supertypes to classes
-		eaAbstractPackageEClass.getESuperTypes().add(this.getEAVersiondElement());
-		eaClassifierIDLongEClass.getESuperTypes().add(this.getEAVisibilityElement());
-		eaModifiableElementEClass.getESuperTypes().add(this.getEAVisibilityElement());
-		eaNamedElementEClass.getESuperTypes().add(this.getEABaseClass());
-		eaOwnedElementEClass.getESuperTypes().add(this.getEAVersiondElement());
-		eaStereotypedElementEClass.getESuperTypes().add(this.getEANamedElement());
-		eaTaggedElementEClass.getESuperTypes().add(this.getEANamedElement());
-		eaTypedElementEClass.getESuperTypes().add(this.getEAStereotypedElement());
-		eaVersiondElementEClass.getESuperTypes().add(this.getEANamedElement());
-		eaVersiondElementEClass.getESuperTypes().add(this.getEAMovableElement());
-		eaVisibilityElementEClass.getESuperTypes().add(this.getEATypedElement());
-
-		// Initialize classes and features; add operations and parameters
-		initEClass(eaAbstractPackageEClass, EAAbstractPackage.class, "EAAbstractPackage", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAAbstractPackage_CodePath(), ecorePackage.getEString(), "codePath", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAAbstractPackage_Flags(), ecorePackage.getEString(), "flags", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAAbstractPackage_IsModel(), ecorePackage.getEBooleanObject(), "isModel", null, 0, 1, EAAbstractPackage.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaBaseClassEClass, EABaseClass.class, "EABaseClass", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEABaseClass_ObjectType(), ecorePackage.getEString(), "objectType", null, 0, 1, EABaseClass.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEABaseClass_Id(), ecorePackage.getEIntegerObject(), "id", null, 0, 1, EABaseClass.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEABaseClass_Repository(), theEamodelPackage.getEARepository(), null, "repository", null, 0, 1, EABaseClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = addEOperation(eaBaseClassEClass, ecorePackage.getEBooleanObject(), "initializeAdapter", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatatypesPackage.getEACollection(), "collection", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(eaBaseClassEClass, ecorePackage.getEBooleanObject(), "deleteAdapter", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theDatatypesPackage.getEACollection(), "collection", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(eaClassifierIDLongEClass, EAClassifierIDLong.class, "EAClassifierIDLong", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAClassifierIDLong_ClassifierID(), ecorePackage.getEIntegerObject(), "classifierID", null, 0, 1, EAClassifierIDLong.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaModifiableElementEClass, EAModifiableElement.class, "EAModifiableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAModifiableElement_IsConst(), ecorePackage.getEBooleanObject(), "isConst", null, 0, 1, EAModifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAModifiableElement_IsStatic(), ecorePackage.getEBooleanObject(), "isStatic", null, 0, 1, EAModifiableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaNamedElementEClass, EANamedElement.class, "EANamedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEANamedElement_Name(), ecorePackage.getEString(), "name", "name", 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEANamedElement_Notes(), ecorePackage.getEString(), "notes", null, 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEANamedElement_Guid(), ecorePackage.getEString(), "guid", null, 0, 1, EANamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaOwnedElementEClass, EAOwnedElement.class, "EAOwnedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAOwnedElement_Author(), ecorePackage.getEString(), "author", null, 0, 1, EAOwnedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEAOwnedElement_IsLocked(), ecorePackage.getEBooleanObject(), "isLocked", null, 0, 1, EAOwnedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaStereotypedElementEClass, EAStereotypedElement.class, "EAStereotypedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAStereotypedElement_Stereotype(), ecorePackage.getEString(), "stereotype", null, 0, 1, EAStereotypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaTaggedElementEClass, EATaggedElement.class, "EATaggedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEATaggedElement_Value(), ecorePackage.getEString(), "value", null, 0, 1, EATaggedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEATaggedElement_TagID(), ecorePackage.getEIntegerObject(), "tagID", null, 0, 1, EATaggedElement.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaTypedElementEClass, EATypedElement.class, "EATypedElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEATypedElement_Type(), ecorePackage.getEString(), "type", null, 0, 1, EATypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaVersiondElementEClass, EAVersiondElement.class, "EAVersiondElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAVersiondElement_Version(), ecorePackage.getEString(), "version", null, 0, 1, EAVersiondElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaVisibilityElementEClass, EAVisibilityElement.class, "EAVisibilityElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEAVisibilityElement_Visibility(), ecorePackage.getEString(), "visibility", "Public", 0, 1, EAVisibilityElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(eaMovableElementEClass, EAMovableElement.class, "EAMovableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(eaMovableElementEClass, null, "setNewParent", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getEAVersiondElement(), "parent", 0, 1, IS_UNIQUE, IS_ORDERED);
+	@Override
+	protected void fixInstanceClass(EClassifier eClassifier) {
+		if (eClassifier.getInstanceClassName() == null) {
+			eClassifier.setInstanceClassName("org.eclipselabs.eaadapter.model.abstracthierachy." + eClassifier.getName());
+			setGeneratedClassName(eClassifier);
+		}
 	}
 
 } //AbstracthierachyPackageImpl

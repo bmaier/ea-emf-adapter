@@ -16,7 +16,8 @@ Export-Package: org.eclipselabs.eaadapter.model,
  org.eclipselabs.eaadapter.model.impl,
  org.eclipselabs.eaadapter.model.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi
 Eclipse-LazyStart: true
 Bundle-Activator: org.eclipselabs.eaadapter.model.plugin.EamodelPlugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
