@@ -25,11 +25,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipselabs.eaadapter.model.EAConnector;
+import org.eclipselabs.eaadapter.model.EAElement;
 import org.eclipselabs.eaadapter.model.EAPackage;
 import org.eclipselabs.eaadapter.model.EARepository;
 import org.eclipselabs.eaadapter.model.EamodelFactory;
 import org.eclipselabs.eaadapter.model.abstracthierachy.EABaseClass;
 import org.eclipselabs.eaadapter.model.abstracthierachy.EANamedElement;
+import org.sparx.Connector;
+import org.sparx.Element;
+import org.sparx.Repository;
 
 
 /**
@@ -540,6 +545,31 @@ public class EAUtil {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
+	public static <T extends EABaseClass> T getElementById(EARepository repository, int id, Class<T> clazz) {
+		final Repository link = repository.getEaLink();
+		try {
+			if (EAElement.class.equals(clazz)) {
+				final Element e = link.GetElementByID(id);
+				final EObject eObj = repository.eResource().getEObject(e.GetElementGUID());
+				if (eObj != null && eObj instanceof EAElement) {
+					return (T) eObj;
+				}
+			} else if (EAConnector.class.equals(clazz)) {
+				final Connector e = link.GetConnectorByID(id);
+				final EObject eObj = repository.eResource().getEObject(e.GetConnectorGUID());
+				if (eObj != null && eObj instanceof EAElement) {
+					return (T) eObj;
+				}
+			} else {
+				throw new UnsupportedOperationException("Type " + clazz + " not yet implemented.");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static <T> List<T> filterElements(EABaseClass element, IElementFilter filter) {
 		final List<T> result = new ArrayList<T>();
